@@ -1,0 +1,31 @@
+.content {
+  height: 100%;
+  width: 100%;
+  &__box {
+    height: 100px;
+    &__top {
+      margin: 0px 75px;
+      padding-top: 8px;
+      &__head {
+        justify-content: space-between;
+        &__mercari {
+          -webkit-box-align: center;
+          align-items: center;
+          display: flex;
+          height: 40px;
+          margin-right: 45px;
+          &__img {
+            height: 36px;
+            width: 134px;
+          }
+        }
+      }
+      &__search {
+
+      }
+      &__bottom {
+
+      }
+    }
+  }
+}
