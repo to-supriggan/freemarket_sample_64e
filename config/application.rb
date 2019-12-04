@@ -17,3 +17,6 @@ module FreemarketSample64e
     # the framework and any gems in your application.
   end
 end
+
+
+kkk
