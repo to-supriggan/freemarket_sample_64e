@@ -58,6 +58,7 @@ Things you may want to cover:
 |Evaluation|string|null: false|  <!-- 評価 -->
 |created_at|timestamps|null: false|<!-- ok -->
 |updates_at|timestamps|null: false|<!-- ok -->
+|prefecture_id|references|null: false,foreign_key: true|
 ### Association
 - has_many :comments
 - has_many :images
