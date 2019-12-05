@@ -1,0 +1,238 @@
+.content {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  position: relative;
+  z-index: 3;
+  &__box {
+    height: 100px;
+    width: 1020px;
+    margin: 0 auto;
+    padding-top: 8px;
+    &__top {
+      display: flex;
+      &__left {
+        &__mercari {
+          -webkit-box-align: center;
+          align-items: center;
+          height: 40px;
+          &__img {
+            height: 36px;
+            width: 134px;
+            margin-right: 45px;
+            margin-top: 2px;
+          }
+        }
+      }
+      &__right {
+        height: 40px;
+        &__summary {
+          width: 841px;
+          display: flex;
+          position: relative;
+          &__text {
+            background-color: rgb(245, 245, 245);
+            font-size: 16px;
+            height: 40px;
+            line-height: 1.4em;
+            position: relative;
+            width: 100%;
+            -webkit-appearance: none;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(204, 204, 204);
+            border-image: initial;
+            border-radius: 4px;
+            outline: none;
+            padding: 0px 50px 0px 10px;
+            transition: all 0.3s ease-out 0s;
+          }
+          &__btn {
+            background-color: transparent;
+            height: 40px;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 40px;
+            -webkit-appearance: none;
+            border-width: initial;
+            border-style: none;
+            border-color: initial;
+            border-image: initial;
+            border-radius: 0px 4px 4px 0px;
+            padding: 0px;
+            &__img {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    &__bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 7px;
+      &__left {
+        display: flex;
+        &__category {
+          height: 44px;
+          position: relative;
+          z-index: 3;
+          padding: 0px 10px;
+          &__left-box {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 36px;
+            white-space: nowrap;
+            text-decoration: none;
+            &__img {
+              max-width: 100%;
+              max-height: 100%;
+              color: rgb(234, 53, 45);
+              height: 12px;
+              margin-right: 4px;
+            }
+            &__text {
+              color: black;
+              font: bold;
+            }
+          }
+        }
+        &__brand {
+          height: 44px;
+          position: relative;
+          z-index: 3;
+          padding: 0px 10px;
+          &__right-box {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 36px;
+            white-space: nowrap;
+            font: bold;
+            text-decoration: none;
+            &__img {
+              max-width: 100%;
+              max-height: 100%;
+              color: rgb(234, 53, 45);
+              height: 12px;
+              margin-right: 4px;
+            }
+            &__text {
+              color: black;
+            }
+          }
+        }
+      }
+      &__right {
+        display: flex;
+        position: relative;
+        &__like {
+          height: 44px;
+          position: relative;
+          padding: 0px 7px 0px 0px;
+          &__box {
+            -webkit-box-align: center;
+            align-items: center;
+            display: flex;
+            font-size: 14px;
+            height: 32px;
+            transform: scale(1);
+            transition: all 0.3s ease-out 0s;
+            text-decoration: none;
+            white-space: nowrap;
+            &__img {
+              max-width: 100%;
+              height: auto;
+              max-height: 100%;
+              color: rgb(204, 204, 204);
+              margin-right: 10px;
+              width: 19px;
+            }
+            &__text {
+              color: black;
+            }
+          }
+        }
+        &__notice {
+          height: 44px;
+          position: relative;
+          padding: 0px 7px 0px 0px;
+          &__box {
+            -webkit-box-align: center;
+            align-items: center;
+            display: flex;
+            font-size: 14px;
+            height: 32px;
+            transform: scale(1);
+            transition: all 0.3s ease-out 0s;
+            text-decoration: none;
+            white-space: nowrap;
+            &__img {
+              max-width: 100%;
+              height: auto;
+              max-height: 100%;
+              color: rgb(204, 204, 204);
+              margin-right: 10px;
+              width: 19px;
+            }
+            &__text {
+              color: black;
+            }
+          }
+        }
+        &__todo {
+          height: 44px;
+          position: relative;
+          padding: 0px 7px;
+          &__box {
+            -webkit-box-align: center;
+            align-items: center;
+            display: flex;
+            font-size: 14px;
+            height: 32px;
+            transform: scale(1);
+            transition: all 0.3s ease-out 0s;
+            text-decoration: none;
+            &__img {
+              max-width: 100%;
+              height: auto;
+              max-height: 100%;
+              color: rgb(204, 204, 204);
+              margin-right: 10px;
+              width: 17px;
+            }
+            &__text {
+              color: black;
+              white-space: nowrap;
+            }
+          }
+        }
+        &__my-page {
+          height: 44px;
+          position: relative;
+          padding: 0px 0px 0px 7px;
+          &__box {
+            -webkit-box-align: center;
+            align-items: center;
+            display: flex;
+            font-size: 14px;
+            height: 32px;
+            transform: scale(1);
+            transition: all 0.3s ease-out 0s;
+            text-decoration: none;
+            &__img {
+              margin-right: 10px;
+              width: 32px;
+              border-radius: 50%;
+              overflow: hidden;
+            }
+            &__text {
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
