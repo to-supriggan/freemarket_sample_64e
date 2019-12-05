@@ -32,7 +32,6 @@ Things you may want to cover:
 |email|string|unique: true|<!-- ?null: false? -->
 |password|string|unique: true|<!-- ok -->
 |birthday|string|null: false|<!-- ok -->
-|address|string|null: false|<!-- ok -->
 |payment_method|string|null: false| <!-- ok -->
 |created_at|timestamps|null: false|<!-- ok -->
 |updates_at|timestamps|null: false|<!-- ok -->
@@ -40,7 +39,7 @@ Things you may want to cover:
 - has_many :products
 - has_many :goods
 - has_many :comments
-- belongs_to :transaction
+- has_many :transactions
 ## productsテーブル
 |column|Type|Options|
 |------|----|-------|
@@ -90,7 +89,6 @@ Things you may want to cover:
 |column|Type|Options|
 |------|----|-------|
 |genre|string|null: false|<!-- ok -->
-|brand_id|references|foreign_key: true|<!-- ok -->
 ### Association
 - has_many :products
 ## brandsテーブル
@@ -117,3 +115,22 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 <!-- buyer = 売り -->
+## adressesテーブル
+|column|Type|Options|
+|------|----|-------|
+|postal_cord|string|null: false|
+|city|string|null: false|
+|street_num|string|null: false|
+|building|string|
+|user_id|references|null: false,foreign_key: true|
+|prefecture_id|references|null: false,foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :prefecture
+## prefecturesテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+### Association
+- has_many :products
+- has_many :addresses
