@@ -40,6 +40,7 @@ Things you may want to cover:
 - has_many :goods
 - has_many :comments
 - has_many :transactions
+- has_many :addresses
 ## productsテーブル
 |column|Type|Options|
 |------|----|-------|
