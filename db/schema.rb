@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_113239) do
+ActiveRecord::Schema.define(version: 2019_12_06_014815) do
 
   create_table "adresses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_cord", null: false
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2019_12_05_113239) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "fk_rails_a0d280f6e4"
     t.index ["user_id"], name: "fk_rails_03de2dc08c"
+  end
+
+  create_table "dealings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "user_id"
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "fk_rails_4f3c73d115"
+    t.index ["user_id"], name: "fk_rails_9d7c082ce6"
   end
 
   create_table "goods", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,16 +93,6 @@ ActiveRecord::Schema.define(version: 2019_12_05_113239) do
     t.index ["user_id"], name: "fk_rails_dee2631783"
   end
 
-  create_table "transactions", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "user_id"
-    t.string "status", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "fk_rails_0d676c9617"
-    t.index ["user_id"], name: "fk_rails_77364e6416"
-  end
-
   create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -115,12 +115,12 @@ ActiveRecord::Schema.define(version: 2019_12_05_113239) do
   add_foreign_key "adresses", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
+  add_foreign_key "dealings", "products"
+  add_foreign_key "dealings", "users"
   add_foreign_key "goods", "products"
   add_foreign_key "goods", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
-  add_foreign_key "transactions", "products"
-  add_foreign_key "transactions", "users"
 end

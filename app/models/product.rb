@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   has_many :images
   has_many :goods
   belongs_to :user
-  belongs_to :transaction
+  has_one :dealings
   belongs_to :brand
   belongs_to :category
   validates  :name,                 presence: true
@@ -16,5 +16,4 @@ class Product < ApplicationRecord
   validates  :days_before_skipment, presence: true
   validates  :price,                presence: true
   validates  :evaluation,           presence: true
-  validates  :prefecture_id,        presence: true
 end
