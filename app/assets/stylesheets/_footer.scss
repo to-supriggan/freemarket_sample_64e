@@ -1,0 +1,93 @@
+.footer {
+  font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+  font-weight: 500;
+  padding: 0 20px 10px 20px;
+  background: #212121;
+  color: #fff;
+  border-width: 0;
+  &__box {
+    width: 1020px;
+    display: flex;
+    margin-top: 18px;
+    margin: 0 auto;
+    padding: 0;
+    &__1 {
+      padding: 0 20px 0 0;
+      width: 20%;
+      h1 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      &__link {
+        display: block;
+        line-height: 1.5em;
+      }
+    }
+    &__2 {
+      width: 23%;
+      padding: 0 40px 0 0;
+      vertical-align: top;
+      h2 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      &__link {
+        display: block;
+        line-height: 1.5em;
+      }
+    }
+    &__3 {
+      padding: 0 40px 0 0;
+      width: 42%;
+      h3 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      &__link1 {
+        display: block;
+        line-height: 1.5em;
+        float: left;
+      }
+      &__link2 {
+        display: block;
+        line-height: 1.5em;
+      }
+    }
+    &__4 {
+      width: auto;
+      h4 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      &__link {
+        display: block;
+        line-height: 1.5em;
+        white-space: nowrap;
+      }
+    }
+  }
+  &__bottom {
+    margin: 30px auto 20px;
+    width: 1020px;
+  }
+}
+a:hover {
+  text-decoration:underline;
+  }
+.link {
+  font-size: 12px;
+  opacity: .7;
+  color: #fff;
+  text-decoration: none;
+}
+li {
+  margin: 14px 0 0;
+}
+.icon {
+  font-size: 10px;
+  color: #fff;
+}
