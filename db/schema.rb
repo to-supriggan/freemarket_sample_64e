@@ -10,9 +10,90 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_060444) do
+ActiveRecord::Schema.define(version: 2019_12_06_014815) do
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "adresses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_cord", null: false
+    t.string "city", null: false
+    t.string "street_num", null: false
+    t.string "building"
+    t.integer "user_id", null: false
+    t.integer "prefecture_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "fk_rails_2135de2429"
+  end
+
+  create_table "brands", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content", null: false
+    t.integer "user_id"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "fk_rails_a0d280f6e4"
+    t.index ["user_id"], name: "fk_rails_03de2dc08c"
+  end
+
+  create_table "dealings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "user_id"
+    t.string "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "fk_rails_4f3c73d115"
+    t.index ["user_id"], name: "fk_rails_9d7c082ce6"
+  end
+
+  create_table "goods", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "fk_rails_4267cc9a0b"
+    t.index ["user_id"], name: "fk_rails_88c36f52c3"
+  end
+
+  create_table "images", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "fk_rails_bd36e75ae4"
+  end
+
+  create_table "products", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "information", null: false
+    t.string "condition", null: false
+    t.string "shipping_charge", null: false
+    t.string "shipping_area", null: false
+    t.string "days_before_skipment", null: false
+    t.integer "price", null: false
+    t.integer "user_id"
+    t.integer "brand_id"
+    t.integer "category_id"
+    t.string "evaluation", null: false
+    t.integer "prefecture_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "fk_rails_f3b4d49caa"
+    t.index ["category_id"], name: "fk_rails_fb915499a4"
+    t.index ["user_id"], name: "fk_rails_dee2631783"
+  end
+
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "kana_name", null: false
     t.string "nick_name", null: false
@@ -29,4 +110,15 @@ ActiveRecord::Schema.define(version: 2019_12_04_060444) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "adresses", "users"
+  add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
+  add_foreign_key "dealings", "products"
+  add_foreign_key "dealings", "users"
+  add_foreign_key "goods", "products"
+  add_foreign_key "goods", "users"
+  add_foreign_key "images", "products"
+  add_foreign_key "products", "brands"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "users"
 end
