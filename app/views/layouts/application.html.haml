@@ -9,16 +9,3 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = yield
--# %body
--#   %header.header
--#     .header__bar.row
--#       %h1.grid-6
--#         %a{href: "/"} メルカリ
--#       - if user_signed_in?
--#         .user_nav.grid-6
--#           = link_to "ログアウト", destroy_user_session_path, method: :delete
--#           = link_to  "投稿する", "/tweets/new", class: "post"
--#       - else
--#         .grid-6
--#           = link_to "ログイン", new_user_session_path, class: 'post'
--#           = link_to "新規登録", new_user_registration_path, class: 'post'

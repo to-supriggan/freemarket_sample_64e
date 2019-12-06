@@ -95,12 +95,11 @@ ActiveRecord::Schema.define(version: 2019_12_06_014815) do
 
   create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "nick_name", null: false
     t.string "kana_name", null: false
+    t.string "nick_name", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password"
     t.string "birthday", null: false
-    t.string "address", null: false
     t.string "payment_method", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -108,7 +107,6 @@ ActiveRecord::Schema.define(version: 2019_12_06_014815) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
