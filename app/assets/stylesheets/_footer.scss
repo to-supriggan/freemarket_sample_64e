@@ -22,6 +22,12 @@
       &__link {
         display: block;
         line-height: 1.5em;
+        &__f {
+          color: #fff;
+        }
+        &__g {
+          color: #fff;
+        }
       }
     }
     &__2 {
@@ -86,8 +92,4 @@ a:hover {
 }
 li {
   margin: 14px 0 0;
-}
-.icon {
-  font-size: 10px;
-  color: #fff;
 }
