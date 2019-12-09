@@ -1,14 +1,19 @@
 !!!
 %html
   %head
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}/
+    :javascript
+      jQuery(function(){
+        alert("age")
+      });
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample64e
     = csrf_meta_tags
     = csp_meta_tag
-    %link{ rel: "stylesheet", type: "text/css", href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"}
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     %script{ type: "text/javascript", src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{ rel: "stylesheet", type: "text/css", href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.7.2/css/all.css", :integrity => "sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr", :rel => "stylesheet"}/
   %body
     = yield
