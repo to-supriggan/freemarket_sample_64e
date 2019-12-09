@@ -1,0 +1,7 @@
+= form_for @user, url: step5_signup_index_path, method: :get, html: {class: 'forth-main__box'} do |f|
+  %label{for: "payment_method"} 支払い方法
+  %span.form-box-require 必須
+  = f.text_field :payment_method, placeholder: '例) 101010'
+  = f.submit :Continue
+
+  -# registration_path

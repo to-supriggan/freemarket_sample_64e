@@ -1,0 +1,9 @@
+= form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'second-main__box'} do |f|
+  %label{for: "name"} お名前
+  %span.form-box-require 必須
+  = f.text_field :name, placeholder: '例) 中嶋諒'
+  %label{for: "kana_name"} お名前カナ
+  %span.form-box-require 必須
+  = f.text_field :kana_name, placeholder: '例) ナカジマリョウ'
+  
+  = f.submit :Continue
