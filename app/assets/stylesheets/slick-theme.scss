@@ -62,7 +62,7 @@ $slick-opacity-not-active: 0.25 !default;
     &.slick-disabled:before {
         opacity: $slick-opacity-not-active;
     }
-    &:before {
+    &::before {
         font-family: $slick-font-family;
         font-size: 20px;
         line-height: 1;
