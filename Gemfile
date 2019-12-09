@@ -72,6 +72,6 @@ group :production do
 end
 
 gem 'active_hash'
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'carrierwave'
