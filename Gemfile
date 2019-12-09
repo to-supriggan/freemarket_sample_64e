@@ -75,3 +75,11 @@ gem 'active_hash'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'carrierwave'
+
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+end
