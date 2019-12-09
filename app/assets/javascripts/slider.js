@@ -1,3 +1,4 @@
+"use strict";
 $(document).on('turbolinks:load', function(){
   $('.slick__slide').slick({
     autoplay:true,
