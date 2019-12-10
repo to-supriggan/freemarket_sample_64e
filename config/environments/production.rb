@@ -22,11 +22,6 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  # server "db.example.com", user: "deploy", roles: %w{db}
-  server "52.68.71.170", user: "ec2-user", roles: %w{app db web}
-  set :rails_env, "production"
-  set :unicorn_rack_env, "production"
-
   # Compress JavaScripts and CSS.
   # config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
