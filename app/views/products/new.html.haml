@@ -1,8 +1,5 @@
 .listing
-  %header.listing__header
-    %h1
-      %a{href: ""}
-        %img{alt: "frima", src: "fmarket_logo_red.svg"}/
+  = render "./parts/exhibit_header.html.haml"
   %main.listing__main
     %section.listing__main__container
       #sell-container
@@ -199,16 +196,4 @@
               %button.btn-default.btn-red{type: "submit"}
                 出品する
               %a.btn-default.btn-gray もどる
-  %footer.listing__footer
-    %nav
-      %ul.clearfix
-        %li
-          %a{href: ""} プライバシーポリシー
-        %li
-          %a{href: ""} メルカリ利用規約
-        %li
-          %a{href: ""} 特定商取引に関する表記
-    %a.listing-footer-logo{href: ""}
-      %img{alt: "Fmarket", height: "65", src: "logo_gray.svg", width: "80"}/
-    %p
-      %small © Fmarket
+  = render "./parts/exhibit_footer.html.haml"
