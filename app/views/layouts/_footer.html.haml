@@ -19,9 +19,10 @@
           %a.link(href="#")
             メルカリロゴ利用ガイドライン
         %li.footer__box__1__link__f
-          %i.fab.fa-facebook-square
-        %li.footer__box__1__link__g
-          %i.fab.fa-twitter-square
+          .footer__box__1__link__f__logo
+            %i.fab.fa-facebook-square
+          .footer__box__1__link__f__logo
+            %i.fab.fa-twitter-square
     .footer__box__2
       %h2 ヘルプ&ガイド
       %ul.footer__box__2__link
@@ -87,8 +88,10 @@
           %a.link(href="#")
             United States
   .footer__bottom
-    .footer__logo
-      %a.link(href="#")
-      %i.fas.fa-box-open
-    .footer__copyright
-      %small @Frema,lnc.
+    .footer__bottom__logo
+      %a.footer__bottom__logo__box(href="#")
+        %img.footer__bottom__logo__box__img{:alt => "fmarket", :src => "logo_white.svg"}/
+      .footer__bottom__logo__text
+        Fmarket
+      .footer__bottom__logo__inc
+        © Mercari, Inc.
