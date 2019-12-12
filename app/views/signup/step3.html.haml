@@ -1,6 +1,22 @@
 .n-wrapper
   .n-header
-    = render "./parts/exhibit_header.html.haml"
+    %nav.progress-bar.signup-bar
+  %ol.clearfix
+    %li.through
+      会員情報
+      .progress-status
+    %li.through
+      電話番号認証
+      .progress-status
+    %li.through
+      お届け先住所入力
+      .progress-status
+    %li.active
+      支払い方法
+      .progress-status
+    %li
+      完了
+      .progress-status
   .n-box
     .n-box__top
       %p 発送元・お届け先住所入力
