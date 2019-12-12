@@ -1,4 +1,22 @@
-%h2.l-first-head.registration 会員登録完了
-%h2.l-first-head.registration ありがとうございます。会員登録が完了しました。
-= form_for @user, url: signup_index_path, method: :post, html: {class: 'fifth-main__box'} do |f|
-  = f.submit :done
+.n-wrapper
+  .n-header
+    = render "./parts/exhibit_header.html.haml"
+  .n-box
+    .n-box__top
+      %p 会員登録完了
+    .n-box__bottom
+      .n-box__bottom__text
+        %p ありがとうございます。
+        %p 会員登録が完了しました。
+      %button.n-box__bottom__link
+        %a{href: "#"} メルカリをはじめる
+      .n-box__bottom__image
+        %img{alt: "mercari", src: "#" }/
+  .n-footer
+    = render "./parts/exhibit_footer.html.haml"
+
+
+-# %h2.l-first-head.registration 会員登録完了
+-# %h2.l-first-head.registration ありがとうございます。会員登録が完了しました。
+-# = form_for @user, url: signup_index_path, method: :post, html: {class: 'fifth-main__box'} do |f|
+-#   = f.submit :done
