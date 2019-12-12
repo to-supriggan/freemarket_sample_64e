@@ -1,0 +1,74 @@
+.body
+  / Google Tag Manager (noscript)
+  %noscript
+    %iframe{height: "0", src: "＃", style: "display:none;visibility:hidden", width: "0"}
+  / End Google Tag Manager (noscript)
+  .first-container
+    .first-header
+      .first-header__box
+        .first-header__box__image
+          %img{alt: "mercari", src: "logo_gray.svg"}/
+    .first-main
+      .first-main__menu
+        .first-main__menu__head 新規会員登録
+        .first-main__menu__inner
+          .first-main__menu__inner__way
+            %a.first-main__menu__inner__way__mail{href: "step1_signup_index_path"}
+              %i.icon-mail
+              メールアドレスで登録する
+            %button.first-main__menu__inner__way__facebook
+              %i.icon-facebook
+              Facebookで登録する
+            %button.first-main__menu__inner__way__google
+              Googleで登録する
+    .first-footer
+      .first-footer__menu
+        .first-footer__menu__list
+          .first-footer__menu__list__li
+            %a{href: "#"} プライバシーポリシー
+          .first-footer__menu__list__li
+            %a{href: "#"} メルカリ利用規約
+          .first-footer__menu__list__li
+            %a{href: "#"} 特定商取引に関する表記
+      %a.first-footer-logo{href: "#"}
+        %img{alt: "mercari", height: "65", src: "#", width: "80"}/
+      %p
+        %small © Mercari, Inc.
+        
+  -# %script{gapi_processed: "true", src: "https://apis.google.com/js/api:client.js"}
+  -# %script{src: "//www-mercari-jp.akamaized.net/assets/js/app.js?453494694"}
+  -# / Google Tag Manager
+  -# :javascript
+  -#   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  -#   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  -#   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  -#   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  -#   })(window,document,'script','dataLayer','GTM-KLPT5L5');
+  -# / End Google Tag Manager
+  -# %iframe#ssIFrame_google{"aria-hidden" => "true", "frame-border" => "0", sandbox: "allow-scripts allow-same-origin", src: "https://accounts.google.com/o/oauth2/iframe#origin=https%3A%2F%2Fwww.mercari.com&rpcToken=866128006.3542126", style: "position: absolute; width: 1px; height: 1px; left: -9999px; top: -9999px; right: -9999px; bottom: -9999px; display: none;"}
+  -# %div{style: "display: none; visibility: hidden;"}
+  -#   :javascript
+  -#     !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1964320460558899");fbq("track","PageView");
+  -#   %noscript
+  -# #fb-root.fb_reset
+  -#   %div{style: "position: absolute; top: -10000px; width: 0px; height: 0px;"}
+  -#     %div
+  -#       %iframe#fb_xdm_frame_https{allow: "encrypted-media", allowfullscreen: "true", allowtransparency: "true", "aria-hidden" => "true", frameborder: "0", name: "fb_xdm_frame_https", scrolling: "no", src: "https://staticxx.facebook.com/connect/xd_arbiter.php?version=44#channel=f1e11dcb184f7a8&origin=https%3A%2F%2Fwww.mercari.com", style: "border: none;", tabindex: "-1", title: "Facebook Cross Domain Communication Frame"}
+  -#     %div
+
+      -# %form#login_form_facebook{action: "/jp/signup/facebook/", method: "POST", novalidate: "novalidate"}
+      -#   %input{name: "__csrf_value", type: "hidden", value: "5d76c55a158d8613473942763da04faa3f0de6066a0e1286bf9ad4c20b4dbc9e8e549506f6745ce8bd6b4130980575e5aeca014edf191eedc5cee194266222454"}/
+      -#   %input{name: "nickname", type: "hidden", value: ""}/
+      -#   %input{name: "email", type: "hidden", value: ""}/
+      -#   %input{name: "facebook_user_id", type: "hidden", value: ""}/
+      -#   %input{name: "facebook_access_token", type: "hidden", value: ""}/
+      -#   %input{name: "login_type", type: "hidden", value: "facebook"}/
+      -# %form#login_form_google{action: "/jp/signup/google/", method: "POST", novalidate: "novalidate"}
+      -#   %input{name: "__csrf_value", type: "hidden", value: "5d76c55a158d8613473942763da04faa3f0de6066a0e1286bf9ad4c20b4dbc9e8e549506f6745ce8bd6b4130980575e5aeca014edf191eedc5cee194266222454"}/
+      -#   %input{name: "nickname", type: "hidden", value: ""}/
+      -#   %input{name: "email", type: "hidden", value: ""}/
+      -#   %input{name: "google_user_id", type: "hidden", value: ""}/
+      -#   %input{name: "google_access_token", type: "hidden", value: ""}/
+      -#   %input{name: "login_type", type: "hidden", value: "google"}/
+      -# %input#google_client_id{type: "hidden", value: "238694260676-l0gp5j3hs9p8l2hjmnt126q0b4iin34r.apps.googleusercontent.com"}/
+      -# %input#facebook_app_id{type: "hidden", value: "466308336793848"}/

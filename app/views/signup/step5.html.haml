@@ -1,6 +1,29 @@
-.n-wrapper
-  .n-header
-    = render "./parts/exhibit_header.html.haml"
+/ Google Tag Manager (noscript)
+%noscript
+  %iframe{height: "0", src: "", style: "display:none;visibility:hidden", width: "0"}
+/ End Google Tag Manager (noscript)
+.step1-container
+  %header.step1-header
+    %h1
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+    %nav.step1-header__nav
+      %ol.step1-header__nav__ol
+        %li.through.step1-header__nav__ol__li
+          会員情報
+          .progress-status__li
+        %li.through.step1-header__nav__ol__li
+          電話番号認証
+          .progress-status__li
+        %li.through.step1-header__nav__ol__li
+          お届け先住所入力
+          .progress-status__li
+        %li.through.step1-header__nav__ol__li
+          支払い方法
+          .progress-status__li
+        %li.active.step1-header__nav__ol__li
+          完了
+          .progress-status__li
   .n-box
     .n-box__top
       %p 会員登録完了
@@ -12,8 +35,8 @@
         %a{href: "#"} メルカリをはじめる
       .n-box__bottom__image
         %img{alt: "mercari", src: "#" }/
-  .n-footer
-    = render "./parts/exhibit_footer.html.haml"
+  = render "exhibit_footer"
+
 
 
 -# %h2.l-first-head.registration 会員登録完了

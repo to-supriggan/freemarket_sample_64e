@@ -1,37 +1,40 @@
 class SignupController < ApplicationController
  # 各アクションごとに新規インスタンスを作成します
  # 各アクションごとに、遷移元のページのデータをsessionに保管していきます
+  def registration
+  end
+
   def step1
     @user = User.new # 新規インスタンス作成
   end
 
   def step2
-    # # step1で入力された値をsessionに保存
+    # step1で入力された値をsessionに保存
     # session[:nick_name] = user_params[:nick_name]
     # session[:email] = user_params[:email]
     # session[:password] = user_params[:password]
     # session[:password_confirmation] = user_params[:password_confirmation]
-    # @user = User.new # 新規インスタンス作成
+    @user = User.new # 新規インスタンス作成
   end
 
   def step3
-    # # step2で入力された値をsessionに保存
+    # step2で入力された値をsessionに保存
     # session[:name] = user_params[:name]
     # session[:kana_name] = user_params[:kana_name]
-    # @user = User.new # 新規インスタンス作成
+    @user = User.new # 新規インスタンス作成
   end
 
   def step4
-    # # step3で入力された値をsessionに保存
+    # step3で入力された値をsessionに保存
     # session[:birthday] = user_params[:birthday]
-    # @user = User.new # 新規インスタンス作成
+    @user = User.new # 新規インスタンス作成
   end
 
   def step5
-    # # step4で入力された値をsessionに保存
+    # step4で入力された値をsessionに保存
     # session[:payment_method] = user_params[:payment_method]
-    # # binding.pry
-    # @user = User.new # 新規インスタンス作成
+    # binding.pry
+    @user = User.new # 新規インスタンス作成
   end
 
   # def create
@@ -55,22 +58,22 @@ class SignupController < ApplicationController
   #   end
   # end
 
-  # def done
-  #   sign_in User.find(session[:id]) unless user_signed_in?
-  # end
+  def done
+    sign_in User.find(session[:id]) unless user_signed_in?
+  end
 
-  # private
+  private
   # 許可するキーを設定します
-  # def user_params
-  #   params.require(:user).permit(
-  #     :nick_name,
-  #     :email,
-  #     :password, 
-  #     :password_confirmation, 
-  #     :name,
-  #     :kana_name,
-  #     :birthday,
-  #     :payment_method
-  # )
-  # end
+  def user_params
+    params.require(:user).permit(
+      :nick_name,
+      :email,
+      :password, 
+      :password_confirmation, 
+      :name,
+      :kana_name,
+      :birthday,
+      :payment_method
+  )
+  end
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "signup#index"
+  root to: "signup#step1"
   resources :signup do
     collection do
       get 'step1'

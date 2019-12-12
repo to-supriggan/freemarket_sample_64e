@@ -1,9 +1,59 @@
-= form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'second-main__box'} do |f|
-  %label{for: "name"} お名前
-  %span.form-box-require 必須
-  = f.text_field :name, placeholder: '例) 中嶋諒'
-  %label{for: "kana_name"} お名前カナ
-  %span.form-box-require 必須
-  = f.text_field :kana_name, placeholder: '例) ナカジマリョウ'
-  
-  = f.submit :Continue
+/ Google Tag Manager (noscript)
+%noscript
+  %iframe{height: "0", src: "", style: "display:none;visibility:hidden", width: "0"}
+/ End Google Tag Manager (noscript)
+.step1-container
+  %header.step1-header
+    %h1
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+    %nav.step1-header__nav
+      %ol.step1-header__nav__ol
+        %li.through.step1-header__nav__ol__li
+          会員情報
+          .progress-status__li
+        %li.active.step1-header__nav__ol__li
+          電話番号認証
+          .progress-status__li
+        %li
+          お届け先住所入力
+          .progress-status__li
+        %li
+          支払い方法
+          .progress-status__li
+        %li
+          完了
+          .progress-status__li
+  %main.step2-main
+    %section.step2-main__container
+      .step2-main__container__head
+        電話番号の確認
+      = form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'step2-main__container__box'} do |f|
+        .step2-main__container__box__group
+          .step2-main__container__box__group__form
+            = f.label :nick_name, "携帯電話の番号"         # phone_num
+            = f.phone_field :nick_name,placeholder: "携帯電話の番号",class: ""
+            %ul.error-text.error-phone
+              %li= "電話番号の入力が正しくありません"
+            %p= "本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。"
+          %a.step2-main__container__box__group__submit{href: step3_signup_index_path}
+            -# = f.submit
+            SMSを送信する
+          %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .step2-main__container__box__group__right
+            %p
+              %a{href: "#", target: "_blank"}
+                電話番号の確認が必要な理由
+                %i.icon-arrow-right
+  = render "exhibit_footer"
+
+
+-# = form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'second-main__box'} do |f|
+-#   %label{for: "name"} お名前
+-#   %span.form-box-require 必須
+-#   = f.text_field :name, placeholder: '例) 中嶋諒'
+-#   %label{for: "kana_name"} お名前カナ
+-#   %span.form-box-require 必須
+-#   = f.text_field :kana_name, placeholder: '例) ナカジマリョウ'
+
+-#   = f.submit :Continue
