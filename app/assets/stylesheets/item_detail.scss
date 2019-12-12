@@ -43,8 +43,6 @@
           &__dots {
             display: none;
             &__dot {
-              &__img {
-              }
             }
           }
           .owl-dots{
@@ -296,8 +294,6 @@
         bottom: 0px;
         font-size: 10px;
       }
-      &__fee {
-      }
     }
     &__status {
       font-size: 24px;
@@ -371,7 +367,6 @@
             border-radius: 15px;
             padding: 8px 16px;
             border: none;
-            display: flex;
             &__link {
               color:black;
               text-decoration: none;
@@ -423,19 +418,9 @@
             //   border: solid 1px rgb(141, 141, 245);
             // }
           }
-          button {
-            height: 50px;
-            width: 100%;
-            margin: 8px 0 0;
-            text-align: center;
-            background: #aaa;
-            border: 1px solid #aaa;
-            color: #fff;
-            cursor: pointer;
-            span {
-              font-size: 14px;
-              vertical-align: middle;
-            }
+          span {
+            font-size: 14px;
+            vertical-align: middle;
           }
         }
       }
@@ -482,7 +467,7 @@
         width: 50px;
         font-size: 50px;
         .share-btn {
-          color: #5d9dc9;;
+          color: #5d9dc9;
         }
       }
       .line {
@@ -625,11 +610,9 @@
             color: #888;
           }
         }
-        li {
-          .text2 {
-            font-family: fantasy;
-            font-weight: bold;
-          }
+        .text2 {
+          font-family: fantasy;
+          font-weight: bold;
         }
       }
     }
