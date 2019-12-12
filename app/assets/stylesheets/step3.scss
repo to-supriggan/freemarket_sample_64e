@@ -99,7 +99,7 @@
   }
 }
 
-.n-wrapper{
+.step1-container{
   background-color: rgb(245, 245, 245);
   .n-header{
     height: 128px;
@@ -168,8 +168,9 @@
       display: inline-block;
       width: 32px;
       height: 19px;
+      line-height: 19px;
       background-color:#ea352d;
-      font-size:12px;
+      font-size: 12px;
       color:white;
       border-radius: 4px;
       text-align: center;
@@ -186,7 +187,7 @@
       display: flex;
       justify-content: start;
       padding-top: 8px;
-      li{
+      li{ 
         padding-right: 8px;
       }
     }
@@ -250,6 +251,7 @@
       display: inline-block;
       width: 32px;
       height: 19px;
+      line-height: 19px;
       background-color:gray;
       font-size:12px;
       color:white;

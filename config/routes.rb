@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "signup#step1"
   resources :signup do
     collection do
+      get 'registration'
       get 'step1'
       get 'step2'
       get 'step3'
