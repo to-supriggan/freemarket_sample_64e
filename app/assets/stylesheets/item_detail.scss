@@ -42,8 +42,6 @@
           }
           &__dots {
             display: none;
-            &__dot {
-            }
           }
           .owl-dots{
             width: 60px;
@@ -342,7 +340,6 @@
             border-radius: 15px;
             padding: 8px 16px;
             border: none;
-            display: flex;
             &__img {
               color: rgb(204, 204, 204);
               margin-right: 10px;
@@ -583,14 +580,14 @@
     }
   }
   .mercari-brand {
-    ul {
+    .under-box{
       position: relative;
       border-top: 1px solid #eee;
       display: flex;
       background: #f5f5f5;
       width: 700px;
       margin: 0 auto;
-      li {
+      &__left-box {
         overflow: visible;
         padding: 16px 0;
         white-space: normal;
@@ -610,9 +607,11 @@
             color: #888;
           }
         }
-        .text2 {
-          font-family: fantasy;
-          font-weight: bold;
+        &__right-box {
+          .text2 {
+            font-family: fantasy;
+            font-weight: bold;
+          }
         }
       }
     }
