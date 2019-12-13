@@ -1,0 +1,6 @@
+rules:
+  - id: sample.debug_print
+    pattern:
+      - self.p
+      - self.pp
+    message: Delete debug print

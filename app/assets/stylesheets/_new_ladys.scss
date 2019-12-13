@@ -1,0 +1,116 @@
+.new-ladys {
+  padding-top: 42px;
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  padding-bottom: 13px;
+  margin-bottom: -13px;
+  &__junre {
+    width: calc(100% - 30%);
+    margin: 0 auto;
+    &__top {
+      margin: 0 auto;
+      margin: 42%, 0px, 100px, 0px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &__box {
+        &__text {
+          font-family: fantasy;
+          font-size: 20px;
+        }
+      }
+      &__see-more {
+        display: flex;
+        margin-bottom: 0px;
+        &__text {
+          font-family: fantasy;
+          text-decoration: none;
+          color: rgb(0, 149, 238);
+          font-weight: 600;
+        }
+        &__img {
+          height: 10px;
+          width: 10px;
+          margin-top: 4px;
+          color: rgb(0, 149, 238);
+        }
+      }
+    }
+    &__lineup {
+      &__wrap {
+        &__box {
+          display: flex;
+          flex-wrap: wrap;
+          &__addition {
+            padding: 10px;
+            width: 17%;
+            height: auto;
+            &__sammury {
+              height: 250px;
+              background-color: #fff;
+              cursor: pointer;
+              position: relative;
+              top: 0px;
+              left: 0px;
+              box-shadow: 4px 4px 4px -3px gray;
+              &:hover {
+                border: solid 1px rgb(141, 141, 245);
+              }
+              &__communication {
+                width: 100%;
+                &__pic {
+                  width: 100%;
+                  &__wrap {
+                    width: 100%;
+                    &__img {
+                      height: 70%;
+                      width: 100%;
+                      position: absolute;
+                      top: 0px;
+                      left: 0px;
+                      }
+                    &__price-label {
+                      -webkit-box-align: center;
+                      align-items: center;
+                      background: rgba(0,0,0,.4);
+                      border-radius: 0 14px 14px 0;
+                      bottom: 8px;
+                      box-sizing: border-box;
+                      color: #fff;
+                      display: inline-flex;
+                      font-size: 17px;
+                      height: 28px;
+                      letter-spacing: .02em;
+                      margin: 0;
+                      padding: 0 12px;
+                      position: absolute;
+                      left: 0px;
+                      top: 143px;
+                      z-index: 2;
+                      &__price {
+                        color: white;
+                      }
+                    }
+                  }
+                  &__name {
+                    box-sizing: border-box;
+                    color: #222;
+                    font-size: 14px;
+                    height: 64px;
+                    line-height: 1.4em;
+                    padding: 0 12px;
+                    white-space: normal;
+                    word-break: break-word;
+                    position: absolute;
+                    bottom:10px;
+                    left: 0px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
