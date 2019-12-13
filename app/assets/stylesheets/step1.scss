@@ -57,9 +57,6 @@
   vertical-align: middle;
   display: inline-block;
 }
-
-element.style {
-}
 .checkbox-default label {
   position: relative;
   z-index: 2;
@@ -106,7 +103,6 @@ body {
     border-top: 1px solid #eee;
     display: inline-block;
     vertical-align: top;
-    border-top: 1px solid #eee;
     text-align: center;
     font-size: 0;
     ol {
@@ -239,11 +235,9 @@ body {
             font-size: 16px;
             min-height: 1.5em;
             outline: 0;
-            font-family: inherit;
             -webkit-appearance: none;
             touch-action: manipulation;
             color: inherit;
-            font-family: inherit;
             font-style: inherit;
             font-weight: inherit;
           }
