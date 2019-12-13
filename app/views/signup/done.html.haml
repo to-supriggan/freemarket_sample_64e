@@ -1,7 +1,9 @@
 %body
   .login
-    %header.login__header
-      = render "./parts/exhibit_header.html.haml"
+    %header.step1-header
+      %h1
+        = link_to root_path do
+          = image_tag "fmarket_logo_red.svg", alt: "frima"
     %main.login__main
       .login__main__panel
         .login__main__panel__no-acount
@@ -30,4 +32,4 @@
       %form#login_form_facebook
       %form#login_form_google
     %footer.login__footer
-      = render "./parts/exhibit_footer.html.haml"
+      = render "exhibit_footer"
