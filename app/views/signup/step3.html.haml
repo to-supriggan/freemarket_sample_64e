@@ -82,11 +82,3 @@
       %button.nd-box__bottom__form__link
         %a{href: step4_signup_index_path} 次へ進む
   = render "exhibit_footer"
-
-
--# = form_for @user, url: step4_signup_index_path, method: :get, html: {class: 'third-main__box'} do |f|
--#   %label{for: "birthday"} お誕生日
--#   %span.form-box-require 必須
--#   = f.text_field :birthday, placeholder: '例) 20001010'
-  
--#   = f.submit :Continue
