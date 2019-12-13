@@ -180,7 +180,6 @@
     }
   }
 }
-}
 .n-footer{
 height: 220px;
 text-align: center;
@@ -260,13 +259,15 @@ text-align: center;
 }
 
 .n3-box__bottom{
-width: 345px;
-margin: 0 auto;
-padding: 40px 0 80px 0;
-&__form{
-padding-bottom: 20px;
-.second{
-  margin-top: 8px;
+  width: 345px;
+  margin: 0 auto;
+  padding: 40px 0 80px 0;
+  &__form{
+    padding-bottom: 20px;
+    .second{
+      margin-top: 8px;
+    }
+  }
 }
 select{
   height: 43px;
