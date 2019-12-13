@@ -33,8 +33,9 @@
         %p 会員登録が完了しました。
       %button.n-box__bottom__link
         %a{href: "#"} メルカリをはじめる
-      .n-box__bottom__image
-        %img{alt: "mercari", src: "#" }/
+    .n-box__bottom__image
+      = link_to root_path do
+        = image_tag "done.png", alt: "frima"
   = render "exhibit_footer"
 
 
