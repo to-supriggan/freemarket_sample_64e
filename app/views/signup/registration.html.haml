@@ -1,39 +1,27 @@
-.body
-  / Google Tag Manager (noscript)
-  %noscript
-    %iframe{height: "0", src: "＃", style: "display:none;visibility:hidden", width: "0"}
-  / End Google Tag Manager (noscript)
-  .first-container
-    .first-header
-      .first-header__box
-        .first-header__box__image
-          %img{alt: "mercari", src: "logo_gray.svg"}/
-    .first-main
-      .first-main__menu
-        .first-main__menu__head 新規会員登録
-        .first-main__menu__inner
-          .first-main__menu__inner__way
-            %a.first-main__menu__inner__way__mail{href: "step1_signup_index_path"}
-              %i.icon-mail
-              メールアドレスで登録する
-            %button.first-main__menu__inner__way__facebook
-              %i.icon-facebook
-              Facebookで登録する
-            %button.first-main__menu__inner__way__google
-              Googleで登録する
-    .first-footer
-      .first-footer__menu
-        .first-footer__menu__list
-          .first-footer__menu__list__li
-            %a{href: "#"} プライバシーポリシー
-          .first-footer__menu__list__li
-            %a{href: "#"} メルカリ利用規約
-          .first-footer__menu__list__li
-            %a{href: "#"} 特定商取引に関する表記
-      %a.first-footer-logo{href: "#"}
-        %img{alt: "mercari", height: "65", src: "#", width: "80"}/
-      %p
-        %small © Mercari, Inc.
+/ Google Tag Manager (noscript)
+%noscript
+  %iframe{height: "0", src: "＃", style: "display:none;visibility:hidden", width: "0"}
+/ End Google Tag Manager (noscript)
+.step1-container
+  %header.step1-header
+    %h1
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+  .first-main
+    .first-main__menu
+      .first-main__menu__head 新規会員登録
+      .first-main__menu__inner
+        .first-main__menu__inner__way
+          %a.first-main__menu__inner__way__mail{href: step1_signup_index_path}
+            %i.icon-mail
+            メールアドレスで登録する
+          %button.first-main__menu__inner__way__facebook
+            %i.icon-facebook
+            Facebookで登録する
+          %button.first-main__menu__inner__way__google
+            Googleで登録する
+  = render "exhibit_footer"
+
         
   -# %script{gapi_processed: "true", src: "https://apis.google.com/js/api:client.js"}
   -# %script{src: "//www-mercari-jp.akamaized.net/assets/js/app.js?453494694"}
