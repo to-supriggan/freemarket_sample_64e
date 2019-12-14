@@ -27,15 +27,6 @@
             display: inline-block;
             touch-action: manipulation;
           }
-          & .span{
-            background: #ea352d;
-            margin: 0 0 0 8px;
-            padding: 2px 4px;
-            border-radius: 2px;
-            color: #fff;
-            font-size: 12px;
-            vertical-align: top;
-          }
           & input {
             width: 95%;
             margin: 8px 0 0;
@@ -48,6 +39,17 @@
             background: #fff;
             line-height: 1.5;
             font-size: 16px;
+          }
+          .error-text {
+            color: #ea352d;
+            line-height: 1.5;
+            font-size: 14px;
+            list-style: none;
+            & li {
+              margin: 8px 0 0;
+              display: list-item;
+              text-align: -webkit-match-parent;
+            }
           }
           & p {
             margin: 8px 0 0;
@@ -71,9 +73,10 @@
           min-height: 1.5em;
           background: #ea352d;
           border: 1px solid #ea352d;
-          color: #fff;
-          text-transform: none;
-          text-decoration: none;
+          &__next {
+            color: #eee;
+            text-decoration: none;
+          }
         }
         & p {
           margin: 8px 0 0;
@@ -82,13 +85,13 @@
         &__right {
           margin: 40px 0 0;
           text-align: right;
-          & P {
+          &__menu {
             line-height: 1.5;
-          }
-            & a {
+            &__arrow {
               color: #0099e8;
               text-decoration: none;
             }
+          }
         }
       }
     }

@@ -1,29 +1,29 @@
 / Google Tag Manager (noscript)
 %noscript
-  %iframe{height: "0", src: "", style: "display:none;visibility:hidden", width: "0"}
+  %iframe{height: "0", src: ""}
 / End Google Tag Manager (noscript)
-.step1-container
-  %header.step1-header
-    %h1
-      = link_to root_path do
+%header.user-container
+  .user-header
+    %h1.user-header__head
+      = link_to root_path,class: "user-header__head__link" do
         = image_tag "fmarket_logo_red.svg", alt: "frima"
-    %nav.step1-header__nav
-      %ol.step1-header__nav__ol
-        %li.through.step1-header__nav__ol__li
+    %nav.user-header__nav
+      %ol.user-header__nav__ol
+        %li.through.user-header__nav__ol__progress
           会員情報
-          .progress-status__li
-        %li.through.step1-header__nav__ol__li
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
           電話番号認証
-          .progress-status__li
-        %li.through.step1-header__nav__ol__li
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
           お届け先住所入力
-          .progress-status__li
-        %li.active.step1-header__nav__ol__li
+          .user-header__nav__ol__progress__li
+        %li.active.user-header__nav__ol__progress
           支払い方法
-          .progress-status__li
-        %li
+          .user-header__nav__ol__progress__li
+        %li.user-header__nav__ol__progress
           完了
-          .progress-status__li
+          .user-header__nav__ol__progress__li
   .n-box
     .n-box__top
       %p 支払い方法
@@ -90,5 +90,6 @@
         %br/
         %span.nd-box__bottom__form__q カード裏面の番号とは？
         %button.nd-box__bottom__form__link
-          %a.a_bottom_form{href: step5_signup_index_path} 追加する
-  = render "exhibit_footer"
+          = link_to step5_signup_index_path do
+            .nd-box__bottom__form__link__text 追加する
+  = render "user_footer"

@@ -14,8 +14,8 @@
           font-size: 12px;
           margin: 0 0 0 16px;
           display: inline-block;
-          a {
-            color: #0099e8;
+          &__text {
+            color: #333;
             text-decoration: none;
           }
         }

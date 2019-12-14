@@ -1,29 +1,29 @@
 / Google Tag Manager (noscript)
 %noscript
-  %iframe{height: "0", src: "", style: "display:none;visibility:hidden", width: "0"}
+  %iframe{height: "0", src: ""}
 / End Google Tag Manager (noscript)
-.step1-container
-  %header.step1-header
-    %h1
-      = link_to root_path do
+%header.user-container
+  .user-header
+    %h1.user-header__head
+      = link_to root_path,class: "user-header__head__link" do
         = image_tag "fmarket_logo_red.svg", alt: "frima"
-    %nav.step1-header__nav
-      %ol.step1-header__nav__ol
-        %li.through.step1-header__nav__ol__li
+    %nav.user-header__nav
+      %ol.user-header__nav__ol
+        %li.through.user-header__nav__ol__progress
           会員情報
-          .progress-status__li
-        %li.active.step1-header__nav__ol__li
+          .user-header__nav__ol__progress__li
+        %li.active.user-header__nav__ol__progress
           電話番号認証
-          .progress-status__li
-        %li
+          .user-header__nav__ol__progress__li
+        %li.user-header__nav__ol__progress
           お届け先住所入力
-          .progress-status__li
-        %li
+          .user-header__nav__ol__progress__li
+        %li.user-header__nav__ol__progress
           支払い方法
-          .progress-status__li
-        %li
+          .user-header__nav__ol__progress__li
+        %li.user-header__nav__ol__progress
           完了
-          .progress-status__li
+          .user-header__nav__ol__progress__li
   %main.step2-main
     %section.step2-main__container
       .step2-main__container__head
@@ -32,17 +32,17 @@
         .step2-main__container__box__group
           .step2-main__container__box__group__form
             = f.label :nick_name, "携帯電話の番号"         # phone_num
-            = f.phone_field :nick_name,placeholder: "携帯電話の番号",class: ""
+            = f.phone_field :nick_name,placeholder: "携帯電話の番号を入力",class: ""
             %ul.error-text.error-phone
               %li= "電話番号の入力が正しくありません"
             %p= "本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。"
-          %a.step2-main__container__box__group__submit{href: step3_signup_index_path}
-            -# = f.submit
-            SMSを送信する
+          .step2-main__container__box__group__submit
+            = link_to step3_signup_index_path,class: "step2-main__container__box__group__submit__next" do
+              SMSを送信する
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
           .step2-main__container__box__group__right
-            %p
-              %a{href: "#", target: "_blank"}
+            .step2-main__container__box__group__right__menu
+              = link_to "#",class: "step2-main__container__box__group__right__menu__arrow" do
                 電話番号の確認が必要な理由
-                %i.icon-arrow-right
-  = render "exhibit_footer"
+                %i.icon.fas.fa-arrow-to-right                
+  = render "user_footer"
