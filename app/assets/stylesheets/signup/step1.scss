@@ -22,6 +22,10 @@
           line-height: inherit;
           margin: 24px 0 0;
           display: block;
+          #g-recaptcha-v2.g-recaptcha.signup-recaptcha {
+            height: 78px;
+            width: 304px;
+          }
           label {
             font-weight: 600;
             display: inline-block;

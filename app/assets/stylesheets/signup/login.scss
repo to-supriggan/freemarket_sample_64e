@@ -81,6 +81,10 @@
         border: 1px solid #ccc;
         border-radius: 5px;
       }
+      .g-recaptcha.login-captcha {
+        height: 78px;
+        width: 304px;
+      }
     }
     .login-submit {
       width: 326px;
