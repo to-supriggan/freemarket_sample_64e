@@ -1,13 +1,13 @@
 .new-ladys
   .new-ladys__junre
-    .new-ladys__junre__top{:name => "scroll-1"}
+    .new-ladys__junre__top{name: "scroll-1"}
       .new-ladys__junre__top__box
         .new-ladys__junre__top__box__text
           %h1 レディース新着アイテム
       .new-ladys__junre__top__see-more
         = link_to products_path, class: "new-ladys__junre__top__see-more__text" do
           もっと見る
-        .new-ladys__junre__top__see-more__img{:href => "#"}
+        .new-ladys__junre__top__see-more__img
           %i.fas.fa-chevron-right
     .new-ladys__junre__lineup
       .new-ladys__junre__lineup__wrap
@@ -19,7 +19,7 @@
                 = link_to products_path, class: "new-ladys__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap" do
                   = image_tag "/assets/出品サンプル画像１.jpg", class: "new-brand1__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap__img"
                   .new-ladys__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap__price-label
-                    %span.new-ladys__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap__price-label__price{"aria-label" => "Price"}
+                    %span.new-ladys__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap__price-label__price
                       ¥1,000
                 %figcaption.new-ladys__junre__lineup__wrap__box__addition__sammury__communication__pic__name
                   %span ビューティ&amp;ユース ユナイテッドアローズ  ニット 黒 ブラック
