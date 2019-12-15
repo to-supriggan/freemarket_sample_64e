@@ -73,6 +73,7 @@
       margin-top: 7px;
       &__left {
         display: flex;
+        font-family: fantasy;
         &__category {
           height: 44px;
           position: relative;
@@ -127,6 +128,7 @@
       &__right {
         display: flex;
         position: relative;
+        font-family: fantasy;
         &__like {
           height: 44px;
           position: relative;
