@@ -210,7 +210,7 @@
 
             }
             &__content {
-              // @include clearfix;
+              @include clearfix;
               padding: 40px;
               border-top: 1px solid #eee;
               .form-group:first-child {
@@ -321,7 +321,7 @@
           margin: 0 0 0 16px;
           display: inline-block;
           &__text {
-            color: #333;
+            @include l-coler;
             text-decoration: none;
           }
         }
@@ -330,7 +330,7 @@
     .listing-footer-logo {
       margin: 40px auto 0;
       display: block;
-      color: #333;
+      @include l-coler;
       img {
         width: 185px;
         height: 49px;

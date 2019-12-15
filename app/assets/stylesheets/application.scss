@@ -1,9 +1,9 @@
-// @import "./mixin";
+@import "./mixin";
 @import "./reset";
 @import "./header";
 @import "signup/user_header";
 @import "signup/user";
-@import "signup/registration";
+@import "signup/index";
 @import "signup/login";
 @import "signup/step1";
 @import "signup/step2";
