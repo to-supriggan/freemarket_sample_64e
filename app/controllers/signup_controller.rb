@@ -4,6 +4,10 @@ class SignupController < ApplicationController
   def registration
   end
 
+  def login
+    
+  end
+
   def step1
     @user = User.new # 新規インスタンス作成
   end
