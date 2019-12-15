@@ -321,7 +321,7 @@
           margin: 0 0 0 16px;
           display: inline-block;
           &__text {
-            @include l-coler;
+            @include listing-coler;
             text-decoration: none;
           }
         }
@@ -330,7 +330,7 @@
     .listing-footer-logo {
       margin: 40px auto 0;
       display: block;
-      @include l-coler;
+      @include listing-coler;
       img {
         width: 185px;
         height: 49px;
