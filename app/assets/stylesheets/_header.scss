@@ -139,14 +139,14 @@
                 color: black;
               }
               &__pop-up {
+                display: none;
                 #ex_menu2 {
                   background-color: #fff;
-                  width: 150px;
+                  width: 100%;
                   padding: 3px;
                   margin: 0;
                   border: 2px solid #acc;
                   list-style-type: none;
-                  display: none;
                 }
               }
             }

@@ -1,12 +1,12 @@
 .breadcrumb
   %nav.breadcrumb__center
     %ul.breadcrumb__center__under-box
-      %li.breadcrumb__center__under-box__first{:itemscope => "", :itemtype => "#"}
-        %a.breadcrumb__center__under-box__first__link{:href => "#", :itemprop => "url"}
-          %span.breadcrumb__center__under-box__first__link__text{:itemprop => "title"}
+      %li.breadcrumb__center__under-box__first{itemscope: "", itemtype: "#"}
+        =link_to products_path, class: "breadcrumb__center__under-box__first__link" do
+          %span.breadcrumb__center__under-box__first__link__text{itemprop: "title"}
             メルカリ
           .breadcrumb__center__under-box__first__link__relation
             %i.fas.fa-chevron-right
-      %li.breadcrumb__center__under-box__current{:itemscope => "", :itemtype => "#"}
-        %span.breadcrumb__center__under-box__current__text{:itemprop => "title"}
+      %li.breadcrumb__center__under-box__current{itemscope: "", itemtype: "#"}
+        %span.breadcrumb__center__under-box__current__text{itemprop: "title"}
           リエンダ

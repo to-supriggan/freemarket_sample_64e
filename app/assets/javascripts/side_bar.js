@@ -1,1 +1,0 @@
-$('.side-info__user__info-list___item')
