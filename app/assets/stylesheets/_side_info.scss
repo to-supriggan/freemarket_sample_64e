@@ -1,0 +1,53 @@
+.t-side-info {
+  width: 280px;
+  margin: 0 auto;
+  &__user {
+    &__info-list {
+      background-color: #fff;
+      &__current {
+        &__item{
+          padding: 16px;
+          background-color: #eee;
+          &__active {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            font-family: monospace;
+            &:hover {
+              text-decoration: none;
+            }
+  
+          }
+        }
+      }
+      &__item {
+        padding: 16px;
+        border-top: 1px solid #eee;
+        &__link {
+          display: flex;
+          justify-content: space-between; 
+          align-items: center;
+          text-decoration: none;
+          color: darkgray;
+          font-family: monospace;
+          &:hover {
+            text-decoration: none;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+  &__meilpay {
+    &__user-head {
+      margin-top: 40px;
+    }
+  }
+  &__setting {
+    &__user-head {
+      margin-top: 40px;
+    }
+  }
+}
