@@ -1,3 +1,4 @@
+// "use strict";
 $(function(){
   document.getElementById("category-top").addEventListener("mouseover", function(){
     document.getElementById("ex_menu").style.display = 'block';

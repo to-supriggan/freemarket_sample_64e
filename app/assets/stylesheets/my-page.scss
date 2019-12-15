@@ -99,7 +99,7 @@
           &__text {
             margin-top: 20px;
             font-weight: bold;
-            a {
+            &__do {
               text-decoration: none;
               color: black;
             }
@@ -222,7 +222,7 @@
           }
           &__see-list {
             padding: 16px;
-            .seelist {
+            &__seelist {
               display: block;
               height: 56px;
               margin: 0 auto;
@@ -263,8 +263,6 @@
             height: 200px;
             width: 200px;
             margin: 0 auto;
-              &__img {
-              }
             }
           }
         }
@@ -278,8 +276,6 @@
             height: 200px;
             width: 200px;
             margin: 0 auto;
-              &__img {
-              }
             }
           }
         }
