@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "products#item_detail"
   resources :signup do
     collection do
-      get 'registration'
+      get 'index'
       get 'step1'
       get 'step2'
       get 'step3'

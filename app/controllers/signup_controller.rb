@@ -1,7 +1,7 @@
 class SignupController < ApplicationController
  # 各アクションごとに新規インスタンスを作成します
  # 各アクションごとに、遷移元のページのデータをsessionに保管していきます
-  def registration
+  def index
   end
 
   def login
@@ -26,9 +26,6 @@ class SignupController < ApplicationController
 
   def step5
     @user = User.new # 新規インスタンス作成
-  end
-
-  def done
   end
 
   private
