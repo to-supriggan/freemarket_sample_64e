@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   root to: "products#item_detail"
   resources :signup do
     collection do
-      get "signup/index", to: "signup#index"
-      get "signup/step1", to: "signup#step1"
-      get "signup/step2", to: "signup#step2"
-      get "signup/step3", to: "signup#step3"
-      get "signup/step4", to: "signup#step4"
-      get "signup/step5", to: "signup#step5"
-      get "signup/login", to: "signup#login"
+      get 'index'
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4'
+      get 'step5' # ここで、入力の全てが終了する
+      get 'login'
     end
   end
   # resources :products
