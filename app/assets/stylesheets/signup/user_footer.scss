@@ -15,16 +15,16 @@
           margin: 0 0 0 16px;
           display: inline-block;
           &__text {
-            color: #333;
+            color: $listing-color;
             text-decoration: none;
           }
         }
       }
     }
     .listing-footer-logo {
+      color: $listing-color;
       margin: 40px auto 0;
       display: block;
-      color: #333;
       img {
         width: 185px;
         height: 49px;

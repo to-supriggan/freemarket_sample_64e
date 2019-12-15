@@ -1,3 +1,5 @@
+$color-listing: #333;
+
 .listing {
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
@@ -321,16 +323,16 @@
           margin: 0 0 0 16px;
           display: inline-block;
           &__text {
-            @include listing-coler;
+            color: $listing-color;
             text-decoration: none;
           }
         }
       }
     }
     .listing-footer-logo {
+      color: $listing-color;
       margin: 40px auto 0;
       display: block;
-      @include listing-coler;
       img {
         width: 185px;
         height: 49px;
