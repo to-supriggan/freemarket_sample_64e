@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "products#item_detail"
-  resources :products
   resources :signup do
     collection do
       get 'registration'
@@ -14,4 +13,5 @@ Rails.application.routes.draw do
       get 'login'
     end
   end
+  resources :products
 end

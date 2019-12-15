@@ -196,12 +196,10 @@
           &__menu {
             line-height: 1.5;
             &__arrow {
-              font-family: fontawesome;
               color: #0099e8;
               text-decoration: none;
               .icon::before {
                 font-style: normal;
-                font-family: fontawesome;
               }
             }
           }
