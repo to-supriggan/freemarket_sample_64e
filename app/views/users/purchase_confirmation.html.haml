@@ -1,0 +1,86 @@
+.purchase_confirmation
+  .purchase_confirmation__header
+    .purchase_confirmation__header__img
+      = link_to products_path, class: "purchase_confirmation__header__img__link" do
+        = image_tag "/assets/fmarket_logo_white.svg", class: "purchase_confirmation__header__img__link__bg"
+  .purchase_confirmation__body
+    .purchase_confirmation__body__container
+      .purchase_confirmation__body__container__head
+        購入内容の確認
+      %section.purchase_confirmation__body__container__item
+        .purchase_confirmation__body__container__item__inner
+          .purchase_confirmation__body__container__item__inner__box
+            .purchase_confirmation__body__container__item__inner__box__img
+              = image_tag "/assets/出品サンプル画像１.jpg", class: "purchase_confirmation__body__container__item__inner__box__img__box"
+            .purchase_confirmation__body__container__item__inner__box__text
+              %p.purchase_confirmation__body__container__item__inner__box__text__name
+                ロイスクレヨン   チェック スカート
+              %p.purchase_confirmation__body__container__item__inner__box__text__bold
+                %span.purchase_confirmation__body__container__item__inner__box__text__bold__price
+                  ¥2,400
+                %span.purchase_confirmation__body__container__item__inner__box__text__bold__fee
+                  （税込）送料込み
+      %section.purchase_confirmation__body__container__buy-item
+        .purchase_confirmation__body__container__buy-item__inner
+          %form.purchase_confirmation__body__container__buy-item__inner__form{:action => "https://www.mercari.com/jp/transaction/buy/done/m73860173396/", :method => "POST", :novalidate => "novalidate"}
+            %ul.purchase_confirmation__body__container__buy-item__inner__form__table
+              %li.purchase_confirmation__body__container__buy-item__inner__form__table__bold
+                .purchase_confirmation__body__container__buy-item__inner__form__table__bold__label
+                  支払い金額
+                .purchase_confirmation__body__container__buy-item__inner__form__table__bold__cell
+                  %span
+                    ¥2,400
+            %ul.purchase_confirmation__body__container__buy-item__inner__form__point
+              %li.purchase_confirmation__body__container__buy-item__inner__form__point__parent
+                .purchase_confirmation__body__container__buy-item__inner__form__point__parent__point
+                  %input.purchase_confirmation__body__container__buy-item__inner__form__point__parent__point__input{:disabled => "disabled", :type => "checkbox"}/
+                  %label.purchase_confirmation__body__container__buy-item__inner__form__point__parent__point__text
+                    ポイントを使用 (所持ポイント: P0)
+            %section.purchase_confirmation__body__container__buy-item__inner__form__info{"data-buy" => "pay-method"}
+              .purchase_confirmation__body__container__buy-item__inner__form__info__inner
+                .purchase_confirmation__body__container__buy-item__inner__form__info__inner__box
+                  .purchase_confirmation__body__container__buy-item__inner__form__info__inner__box__left
+                    支払い方法
+                  = link_to products_path, class: "purchase_confirmation__body__container__buy-item__inner__form__info__inner__box__fix" do
+                    %span
+                      変更する
+                %p.purchase_confirmation__body__container__buy-item__inner__form__info__inner__text
+                  クレジットカード
+                  %br/
+                  ************8007
+                  %br/
+                  有効期限 07 / 22
+                %figure.purchase_confirmation__body__container__buy-item__inner__form__info__inner__logo
+                  %i.fab.fa-cc-visa
+            %section.purchase_confirmation__body__container__buy-item__inner__form__info
+              .purchase_confirmation__body__container__buy-item__inner__form__info__inner
+                .purchase_confirmation__body__container__buy-item__inner__form__info__inner__box
+                  .purchase_confirmation__body__container__buy-item__inner__form__info__inner__box__left
+                    配送先
+                  = link_to products_path, class: "purchase_confirmation__body__container__buy-item__inner__form__info__inner__box__fix" do
+                    %span
+                      変更する
+                %address.purchase_confirmation__body__container__buy-item__inner__form__info__inner__text
+                  %p
+                    〒861-1113
+                    %br/
+                    熊本県 合志市栄
+                    3792-183
+                    %br/
+                    寺村 達也
+            %section.purchase_confirmation__body__container__buy-item__inner__form__content
+              %p.purchase_confirmation__body__container__buy-item__inner__form__content__text
+                この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+              %button.purchase_confirmation__body__container__buy-item__inner__form__content__bold{:disabled => "disabled"}
+                購入する
+              -# .purchase_confirmation__body__container__buy-item__inner__form__content__app{"data-action" => "item/openDetail", "data-key" => "id=m73860173396", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
+              -#   アプリで購入     JSチケット時実装
+              %p.purchase_confirmation__body__container__buy-item__inner__form__content__box
+                アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
+              %br/
+              .purchase_confirmation__body__container__buy-item__inner__form__content__logos
+                = link_to products_path, class: "purchase_confirmation__body__container__buy-item__inner__form__content__logos" do
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2979505025", class: "purchase_confirmation__body__container__buy-item__inner__form__content__logos__bg"
+                = link_to products_path, class: "purchase_confirmation__body__container__buy-item__inner__form__content__logos" do
+                  = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2979505025", class: "purchase_confirmation__body__container__buy-item__inner__form__content__logos__bg"
+= render "./signup/user_footer.html.haml"
