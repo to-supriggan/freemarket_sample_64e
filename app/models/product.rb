@@ -8,7 +8,6 @@ class Product < ApplicationRecord
   has_one :dealings
   belongs_to :brand
   belongs_to :category
-  accepts_nested_attributes_for :images
   validates  :name,                 presence: true
   validates  :information,          presence: true
   validates  :condition,            presence: true

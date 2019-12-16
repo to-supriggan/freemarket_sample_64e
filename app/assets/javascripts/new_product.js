@@ -240,6 +240,7 @@ $(document).on("turbolinks:load",function() {
         }
       })
     })
+
     // ネスト構造のセレクトボックスの段階表示
   function appendOption(select){
   let html = `<option value="${select.id}">${select.genre}</option>`
