@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "users#identification"
+  root to: "users#profile_edit"
   resources :signup do
     collection do
       get 'index'

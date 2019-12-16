@@ -1,0 +1,22 @@
+= render "./layouts/header.html.haml"
+= render "./layouts/breadcrumb.html.haml"
+.t-profile-edit
+  = render "./layouts/side_info.html.haml"
+  %section.t-profile-edit__container
+    .t-profile-edit__container__head
+      プロフィール
+    %form.t-profile-edit__container__form
+      %input.t-profile-edit__container__form__input{name: "__csrf_value", type: "hidden", value: "f2fc3194c01727e1774d820b80605ef8d272f3e9aca8df662cad8561a1d4fab5641b8435b68de0e4e276ddee173753e109580cfe5c88577a41540f64d087b4efc"}/
+      .t-profile-edit__container__form__box
+        .t-profile-edit__container__form__box__figure
+          = image_tag "/assets/bg-img1.jpeg", class: "t-profile-edit__container__form__box__figure__bg"
+          .t-profile-edit__container__form__box__figure__box
+            = image_tag "/assets/member_photo_noimage_thumb.png", class: "t-profile-edit__container__form__box__figure__box__img"
+        %input.t-profile-edit__container__form__box__input-default{name: "nickname", placeholder: "例)AYA☆セール中", type: "text", value: "teratti"}/
+      .t-profile-edit__container__form__wrap
+        %textarea.t-profile-edit__container__form__wrap__default{name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+        %input.t-profile-edit__container__form__wrap__input{name: "after_save_callback", type: "hidden", value: "https://www.mercari.com/jp/mypage/profile/"}/
+        %button.t-profile-edit__container__form__wrap__btn-red{type: "submit"} 変更する
+= render "./layouts/banner.html.haml"
+= render "./layouts/footer.html.haml"
+= render "./layouts/listing_btn.html.haml"
