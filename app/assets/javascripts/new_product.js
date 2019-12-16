@@ -100,7 +100,6 @@ $(document).on("turbolinks:load",function() {
                   $previewList.append(preview)
                 }
               });
-              
             reader.readAsDataURL(files[i]);
           } else if (old_array.length + files_array.length < 6){
             if($previewBox.children().length == 2){
@@ -170,7 +169,7 @@ $(document).on("turbolinks:load",function() {
           }
         }
         previewAction()
-      })      
+      })
   
       num_array = []
       $(document).on('click','#preview_box .upload-sell-delete', function(e){
@@ -457,7 +456,7 @@ $(document).on("turbolinks:load",function() {
 
   // 価格の手数料と利益の非同期
   function priceView(){
-    let price = $("#item_price").val();
+    let price = $("#price").val();
     let minPrice = 300
     let maxPrice = 9999999
     let fee = 10
@@ -480,7 +479,7 @@ $(document).on("turbolinks:load",function() {
     }
   
   $(function(){
-    $("#item_price").on('input',function(){
+    $("#price").on('input',function(){
       priceView()
     })
   })

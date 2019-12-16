@@ -80,7 +80,7 @@
                     必須
                 .select-wrap#postage_box
                   %i.icon-arrow-bottom
-                  = f.select :shipping_charge, @days_before_skipment, {prompt: "---"}, class: "select-default", id: "postage_form"
+                  = f.select :shipping_charge, @shipping_charge, {prompt: "---"}, class: "select-default", id: "postage_form"
               .form-group
                 %label
                   発送元の地域
