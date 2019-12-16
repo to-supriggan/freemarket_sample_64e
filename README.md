@@ -26,20 +26,20 @@ Things you may want to cover:
 ## usersテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false|<!-- ok -->
-|kana_name|string|null: faise|<!-- ok -->
 |nick_name|string|null: false|<!-- ok -->
-|email|string|unique: true|<!-- ?null: false? -->
-|password|string|unique: true|<!-- ok -->
-|birthday|string|null: false|<!-- ok -->
-|payment_method|string|null: false| <!-- ok -->
-|created_at|timestamps|null: false|<!-- ok -->
-|updates_at|timestamps|null: false|<!-- ok -->
+|email|string|null: false|unique: true|<!-- ok -->
+|password|string|null: faise|<!-- ok -->
+|last_name|string|null: false|<!-- ok -->
+|first_name|string|null: false|<!-- ok -->
+|last_name_kana|string|null: false|<!-- ok -->
+|first_name_kana|string|null: false|<!-- ok -->
+|birth_day|string|null: false|<!-- ok -->
+|phone_number|integer|null: false|unique: true| <!-- ok -->
 ### Association
 - has_many :products
 - has_many :goods
 - has_many :comments
-- has_many :transactions
+- has_many :dealing
 - has_many :addresses
 ## productsテーブル
 |column|Type|Options|
