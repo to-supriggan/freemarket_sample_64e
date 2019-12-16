@@ -85,4 +85,6 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
-gem 'font-awesome-rails'
+gem 'ancestry'
+gem 'dropzonejs-rails', '~> 0.7.3'
+

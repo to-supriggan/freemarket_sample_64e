@@ -25,13 +25,14 @@ ActiveRecord::Schema.define(version: 2019_12_06_014815) do
   end
 
   create_table "brands", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "genre"
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,13 +79,12 @@ ActiveRecord::Schema.define(version: 2019_12_06_014815) do
     t.string "information", null: false
     t.string "condition", null: false
     t.string "shipping_charge", null: false
-    t.string "shipping_area", null: false
     t.string "days_before_skipment", null: false
     t.integer "price", null: false
     t.integer "user_id"
     t.integer "brand_id"
     t.integer "category_id"
-    t.string "evaluation", null: false
+    t.string "evaluation"
     t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -95,11 +95,12 @@ ActiveRecord::Schema.define(version: 2019_12_06_014815) do
 
   create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "kana_name", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "nick_name", null: false
-    t.string "email", null: false
-    t.string "encrypted_password", null: false
+    t.string "kana_name", null: false
     t.string "birthday", null: false
+    t.string "address", null: false
     t.string "payment_method", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -107,6 +108,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_014815) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

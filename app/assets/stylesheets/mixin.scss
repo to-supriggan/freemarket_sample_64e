@@ -6,3 +6,121 @@
   }
 }
 
+@mixin item-have() {
+  ul {
+    height: 172px;
+    display: block;
+    float: left;
+    .upload-sell-item {
+      width: 110px;
+      margin: 0 0 10px 10px;
+      position: relative;
+      display: inline-block;
+      border: 1px solid #eee;
+      vertical-align: top;
+      .upload-sell-figure {
+        height: 116px;
+        width: 100%;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        background: #f5f5f5;
+        img {
+          width: 100%;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .upload-sell-btn {
+        font-size: 14px;
+        display: flex;
+        .upload-sell-edit {
+          display: inline-block;
+          width: 50%;
+          background: #f5f5f5;
+          line-height: 44px;
+          text-align: center;
+          color: #0099e8;
+        }
+        .upload-sell-delete {
+          display: inline-block;
+          width: 50%;
+          background: #f5f5f5;
+          line-height: 44px;
+          text-align: center;
+          color: #0099e8;
+          border-left: 1px solid #eee;
+          cursor: pointer;
+        }
+      }
+    }
+    .upload-sell-item:first-child {
+      margin-left: 0;
+      position: relative;
+      display: inline-block;
+      border: 1px solid #eee;
+      vertical-align: top;
+      .upload-sell-figure {
+        height: 116px;
+        width: 100%;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        background: #f5f5f5;
+        img {
+          width: 100%;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .upload-sell-btn {
+        font-size: 14px;
+        .upload-sell-edit {
+          display: inline-block;
+          width: 50%;
+          background: #f5f5f5;
+          line-height: 44px;
+          text-align: center;
+        }
+        .upload-sell-delete {
+          display: inline-block;
+          width: 50%;
+          background: #f5f5f5;
+          line-height: 44px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@mixin dropbox() {
+  width: 100%;
+  margin-left: 0;
+  float: right;
+  position: relative;
+  min-height: 162px;
+  background: #f5f5f5;
+  border: 1px dashed #ccc;
+  font-size: 0;
+  text-align: center;
+  cursor: pointer;
+  .upload-sell-drop-file {
+    display: none;
+  }
+  .drop-text {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    transform: translate(0, -50%);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 900;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
