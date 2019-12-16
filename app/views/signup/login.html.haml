@@ -1,0 +1,39 @@
+%header.user-container
+  .user-header
+    %h1.user-header__head
+      = link_to "#" class: "user-header__head__link" do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+  %main.login__main
+    .login__main__panel
+      = link_to "#" class: "login__main__panel__no-acount" do
+        %p アカウントをお持ちでない方はこちら
+      .login__form__inner
+        %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+          %i.icon-facebook
+          = link_to "#" do
+            %p Facebookでログイン
+        %button#google-login.btn-default.btn-sns.btn-sns-google
+          = link_to "#" class: "a_google" do
+            %p Googleでログイン
+      %form{action: "#", method: "POST", novalidate: "novalidate"}
+        .login__form__inner
+          .form-group 
+            %input.login-input-text.input-default{name: "email", placeholder: "メールアドレス", type: "email", value: ""}/
+          .form-group
+            %input.login-input-text.input-default{name: "password", placeholder: "パスワード", type: "password"}/
+          .form-group
+            .g-recaptcha.login-captcha
+              %div
+                %div
+                  %iframe{frameborder: "0", name: "a-hi5p4zk2v57m", role: "presentation",
+                    sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox",
+                    scrolling: "no",
+                    src: "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=PRkVene3wKrZUWATSylf69ja&size=normal&cb=8q5d6m1b7b05"}
+                %textarea#g-recaptcha-response.g-recaptcha-response{name: "g-recaptcha-response"}
+          %button.login-submit.btn-default.btn-red{type: "submit"} ログイン
+          = link_to "#" class: "a_submit" do
+            %p パスワードをお忘れの方
+    %form#login_form_facebook
+    %form#login_form_google
+  %footer.login__footer
+  = render "user_footer"
