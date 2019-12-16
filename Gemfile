@@ -72,10 +72,10 @@ group :production do
 end
 
 gem 'active_hash'
-gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'querly'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'capistrano'
@@ -84,5 +84,3 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 end
-
-gem 'font-awesome-rails'

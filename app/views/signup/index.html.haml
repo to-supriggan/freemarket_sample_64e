@@ -1,0 +1,27 @@
+/ Google Tag Manager (noscript)
+%noscript
+  %iframe{height: "0", src: "＃"}
+/ End Google Tag Manager (noscript)
+%header.user-container
+  .user-header
+    %h1.user-header__head
+      = link_to root_path,class: "user-header__head__link" do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+  .first-main
+    .first-main__menu
+      .first-main__menu__head 新規会員登録
+      .first-main__menu__inner
+        .first-main__menu__inner__way
+          .first-main__menu__inner__way__mail
+            = link_to step1_signup_index_path,class: "first-main__menu__inner__way__mail__text"  do
+              %i.icon.far.fa-envelope.fa-2x
+              メールアドレスで登録する
+          .first-main__menu__inner__way__facebook
+            = link_to step1_signup_index_path,class: "first-main__menu__inner__way__facebook__text"  do
+              %i.icon.fab.fa-facebook-square.fa-2x
+              Facebookで登録する
+          .first-main__menu__inner__way__google
+            = link_to step1_signup_index_path,class: "first-main__menu__inner__way__google__text"  do
+              %i.icon.fab.fa-google.fa-2x
+              Googleで登録する
+  = render "user_footer"
