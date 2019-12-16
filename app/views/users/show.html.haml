@@ -1,0 +1,140 @@
+= render "./layouts/header.html.haml"
+= render "./layouts/breadcrumb.html.haml"
+.t-mypage
+  = render "./layouts/side_info.html.haml"
+  .t-mypage__detail
+    %section.t-mypage__detail__user-icon
+      .t-mypage__detail__user-icon__wrap
+        = image_tag "/assets/bg-img1.jpeg", class: "t-mypage__detail__user-icon__wrap__bg-img"
+      .t-mypage__detail__user-icon__box
+        = link_to products_path, class: "t-mypage__detail__user-icon__box__detail" do
+          = image_tag "/assets/member_photo_noimage_thumb.png", class: "t-mypage__detail__user-icon__box__detail__img"
+          .t-mypage__detail__user-icon__box__detail__user-name
+            teratti
+          .t-mypage__detail__user-icon__box__detail__result
+            .t-mypage__detail__user-icon__box__detail__result__evaluation
+              %div.t-mypage__detail__user-icon__box__detail__result__evaluation__left-box
+                評価
+              %span.t-mypage__detail__user-icon__box__detail__result__evaluation__right-box
+                0
+            .t-mypage__detail__user-icon__box__detail__result__lesting
+              %div.t-mypage__detail__user-icon__box__detail__result__lesting__left-box
+                出品数
+              %span.t-mypage__detail__user-icon__box__detail__result__lesting__right-box
+                0
+    %section.t-mypage__detail__notification-todo
+      %ul.t-mypage__detail__notification-todo__wrap
+        %li.t-mypage__detail__notification-todo__wrap__box-activ
+          .t-mypage__detail__notification-todo__wrap__box-activ__text
+            = link_to products_path, class: "t-mypage__detail__notification-todo__wrap__box-activ__text__do" do
+              お知らせ
+        %li.t-mypage__detail__notification-todo__wrap__box
+          .t-mypage__detail__notification-todo__wrap__box__text
+            = link_to products_path, class: "t-mypage__detail__notification-todo__wrap__box__text__do" do
+              やることリスト
+      .t-mypage__detail__notification-todo__content
+        %ul.t-mypage__detail__notification-todo__content__tab-page
+          %li.t-mypage__detail__notification-todo__content__tab-page__wrap
+            = link_to products_path, class: "t-mypage__detail__notification-todo__content__tab-page__wrap__list__link" do
+              %figure.t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img
+                = image_tag "/assets/logo_red.svg", class: "t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__figure"
+              .t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text
+                .t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text__box
+                  3日後、P999還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                  %i.fas.fa-chevron-right.notificationarrow
+                %time.t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text__img
+                  %i.far.fa-clock
+                  %span 21 時間前
+              
+          %li.t-mypage__detail__notification-todo__content__tab-page__wrap
+            = link_to products_path, class: "t-mypage__detail__notification-todo__content__tab-page__wrap__list__link" do
+              %figure.t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img
+                = image_tag "/assets/logo_red.svg", class: "t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__figure"
+              .t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text
+                .t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text__box
+                  ”200円分のポイント”をGETしよう！お得なキャンペーンはこちら！
+                  %i.fas.fa-chevron-right.notificationarrow
+                %time.t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text__img
+                  %i.far.fa-clock
+                  %span 2 日前
+              
+          %li.t-mypage__detail__notification-todo__content__tab-page__wrap
+            = link_to products_path, class: "t-mypage__detail__notification-todo__content__tab-page__wrap__list__link" do
+              %figure.t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img
+                = image_tag "/assets/logo_red.svg", class: "t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__figure"
+              .t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text
+                .t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text__box
+                  《あなたはどっちではじメル？》「メルクリ」でP1,000&amp;抽選でライブにご招待！「あけおめ」でP1,000&amp;全額ポイント還元のチャンス！
+                  %i.fas.fa-chevron-right.notificationarrow
+                %time.t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text__img
+                  %i.far.fa-clock
+                  %span 2 日前
+              
+          %li.t-mypage__detail__notification-todo__content__tab-page__wrap
+            = link_to products_path, class: "t-mypage__detail__notification-todo__content__tab-page__wrap__list__link" do
+              %figure.t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img
+                = image_tag "/assets/logo_red.svg", class: "t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__figure"
+              .t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text
+                .t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text__box
+                  《ご登録記念》¥1,000の商品を「実質1円」でご購入いただけます！
+                  %i.fas.fa-chevron-right.notificationarrow
+                %time.t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text__img
+                  %i.far.fa-clock
+                  %span 3 日前
+              
+          %li.t-mypage__detail__notification-todo__content__tab-page__wrap
+            = link_to products_path, class: "t-mypage__detail__notification-todo__content__tab-page__wrap__list__link" do
+              %figure.t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img
+                = image_tag "/assets/logo_red.svg", class: "t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__figure"
+              .t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text
+                .t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text__box
+                  【必ずP3,000もらえる！？】今のうちに買うシカない！
+                  %i.fas.fa-chevron-right.notificationarrow
+                %time.t-mypage__detail__notification-todo__content__tab-page__wrap__list__link__img__text__img
+                  %i.far.fa-clock
+                  %span 3 日前
+              
+          %li.t-mypage__detail__notification-todo__content__tab-page__see-list
+            = link_to products_path, class: "t-mypage__detail__notification-todo__content__tab-page__see-list__seelist" do
+              一覧を見る
+        %ul.t-mypage__detail__notification-todo__content__tab-page-active
+          %li.t-mypage__detail__notification-todo__content__tab-page-active__wrap
+            = link_to products_path, class: "t-mypage__detail__notification-todo__content__tab-page-active__wrap__list__link" do
+              %figure.t-mypage__detail__notification-todo__content__tab-page-active__wrap__list__link__img
+                = image_tag "/assets/logo_red.svg", class: "t-mypage__detail__notification-todo__content__tab-page-active__wrap__list__link__img__figure"
+              .t-mypage__detail__notification-todo__content__tab-page-active__wrap__list__link__img__text
+                .t-mypage__detail__notification-todo__content__tab-page-active__wrap__list__link__img__text__box
+                  ご登録のメールアドレスに認証メールを送りました。メールに記載のURLをクリックして、メールアドレスを認証してください。
+                  %i.fas.fa-chevron-right
+                %time.t-mypage__detail__notification-todo__content__tab-page-active__wrap__list__link__img__text__img
+                  %i.far.fa-clock
+                  %span 10 日前
+
+          %li.t-mypage__detail__notification-todo__content__tab-page__see-list
+            = link_to products_path, class: "t-mypage__detail__notification-todo__content__tab-page__see-list__seelist" do
+              一覧を見る
+    %section.t-mypage__detail__pay-product
+      .t-mypage__detail__pay-product__text
+        購入した商品
+      %ul.t-mypage__detail__notification-todo__wrap
+        %li.t-mypage__detail__notification-todo__wrap__box-activ
+          .t-mypage__detail__notification-todo__wrap__box-activ__text
+            = link_to products_path, class: "t-mypage__detail__notification-todo__wrap__box-activ__text__do" do
+              取引中
+        %li.t-mypage__detail__notification-todo__wrap__box
+          .t-mypage__detail__notification-todo__wrap__box__text
+            = link_to products_path, class: ".t-mypage__detail__notification-todo__wrap__box__text__past" do
+              過去の取引
+      .t-mypage__detail__pay-product__trade
+        %ul.t-mypage__detail__pay-product__trade__product
+          %li.t-mypage__detail__pay-product__trade__product__lineup
+            .t-mypage__detail__pay-product__trade__product__lineup__box
+              = image_tag "/assets/logo_gray.svg", class: "t-mypage__detail__pay-product__trade__product__lineup__box__img"
+            取引中の商品がありません
+        %ul.t-mypage__detail__pay-product__trade__producted
+          %li.t-mypage__detail__pay-product__trade__producted__lineup
+            .t-mypage__detail__pay-product__trade__producted__lineup__box
+              = image_tag "/assets/logo_gray.svg", class: "t-mypage__detail__pay-product__trade__producted__lineup__box__img"
+            過去に取引した商品がありません
+= render "./layouts/banner.html.haml"
+= render "./layouts/footer.html.haml"

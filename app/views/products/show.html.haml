@@ -381,17 +381,7 @@
                   %i.far.fa-heart
                 %span.a
                   1
-  %nav.mercari-brand
-    %ul.under-box
-      %li.under-box__left-box{:itemscope => "", :itemtype => "#"}
-        %a.link{:href => "#", :itemprop => "url"}
-          %span.text{:itemprop => "title"}
-            メルカリ
-          .mercari-brand__relation
-            %i.fas.fa-chevron-right
-      %li.under-box__right-box{:itemscope => "", :itemtype => "#"}
-        %span.text2{:itemprop => "title"}
-          リエンダ
+= render "./layouts/breadcrumb.html.haml"
 = render "./layouts/banner.html.haml"
 = render "./layouts/footer.html.haml"
 
