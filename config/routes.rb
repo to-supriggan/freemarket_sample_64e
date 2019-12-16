@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "users#credit_card_registration"
+  root to: "products#index"
+
+  resources :products do
+    collection do
+      get "get_child_category"
+      get "get_grandchild_category"
+    end
+  end
+
   resources :signup do
     collection do
       get 'index'
@@ -12,5 +20,5 @@ Rails.application.routes.draw do
       get 'login'
     end
   end
-  resources :products
+
 end
