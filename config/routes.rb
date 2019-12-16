@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "products#item_detail"
+  root to: "users#identification"
   resources :signup do
     collection do
       get 'index'
