@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   has_many :comments
-  has_many :images
+  has_many :images, inverse_of: :product
   has_many :goods
   belongs_to :user
   has_one :dealings
@@ -12,8 +12,6 @@ class Product < ApplicationRecord
   validates  :information,          presence: true
   validates  :condition,            presence: true
   validates  :shipping_charge,      presence: true
-  validates  :shipping_area,        presence: true
   validates  :days_before_skipment, presence: true
   validates  :price,                presence: true
-  validates  :evaluation,           presence: true
 end
