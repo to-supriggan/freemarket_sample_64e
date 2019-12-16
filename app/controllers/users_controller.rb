@@ -12,12 +12,14 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :nick_name,
       :email,
-      :password, 
-      :password_confirmation, 
-      :name,
-      :kana_name,
-      :birthday,
-      :payment_method
+      :password,
+      :last_name,
+      :first_name,
+      :last_name_kana,
+      :first_name_kana,
+      :birth_day,
+      :phone_number
+      # :password_confirmation,
   )
   end
 end
