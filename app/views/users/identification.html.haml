@@ -45,7 +45,7 @@
               %span.form-arbitrary
                 任意
               .select-wrap
-                %i.icon-arrow-bottom
+                %i.fas.fa-chevron-right
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name
             .t-identification__right-box__l-content__container__inner__form-group
               %label{for: "city"} 市区町村
@@ -65,6 +65,6 @@
                 =link_to products_path, class: "identification-text-right__link" do
                   本人情報の登録について
                   %i.fas.fa-chevron-right
-  
 = render "./layouts/banner.html.haml"
 = render "./layouts/footer.html.haml"
+= render "./layouts/listing_btn.html.haml"
