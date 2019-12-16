@@ -37,7 +37,7 @@
               郵便番号
             %span.form-arbitrary
               任意
-            %input.input-default{:name => "zip_code", :placeholder => "例）1234567", :type => "text", :value => ""}/
+            %input.input-default{name: "zip_code", placeholder: "例）1234567", typa: "text", value: ""}/
           .t-identification__right-box__l-content__container__inner__form-group
             %label{:for => "prefecture"}
               都道府県
@@ -45,7 +45,7 @@
               任意
             .select-wrap
               %i.icon-arrow-bottom
-              %select.select-default{:name => "prefecture"}
+              %select.select-default{name: "prefecture"}
                 %option --
                 %option 北海道
                 %option 青森県
@@ -97,22 +97,22 @@
           .t-identification__right-box__l-content__container__inner__form-group
             %label{:for => "city"} 市区町村
             %span.form-arbitrary 任意
-            %input.input-default{:name => "city", :placeholder => "例) 横浜市緑区", :type => "text", :value => ""}/
+            %input.input-default{name: "city", placeholder: "例) 横浜市緑区", typa: "text", value: ""}/
           .t-identification__right-box__l-content__container__inner__form-group
             %label{:for => "address1_label"} 番地
             %span.form-arbitrary 任意
-            %input.input-default{:name => "address1", :placeholder => "例) 青山1−1−1", :type => "text", :value => ""}/
+            %input.input-default{name: "address1", placeholder: "例) 青山1−1−1", typa: "text", value: ""}/
           .t-identification__right-box__l-content__container__inner__form-group
             %label{:for => "address2_label"} 建物名
             %span.form-arbitrary 任意
-            %input.input-default{:name => "address2", :placeholder => "例) 柳ビル103", :type => "text", :value => ""}/
-          %button.t-identification__right-box__l-content__container__inner__btn{:type => "submit"} 登録する
+            %input.input-default{name: "address2", placeholder: "例) 柳ビル103", typa: "text", value: ""}/
+          %button.t-identification__right-box__l-content__container__inner__btn{typa: "submit"} 登録する
           %div.t-identification__right-box__l-content__container__inner__text
             %p.identification-text-right
               =link_to products_path, class: "identification-text-right__link" do
                 本人情報の登録について
                 %i.fas.fa-chevron-right
-          %input{:name => "__csrf_value", :type => "hidden", :value => "f2fc3194c01727e1774d820b80605ef8d272f3e9aca8df662cad8561a1d4fab5641b8435b68de0e4e276ddee173753e109580cfe5c88577a41540f64d087b4efc"}/
+          %input{name: "__csrf_value", typa: "hidden", value: "f2fc3194c01727e1774d820b80605ef8d272f3e9aca8df662cad8561a1d4fab5641b8435b68de0e4e276ddee173753e109580cfe5c88577a41540f64d087b4efc"}/
 
 = render "./layouts/banner.html.haml"
 = render "./layouts/footer.html.haml"
