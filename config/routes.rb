@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "users#profile_edit"
+  root to: "users#credit_card_registration"
   resources :signup do
     collection do
       get 'index'
