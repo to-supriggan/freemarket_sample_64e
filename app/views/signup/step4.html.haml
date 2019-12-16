@@ -1,0 +1,95 @@
+/ Google Tag Manager (noscript)
+%noscript
+  %iframe{height: "0", src: ""}
+/ End Google Tag Manager (noscript)
+%header.user-container
+  .user-header
+    %h1.user-header__head
+      = link_to root_path,class: "user-header__head__link" do
+        = image_tag "fmarket_logo_red.svg", alt: "frima"
+    %nav.user-header__nav
+      %ol.user-header__nav__ol
+        %li.through.user-header__nav__ol__progress
+          会員情報
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          電話番号認証
+          .user-header__nav__ol__progress__li
+        %li.through.user-header__nav__ol__progress
+          お届け先住所入力
+          .user-header__nav__ol__progress__li
+        %li.active.user-header__nav__ol__progress
+          支払い方法
+          .user-header__nav__ol__progress__li
+        %li.user-header__nav__ol__progress
+          完了
+          .user-header__nav__ol__progress__li
+  .n-box
+    .n-box__top
+      %p 支払い方法
+    .nd-box__bottom
+      .nd-box__bottom__form
+        %label{for: ""} カード番号
+        %span.nd-box__bottom__form__span 必須
+        %br/
+        %input.nd-box__bottom__form__input{"data-input-type": "card", maxlength: "19", placeholder: "半角数字のみ", type: "text", value: ""}/
+        %ul.signup-card-list
+          %li
+            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1398199435'
+          %li
+            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1398199435'
+          %li
+            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1398199435'
+          %li
+            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?1398199435'
+          %li
+            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1398199435'
+          %li
+            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?1398199435'
+          %li
+            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?1398199435'
+      .nd-box__bottom__form
+        %label{for: "payment_card_expire"} 有効期限
+        %span.nd-box__bottom__form__span 必須
+        %br/
+        .nd-box__bottom__form__deadline
+          %select
+            %option{value: "01"} 01
+            %option{value: "02"} 02
+            %option{value: "03"} 03
+            %option{value: "04"} 04
+            %option{value: "05"} 05
+            %option{value: "06"} 06
+            %option{value: "07"} 07
+            %option{value: "08"} 08
+            %option{value: "09"} 09
+            %option{value: "10"} 10
+            %option{value: "11"} 11
+            %option{value: "12"} 12
+          %i.icon-arrow-bottom
+          %span 月
+        .nd-box__bottom__form__deadline
+          %select
+            %option{value: "19"} 19
+            %option{value: "20"} 20
+            %option{value: "21"} 21
+            %option{value: "22"} 22
+            %option{value: "23"} 23
+            %option{value: "24"} 24
+            %option{value: "25"} 25
+            %option{value: "26"} 26
+            %option{value: "27"} 27
+            %option{value: "28"} 28
+            %option{value: "29"} 29
+          %i.icon-arrow-bottom
+          %span 年
+      .nd-box__bottom__form
+        %label{for: ""} セキュリティコード
+        %span.nd-box__bottom__form__span 必須
+        %input.nd-box__bottom__form__input{placeholder: "カード背面4桁もしくは3桁の番号", type: "text", value: ""}/
+        %br/
+        %span.nd-box__bottom__form__q カード裏面の番号とは？
+        %button.nd-box__bottom__form__link
+          = link_to step5_signup_index_path do
+            .nd-box__bottom__form__link__text 追加する
+  = render "user_footer"

@@ -1,3 +1,5 @@
+$color-listing: #333;
+
 .listing {
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic",
     "メイリオ", "Meiryo", sans-serif;
@@ -396,7 +398,6 @@
       }
     }
   }
-  
   &__footer {
     width: 456px;
     margin: 0 auto;
@@ -405,36 +406,32 @@
     left: 0;
     padding: 40px 0;
     text-align: center;
-
-    a {
-      display: block;
-      color: #333;
-    }
-
-    p {
-      margin: 8px 0 0;
-    }
-
     nav {
       ul {
-        @include clearfix;
         list-style: none;
-        font-size: 0;
-        li:first-child {
-          margin: 0;
-        }
-        li {
+        .listfooter {
           font-size: 12px;
           margin: 0 0 0 16px;
           display: inline-block;
+          &__text {
+            color: $listing-color;
+            text-decoration: none;
+          }
         }
       }
     }
-
     .listing-footer-logo {
-      width: 80px;
-      height: 65px;
+      color: $listing-color;
       margin: 40px auto 0;
+      display: block;
+      img {
+        width: 185px;
+        height: 49px;
+        vertical-align: middle;
+      }
+    }
+    &__name {
+      margin: 8px 0 0;
     }
   }
 }

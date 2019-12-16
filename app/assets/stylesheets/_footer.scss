@@ -1,7 +1,7 @@
 .footer {
   font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
   font-weight: 500;
-  padding: 0 20px 10px 20px;
+  padding: 20px 20px 10px 20px;
   background: #212121;
   color: #fff;
   border-width: 0;
@@ -22,11 +22,16 @@
       &__link {
         display: block;
         line-height: 1.5em;
-        &__f {
-          color: #fff;
+        li {
+          margin: 14px 0 0;
         }
-        &__g {
-          color: #fff;
+        &__f {
+          color: white;
+          display: flex;
+          &__logo {
+            margin: 8px;
+            font-size: 30px;
+          }
         }
       }
     }
@@ -42,6 +47,9 @@
       &__link {
         display: block;
         line-height: 1.5em;
+        li {
+          margin: 14px 0 0;
+        }
       }
     }
     &__3 {
@@ -56,10 +64,16 @@
         display: block;
         line-height: 1.5em;
         float: left;
+        li {
+          margin: 14px 0 0;
+        }
       }
       &__link2 {
         display: block;
         line-height: 1.5em;
+        li {
+          margin: 14px 0 0;
+        }
       }
     }
     &__4 {
@@ -73,12 +87,46 @@
         display: block;
         line-height: 1.5em;
         white-space: nowrap;
+        li {
+          margin: 14px 0 0;
+        }
       }
     }
   }
   &__bottom {
+    align-items: center;
     margin: 30px auto 20px;
     width: 1020px;
+    &__logo {
+      height: 30px;
+      width: 100px;
+      display: flex;
+      &__box {
+        height: 30px;
+        width: 100px;
+        color: white;
+        &__img {
+          height: 30px;
+          width: 30px;
+          margin: 0;
+        }
+      }
+      &__text {
+        color: white;
+        text-decoration: none;
+        margin: 8px;
+      }
+      &__inc {
+        color: white;
+        text-decoration: none;
+        font-size: 12px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: sub;
+        white-space: nowrap;
+        margin: 8px 350% 0;
+      }
+    }
   }
 }
 a:hover {
@@ -89,7 +137,4 @@ a:hover {
   opacity: .7;
   color: #fff;
   text-decoration: none;
-}
-li {
-  margin: 14px 0 0;
 }

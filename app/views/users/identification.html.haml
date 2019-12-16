@@ -1,0 +1,70 @@
+= render "./layouts/header.html.haml"
+= render "./layouts/breadcrumb.html.haml"
+.t-identification
+  = render "./layouts/side_info.html.haml"
+  .t-identification__right-box
+    .t-identification__right-box__l-content
+      %section.t-identification__right-box__l-content__container
+        .t-identification__right-box__l-content__container__head
+          本人情報の登録
+        .t-identification__right-box__l-content__container__inner
+          = form_for "", class: "t-identification__right-box__l-content__container__inner" do |f|
+            %div.t-identification__right-box__l-content__container__inner__text
+              %p
+                お客さまの本人情報をご登録ください。
+                %br>/
+                登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+              %p.identification-text-right
+                = link_to products_path, class: "identification-text-right__link" do
+                  本人確認書類のアップロードについて
+                  %i.fas.fa-chevron-right
+            .t-identification__right-box__l-content__container__inner__form-group
+              %label
+                お名前
+              %p
+                寺村 達也
+            .t-identification__right-box__l-content__container__inner__form-group
+              %label
+                お名前カナ
+              %p
+                テラムラ タツヤ
+            .t-identification__right-box__l-content__container__inner__form-group
+              %label{for: "birthday"}
+                生年月日
+              %p
+                1985/08/24
+            .t-identification__right-box__l-content__container__inner__form-group
+              %label{for: "zip_code"}
+                郵便番号
+              %span.form-arbitrary
+                任意
+              %input.input-default{name: "zip_code", placeholder: "例）1234567", typa: "text", value: ""}/
+            .t-identification__right-box__l-content__container__inner__form-group
+              %label{for: "prefecture"}
+                都道府県
+              %span.form-arbitrary
+                任意
+              .select-wrap
+                %i.icon-arrow-bottom
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+            .t-identification__right-box__l-content__container__inner__form-group
+              %label{for: "city"} 市区町村
+              %span.form-arbitrary 任意
+              %input.input-default{name: "city", placeholder: "例) 横浜市緑区", typa: "text", value: ""}/
+            .t-identification__right-box__l-content__container__inner__form-group
+              %label{for: "address1_label"} 番地
+              %span.form-arbitrary 任意
+              %input.input-default{name: "address1", placeholder: "例) 青山1−1−1", typa: "text", value: ""}/
+            .t-identification__right-box__l-content__container__inner__form-group
+              %label{for: "address2_label"} 建物名
+              %span.form-arbitrary 任意
+              %input.input-default{name: "address2", placeholder: "例) 柳ビル103", typa: "text", value: ""}/
+            %button.t-identification__right-box__l-content__container__inner__btn{typa: "submit"} 登録する
+            %div.t-identification__right-box__l-content__container__inner__text
+              %p.identification-text-right
+                =link_to products_path, class: "identification-text-right__link" do
+                  本人情報の登録について
+                  %i.fas.fa-chevron-right
+  
+= render "./layouts/banner.html.haml"
+= render "./layouts/footer.html.haml"

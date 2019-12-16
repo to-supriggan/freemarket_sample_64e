@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  root to: "products#index"
+
   resources :products do
     collection do
       get "get_child_category"
@@ -7,5 +9,16 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "products#index"
+  resources :signup do
+    collection do
+      get 'index'
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4'
+      get 'step5' # ここで、入力の全てが終了する
+      get 'login'
+    end
+  end
+
 end
