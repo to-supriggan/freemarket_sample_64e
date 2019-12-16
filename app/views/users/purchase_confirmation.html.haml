@@ -22,7 +22,7 @@
                   （税込）送料込み
       %section.purchase_confirmation__body__container__buy-item
         .purchase_confirmation__body__container__buy-item__inner
-          %form.purchase_confirmation__body__container__buy-item__inner__form{:action => "https://www.mercari.com/jp/transaction/buy/done/m73860173396/", :method => "POST", :novalidate => "novalidate"}
+          %form.purchase_confirmation__body__container__buy-item__inner__form
             %ul.purchase_confirmation__body__container__buy-item__inner__form__table
               %li.purchase_confirmation__body__container__buy-item__inner__form__table__bold
                 .purchase_confirmation__body__container__buy-item__inner__form__table__bold__label
@@ -33,10 +33,10 @@
             %ul.purchase_confirmation__body__container__buy-item__inner__form__point
               %li.purchase_confirmation__body__container__buy-item__inner__form__point__parent
                 .purchase_confirmation__body__container__buy-item__inner__form__point__parent__point
-                  %input.purchase_confirmation__body__container__buy-item__inner__form__point__parent__point__input{:disabled => "disabled", :type => "checkbox"}/
+                  %input.purchase_confirmation__body__container__buy-item__inner__form__point__parent__point__input
                   %label.purchase_confirmation__body__container__buy-item__inner__form__point__parent__point__text
                     ポイントを使用 (所持ポイント: P0)
-            %section.purchase_confirmation__body__container__buy-item__inner__form__info{"data-buy" => "pay-method"}
+            %section.purchase_confirmation__body__container__buy-item__inner__form__info
               .purchase_confirmation__body__container__buy-item__inner__form__info__inner
                 .purchase_confirmation__body__container__buy-item__inner__form__info__inner__box
                   .purchase_confirmation__body__container__buy-item__inner__form__info__inner__box__left
@@ -71,10 +71,10 @@
             %section.purchase_confirmation__body__container__buy-item__inner__form__content
               %p.purchase_confirmation__body__container__buy-item__inner__form__content__text
                 この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-              %button.purchase_confirmation__body__container__buy-item__inner__form__content__bold{:disabled => "disabled"}
+              %button.purchase_confirmation__body__container__buy-item__inner__form__content__bold
                 購入する
-              -# .purchase_confirmation__body__container__buy-item__inner__form__content__app{"data-action" => "item/openDetail", "data-key" => "id=m73860173396", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
-              -#   アプリで購入     JSチケット時実装
+              .purchase_confirmation__body__container__buy-item__inner__form__content__app{"data-action" => "item/openDetail", "data-key" => "id=m73860173396", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
+                アプリで購入 
               %p.purchase_confirmation__body__container__buy-item__inner__form__content__box
                 アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
               %br/
