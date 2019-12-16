@@ -1,0 +1,38 @@
+.listing {
+  &__footer {
+    width: 456px;
+    margin: 0 auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 40px 0;
+    text-align: center;
+    nav {
+      ul {
+        list-style: none;
+        .listfooter {
+          font-size: 12px;
+          margin: 0 0 0 16px;
+          display: inline-block;
+          &__text {
+            color: $listing-color;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .listing-footer-logo {
+      color: $listing-color;
+      margin: 40px auto 0;
+      display: block;
+      img {
+        width: 185px;
+        height: 49px;
+        vertical-align: middle;
+      }
+    }
+    &__name {
+      margin: 8px 0 0;
+    }
+  }
+}
