@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: "users#purchase_confirmation"
+  root to: "users#user-logout"
 
 
   resources :products do
