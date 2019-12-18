@@ -25,4 +25,3 @@ class UsersController < ApplicationController
   )
   end
 end
-      # :password_confirmation,

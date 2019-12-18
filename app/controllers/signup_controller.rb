@@ -4,7 +4,7 @@ class SignupController < ApplicationController
   def index
   end
 
-  # def login
+  # def login # ページが出来次第使用予定
   # end
 
   def step1
@@ -26,24 +26,19 @@ class SignupController < ApplicationController
     @user = User.new # 新規インスタンス作成
   end
 
-  def step5
-    # step2で入力された値をsessionに保存
+  def step5 
+    # step4で入力された値をsessionに保存
     session[:phone_number] = user_params[:phone_number]
     @user = User.new # 新規インスタンス作成
   end
 
-  # def done
-    # sign_in User.find(session[:id]) unless user_signed_in?
-  # end
-
-
-  # def step4
+  # def step4 # ページが出来次第使用予定
   #   # step3で入力された値をsessionに保存
   #   @user = User.new # 新規インスタンス作成
   # end
 
-  # def step5
-  #   # step4で入力された値をsessionに保存
+  # def step3 # ページが出来次第使用予定
+  #   # step2で入力された値をsessionに保存
   #   @user = User.new # 新規インスタンス作成
   # end
 
@@ -61,12 +56,10 @@ class SignupController < ApplicationController
       birth_day: session[:birth_day], 
       phone_number: session[:phone_number], 
     )
-    # binding.pry
     if @user.save
       # ログインするための情報を保管
       session[:id] = @user.id
       redirect_to signup_index_path
-      # binding.pry
     else
       render '/signup/index' #変更 /signup/registration
     end
@@ -90,5 +83,3 @@ class SignupController < ApplicationController
   )
   end
 end
-
-# session[:password_confirmation] = user_params[:password_confirmation]
