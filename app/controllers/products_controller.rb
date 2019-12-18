@@ -9,13 +9,6 @@ class ProductsController < ApplicationController
     @product = Product.new(save_params)
     @images = image_params
 
-    # 子、孫カテゴリ
-    if !params.permit(:grandchild_category_id)[:grandchild_category_id].blank?
-      @product[:category_id] = params.permit(:grandchild_category_id)[:grandchild_category_id]
-    elsif !params.permit(:child_category_id)[:child_category_id].blank?
-      @product[:category_id] = params.permit(:child_category_id)[:child_category_id]
-    end
-
     # ブランド
     if Brand.where(name: brand_params).blank?
       # DBにない場合
@@ -42,6 +35,19 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+  end
+
+
+  def show
+    @product = Product.find(params[:id])
+    @user = User.find(current_user.id)
+    @comments = @product.comments.order('created_at ASC')
+
+    # 出品者の商品に対する評価を確認
+    @ship_good = Product.where(user_id: current_user.id, evaluation: 0)
+    @ship_nomal = Product.where(user_id: current_user.id, evaluation: 1)
+    @ship_bad = Product.where(user_id: current_user.id, evaluation: 2)
+
   end
 
   def get_child_category
