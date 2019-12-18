@@ -1,5 +1,9 @@
 .wrapper
-  = render "./layouts/header.html.haml"
+  -if user_signed_in?
+    = render "./layouts/header_no_login.html.haml"
+  -else
+    = render "./layouts/header_no_login.html.haml"
+
   = render "./layouts/slider.html.haml"
   = render "./layouts/category_choice.html.haml"
   = render "./layouts/new_ladys.html.haml"

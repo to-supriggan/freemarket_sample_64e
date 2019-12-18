@@ -1,0 +1,48 @@
+.content
+  .content__box
+    .content__box__top
+      .content__box__top__left
+        %a.content__box__top__left__mercari{href: products_path}
+          %img.content__box__top__left__mercari__img{:alt => "fmarket", :src => "fmarket_logo_white.svg"}/
+      .content__box__top__right
+        %form.content__box__top__right__summary{:action => "/jp/search/"}
+          %input.content__box__top__right__summary__text{:name => "keyword", :placeholder => "何をお探しですか？", :type => "search", :value => ""}/
+          %button.content__box__top__right__summary__btn{:type => "submit"}
+            %i.fas.fa-search
+    .content__box__bottom
+      .content__box__bottom__left
+        .content__box__bottom__left__wrap
+          #category-top
+            = link_to products_path, id: "category-top__left-box" do
+              %i.fas.fa-list-ul
+              %span#category-top__left-box__text 
+                カテゴリーから探す
+            %div#category-top__left-box__pop-up
+              %ul#ex_menu
+                %li
+                  = link_to products_path,class: "google" do
+                    Google
+                %li
+                  = link_to products_path,class: "yahoo" do
+                    Yahoo!Japan
+          #brand-top
+            = link_to products_path, id: "brand-top__left-box" do
+              %svg#brand-top__left-box__img{"aria-hidden" => "true", :height => "15", :viewbox => "0 0 16 15", :width => "16"}
+                %path{:d => "M6.315 0L4.473 1.806 2.83.019.73 1.977l1.69 1.84L1.198 5.02c-1.594 1.594-1.594 4.188-.01 5.772L6.3 16h13.272a3.08 3.08 0 0 0 3.077-3.077V3.076A3.08 3.08 0 0 0 19.57 0H6.315zm13.46 12.925a.211.211 0 0 1-.205.205H7.504L3.227 8.771a1.226 1.226 0 0 1-.01-1.71L4.38 5.92l1.28 1.371a2.68 2.68 0 1 0 2.13-1.93L6.433 3.907 7.49 2.87h12.082a.211.211 0 0 1 .206.205v9.848h-.002z", :fill => "currentColor", "fill-rule" => "nonzero"}
+              %span#brand-top__left-box__text
+                ブランドから探す
+              %div#brand-top__left-box__pop-up
+                %ul#ex_menu2
+                %li
+                  = link_to products_path,class: "google" do
+                    Google
+                %li
+                  = link_to products_path,class: "yahoo" do
+                    Yahoo!Japan
+      .content__box__bottom__right
+        .content__box__bottom__right__registration
+          = link_to signup_index_path  do
+            = submit_tag "新規会員登録", class: "content__box__bottom__right__registration__box"
+        .content__box__bottom__right__login
+          = link_to user_session_path do
+            = submit_tag "ログイン", class: "content__box__bottom__right__login__box"
