@@ -20,4 +20,5 @@ Rails.application.routes.draw do
       get 'step5' # ここで、入力の全てが終了する
     end
   end
+  resources :goods, only: [:create,:index]
 end

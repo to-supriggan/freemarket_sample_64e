@@ -1,0 +1,18 @@
+.item-comment__container__content__message
+  %ul.messages
+    %li.messages__message.clearfix
+      = link_to "", class: "messages__message__user" do
+        %figure
+          %div
+            %img
+          %figcaption.bold
+            = comment.user.name
+            -if comment.product.user_id == comment.user.id
+              %span (出品者)
+      .messages__message__body
+        .message__body__text
+          =comment.content
+        .message__body__icons
+          %i.fas.fa-clock
+          %span
+            = "#{time_ago_in_words(comment.created_at)}前"
