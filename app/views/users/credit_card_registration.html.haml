@@ -1,0 +1,33 @@
+= render "./layouts/header"
+= render "./layouts/breadcrumb"
+.credit_card_registration
+  = render "./layouts/side_info"
+  .credit_card_registration__content
+    %section.credit_card_registration__content__container
+      .credit_card_registration__content__container__head
+        支払い方法
+      .credit_card_registration__content__container__box
+        %section.credit_card_registration__content__container__box__wrap
+          .credit_card_registration__content__container__box__wrap__chapter
+            .credit_card_registration__content__container__box__wrap__chapter__text
+              クレジットカード一覧
+          %ul.credit_card_registration__content__container__box__wrap__payment-list
+            %li.credit_card_registration__content__container__box__wrap__payment-list__box
+              %form.credit_card_registration__content__container__box__wrap__payment-list__box__form
+                .credit_card_registration__content__container__box__wrap__payment-list__box__form__figure
+                  %i.fab.fa-cc-visa
+                .credit_card_registration__content__container__box__wrap__payment-list__box__form__settings-payment-num
+                  ************8007
+                .credit_card_registration__content__container__box__wrap__payment-list__box__form__settings-payment-num
+                  07 / 22
+                %button.credit_card_registration__content__container__box__wrap__payment-list__box__form__settings-payment-remove{type: "submit"}
+                  削除する
+        .credit_card_registration__content__container__box__regist
+          = link_to products_path, class: "credit_card_registration__content__container__box__regist__btn" do
+            %span
+              支払い方法について
+            %i.fas.fa-chevron-right
+= render "./layouts/banner"
+= render "./layouts/footer"
+= render "./layouts/listing_btn"
+

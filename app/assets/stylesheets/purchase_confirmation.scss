@@ -1,0 +1,197 @@
+.purchase_confirmation {
+  &__header {
+    height: 128px;
+    padding-top: 40px;
+    &__img {
+      text-align: center;
+      &__link {
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        &__bg {
+          width: 185px;
+          height: 49px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  &__body {
+    &__container {
+      width: 700px;
+      margin: 0 auto;
+      background-color: #fff;  
+      &__head {
+        font-size: 22px;
+        font-weight: bold;
+        padding: 32px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+      }
+      &__item {
+        padding: 32px 16px;
+        border-bottom: 1px solid #eee;
+        &__inner {
+          max-width: 343px;
+          margin: 0 auto;
+          &__box {
+            display: flex;
+            &__img {
+              &__box {
+              height: 80px;
+              width: 80px;
+              min-width: 80px;
+              display: flex;
+              -webkit-box-pack: center;
+              justify-content: center;
+              -webkit-box-align: center;
+              align-items: center;
+              }
+            }
+            &__text {
+              margin-left: 16px;
+              &__name {
+                font-size: 14px;
+                margin: 0;
+                padding: 0 0 8px;
+                line-height: 1.5;
+                text-align: left;
+              }
+              &__bold {
+                margin: 0;
+                text-align: left;
+                font-size: 15px;
+                &__price {
+                }
+                &__fee {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__buy-item {
+        padding: 32px 16px;
+        &__inner {
+          max-width: 343px;
+          margin: 0 auto;
+          &__form {
+            border-style: solid;
+            border-width: 0;
+            &__table {
+              &__bold {
+                display: flex;
+                justify-content: space-between;
+                font-weight: bold;
+                align-items: center;
+                &__label {
+                  text-align: left;
+                  font-size: 18px;
+                }
+                &__cell {
+                  font-size: 30px;
+                  display: table-cell;
+                  padding: 0;
+                  text-align: right;
+                }
+              }
+            }
+            &__point {
+              margin: 24px 0 32px;
+              border-bottom: 1px solid #eee;
+              &__parent {
+                padding-bottom: 48px;
+                &__point {
+                  &__input {
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 2px;
+                    font-size: 10px;
+                    line-height: 17px;
+                    text-align: center;
+                  }
+                  &__text {
+                    color: #ccc;
+                  }
+                }
+              }
+            }
+            &__info {
+              padding: 32px 0;
+              border-bottom: 1px solid #eee;
+              &__inner {
+                max-width: 343px;
+                margin: 0 auto;
+                &__box {
+                  display: flex;
+                  justify-content: space-between;
+                  &__left {
+                    margin: 0;
+                    font-size: 14px;
+                    font-weight: bold;
+                  }
+                  &__fix {
+                    color: #0099e8;
+                    text-decoration: none;
+                    display: block;
+                    text-align: right;
+                  }
+                }
+                &__text {
+                  text-align: left;
+                  margin: 8px 0 0;
+                  font-size: 14px;
+                  line-height: 1.5;
+                }
+                &__logo {
+                  margin-top: 8px;
+                  margin-left: 0;
+                  margin-bottom: 10px;
+                  font-size: 44px;
+                  color: blue;
+                }
+              }
+            }
+            &__content {
+              padding: 24px 0 0;
+              &__text {
+                padding-bottom: 24px;
+                line-height: 1.5;
+                color: #ea352d;
+                font-size: 14px;
+              }
+              &__bold {
+                border: 1px solid #888;
+                background: #888;
+                color: #fff;
+                display: block;
+                width: 100%;
+                line-height: 48px;
+                font-size: 14px;
+                text-align: center;
+                font-weight: 600;
+              }
+              &__app {
+                display: none;
+              }
+              &__box {
+                margin-top: 40px;
+                line-height: 1.5;
+
+              }
+              &__logos {
+                text-align: center;
+                text-decoration: none;
+                &__bg {
+                  margin: 0 12px;
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

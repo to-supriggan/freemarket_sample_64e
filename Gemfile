@@ -84,3 +84,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 end
+
+gem 'ancestry'
+gem 'dropzonejs-rails', '~> 0.7.3'
+
