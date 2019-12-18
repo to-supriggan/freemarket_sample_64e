@@ -23,4 +23,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :goods, only: [:create,:index]
+
 end
