@@ -40,7 +40,7 @@
                   = link_to products_path,class: "yahoo" do
                     Yahoo!Japan
       .content__box__bottom__right
-        -if user_signed_in?
+        - if user_signed_in?
           #content__box__bottom__right__like
             = link_to products_path, id: "content__box__bottom__right__like__box" do
               %svg#content__box__bottom__right__like__box__img{"aria-hidden" => "true", :height => "15", :viewbox => "0 0 16 15", :width => "16"}
@@ -96,7 +96,7 @@
                   %li
                     = link_to products_path,class: "yahoo" do
                       Yahoo!Japan
-        -else
+        - else
           .content__box__bottom__right
             .content__box__bottom__right__registration
               = link_to signup_index_path  do
