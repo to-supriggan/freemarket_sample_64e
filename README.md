@@ -33,6 +33,8 @@ Things you may want to cover:
 |first_name|string|null: false|<!-- ok -->
 |last_name_kana|string|null: false|<!-- ok -->
 |first_name_kana|string|null: false|<!-- ok -->
+|birth_year|string|null: false|<!-- ok -->
+|birth_month|string|null: false|<!-- ok -->
 |birth_day|string|null: false|<!-- ok -->
 |phone_number|integer|null: false|unique: true| <!-- ok -->
 ### Association
