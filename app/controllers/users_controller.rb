@@ -20,6 +20,6 @@ class UsersController < ApplicationController
       :birth_day,
       :phone_number
       # :password_confirmation,
-  )
+    )
   end
 end

@@ -41,7 +41,8 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @categories = Category.all.limit(4).includes(:products => :images)
+    @brands = Brand.all.limit(4).includes(:products => :images)
   end
 
   def get_child_category
@@ -97,4 +98,7 @@ class ProductsController < ApplicationController
     params.require(:new_images).permit(num: [])
   end
 
+  def show
+    @products = Product.all
+  end
 end

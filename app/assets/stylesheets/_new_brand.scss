@@ -1,12 +1,12 @@
 .new-brand1 {
-  padding-top: 42px;
+  padding-top: 80px;
   width: 100%;
   background-color: rgb(245, 245, 245);
   padding-bottom: 13px;
-  margin-bottom: -13px;
   &__junre {
     width: calc(100% - 30%);
     margin: 0 auto;
+    padding-top: 80px;
     &__top {
       margin: 0 auto;
       margin: 42%, 0px, 100px, 0px;
@@ -16,7 +16,8 @@
       &__box {
         &__text {
           font-family: fantasy;
-          font-size: 20px;
+          font-size: 24px;
+          font-weight: 600;
         }
       }
       &__see-more {
@@ -31,7 +32,8 @@
         &__img {
           height: 10px;
           width: 10px;
-          margin-top: 4px;
+          margin-left: 5px;
+          margin-top: -3px;
           color: rgb(0, 149, 238);
         }
       }
@@ -85,7 +87,7 @@
                       padding: 0 12px;
                       position: absolute;
                       left: 0px;
-                      top: 143px;
+                      top: 100px;
                       z-index: 2;
                       &__price {
                         color: white;

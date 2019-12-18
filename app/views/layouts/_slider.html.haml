@@ -14,15 +14,15 @@
               %br>/
               購入時も安心な独自システムのアプリです
             .slick__slide__img1__box__wrap__left__text3
-              %a.slick__slide__img1__box__wrap__left__text3__img1{:href => "#", :rel => "noopener noreferrer", :target => "_blank"}
-                %img.slick__slide__img1__box__wrap__left__text3__img1__img{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}/
-              %a.slick__slide__img1__box__wrap__left__text3__img2{:href => "#", :rel => "noopener noreferrer", :target => "_blank"}
-                %img.slick__slide__img1__box__wrap__left__text3__img2__img{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}/
+              =link_to products_path, class: "slick__slide__img1__box__wrap__left__text3__img1" do
+                = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class: "slick__slide__img1__box__wrap__left__text3__img1__img"
+              = link_to products_path, class: "slick__slide__img1__box__wrap__left__text3__img2" do
+                = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", class: "slick__slide__img1__box__wrap__left__text3__img2__img"
           .slick__slide__img1__box__wrap__right
-            %img.slick__slide__img1__box__wrap__right__img{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/top-banner-main-device-1f627e51e488f6ca35feaa6a08b79736.png"}/
-        %img.slick__slide__img1__box__bg{:alt => "", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu2NyFeaxRx42YXHhBvajDSpEAhoCGFdRtMvFraDTu6Dzj3UA-&s"}/
+            = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/top-banner-main-device-1f627e51e488f6ca35feaa6a08b79736.png", class: "slick__slide__img1__box__wrap__right__img"
+        = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu2NyFeaxRx42YXHhBvajDSpEAhoCGFdRtMvFraDTu6Dzj3UA-&s", class: "slick__slide__img1__box__bg"
     %li.slick__slide__img2
-      %img.slick__slide__img2__bg2{:alt => "", :src => "sns_01.jpg"}/
+      = image_tag "/assets/sns_01.jpg", class: "slick__slide__img2__bg2"
     %li.slick__slide__img3
-      %img.slick__slide__img3__bg3{:alt => "", :src => "index_keyvisual.png"}/
+      = image_tag "/assets/index_keyvisual.png", class: "slick__slide__img3__bg3"
 
