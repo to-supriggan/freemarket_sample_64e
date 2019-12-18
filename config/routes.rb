@@ -3,14 +3,16 @@ Rails.application.routes.draw do
   root to: "users#profile_edit"
   resources :signup do
     collection do
-      get 'index'
+      # get 'index'
+      get 'login'
       get 'step1'
       get 'step2'
-      get 'step3'
-      get 'step4'
+      # get 'step3'
+      # get 'step4'
       get 'step5' # ここで、入力の全てが終了する
-      get 'login'
+      # get 'done' 
     end
   end
   resources :products
 end
+

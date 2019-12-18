@@ -21,7 +21,7 @@
     }
     &__bottom{
       text-align: center;
-      height: 220px;
+      height: 440px;
       &__text{
         font-size:20px;
         padding:40px 0;
@@ -31,27 +31,26 @@
         }
       }
       &__link{
-        background-color: #ea352d;
-        border: 1px solid #ea352d;
-        border-radius: 4px;
-        height: 48px;
-        width: 341px;
-        position: relative;
+        width: 343px;
+        text-align: center;
+        margin: 0 auto;
         &__text {
         font-size:14px;
-        color:#fff;
-        line-height: 48px;
-        animation: none;
-        text-decoration: none;
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
-        height: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        transition: all ease-out 0.3s;
+        cursor: pointer;
+        min-height: 1.5em;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        text-transform: none;
+        color: #fff;
         }
       }
       &__image{
         img{
+          margin-top: 50px;
           width: 700px;
           height: 230px;  
         }

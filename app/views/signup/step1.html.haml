@@ -70,65 +70,44 @@
             %br
             .step1-main__container__box__group__form__half
               .step1-main__container__box__group__form__half__li
-                = f.text_field :nick_name,placeholder: "苗字", class: "half"     # last_name
+                = f.text_field :last_name,placeholder: "苗字", class: "half"
               .step1-main__container__box__group__form__half__li
-                = f.text_field :nick_name,placeholder: "名前", class: "half"      # first_name
+                = f.text_field :first_name,placeholder: "名前", class: "half"
             %ul.error-text.error-last
               %li= "性 を入力してください"
             %ul.error-text.error-first
               %li= "名 を入力してください"
           .step1-main__container__box__group__form
-            = f.label :full_name, "お名前カナ(全角)"
+            = f.label :full_name_kana, "お名前カナ(全角)"
             %span.span="必須"
             %br
             .step1-main__container__box__group__form__half
               .step1-main__container__box__group__form__half__li
-                = f.text_field :nick_name,placeholder: "苗字カナ", class: "half"     # last_name
+                = f.text_field :last_name_kana,placeholder: "苗字カナ", class: "half"
               .step1-main__container__box__group__form__half__li
-                = f.text_field :nick_name,placeholder: "名前カナ", class: "half"      # first_name
+                = f.text_field :first_name_kana,placeholder: "名前カナ", class: "half"
             %ul.error-text.error-last
               %li= "性カナ を入力してください"
             %ul.error-text.error-first
               %li= "名カナ を入力してください"
           .step1-main__container__box__group__form
-            = f.label :birth_day,"生年月日"
+            = f.label :birth,"生年月日"
             %span.span="必須"
             %br
             .step1-main__container__box__group__form__birth
               .step1-main__container__box__group__form__birth__day
                 %i.icon-arrow-bottom
-                %select.select-default.year{name: "year"}
-                  %option{value: "01"} --
-                  %option{value: "02"} 2019
-                  %option{value: "03"} 2018
-                  %option{value: "04"} 2017
-                  %option{value: "05"} 2016
-                  %option{value: "06"} 2015
-                  %option{value: "07"} 2014
+                = f.select :birth_year, [["--", "--"],["2019", "2019"], ["2018", "2018"],  ["2017", "2017"], ["2016", "2016"],["2015", "2015"] ]
               %span
                 ="年"
               .step1-main__container__box__group__form__birth__day
                 %i.icon-arrow-bottom
-                %select.select-default.year{name: "month"}
-                  %option{value: "01"} --
-                  %option{value: "02"} 1
-                  %option{value: "03"} 2
-                  %option{value: "04"} 3
-                  %option{value: "05"} 4
-                  %option{value: "06"} 5
-                  %option{value: "07"} 6
+                = f.select :birth_month, [["--", "--"],["1", "1"], ["2", "2"],  ["3", "3"], ["4", "4"],["5", "5"] ]
               %span
                 ="月"
               .step1-main__container__box__group__form__birth__day
                 %i.icon-arrow-bottom
-                %select.select-default.year{name: "day"}
-                  %option{value: "01"} --
-                  %option{value: "02"} 1
-                  %option{value: "03"} 2
-                  %option{value: "04"} 3
-                  %option{value: "05"} 4
-                  %option{value: "06"} 5
-                  %option{value: "07"} 6
+                = f.select :birth_day, [["--", "--"],["1", "1"], ["2", "2"],  ["3", "3"], ["4", "4"],["5", "5"] ]
               %span
                 ="日"
               %ul.error-text.error-birth
@@ -153,9 +132,7 @@
                 「次へ進む」のボタンを押すことにより、
                 利用規約
                 に同意したものとみなします
-          .step1-main__container__box__group__submit
-            = link_to step2_signup_index_path,class: "step1-main__container__box__group__submit__next" do
-              次へ進む
+          = f.submit "次へ進む" ,class: "step1-main__container__box__group__submit"
           .step1-main__container__box__group__right
             .step1-main__container__box__group__right__menu
               = link_to "#",class: "step1-main__container__box__group__right__menu__arrow" do
