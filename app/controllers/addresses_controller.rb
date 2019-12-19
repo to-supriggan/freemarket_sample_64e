@@ -5,7 +5,6 @@ class AddressesController < ApplicationController
   end
 
   def create
-    binding.pry
     @address = Address.new(save_params)
     @address.save!
     redirect_to step4_signup_index_path 
