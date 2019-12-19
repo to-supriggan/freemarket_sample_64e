@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     end
   end
   resources :goods, only: [:create,:index]
+  resources :addresses, only: [:index, :new, :create]
 end
