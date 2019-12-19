@@ -325,6 +325,33 @@
             }
           }
         }
+        &__registration {
+          line-height: 40px;
+          &__box {
+            width: 130px;
+            height: 35px;
+            background-color: red;
+            border-color: red;
+            color:white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+          }
+        }
+        &__login {
+          line-height: 40px;
+          padding: 0px 0px 0px 7px;
+          &__box {
+            width: 100px;
+            height: 35px;
+            text-decoration: none;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 149, 238);
+            font-size: 16px;
+            border-color: rgb(0, 149, 238);
+            border-radius: 4px;
+          }
+        }
       }
     }
   }
