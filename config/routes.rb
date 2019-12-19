@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: "users#user-logout"
-
+  root to: "addresses#index"
+  resources :addresses, only: [:index, :new, :create]
 
   resources :products do
     collection do

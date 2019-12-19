@@ -117,14 +117,20 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 <!-- buyer = 売り -->
-## adressesテーブル
+## addressesテーブル
 |column|Type|Options|
 |------|----|-------|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
 |postal_cord|string|null: false|
+|prefecture_id|references|null: false,foreign_key: true|
 |city|string|null: false|
 |street_num|string|null: false|
 |building|string|
+|phone_num|string|
 |user_id|references|null: false,foreign_key: true|
-|prefecture_id|references|null: false,foreign_key: true|
 ### Association
 - belongs_to :user
+- belongs_to :prefecture
