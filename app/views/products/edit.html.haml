@@ -13,11 +13,72 @@
                 必須
             %p 最大10枚までアップロードできます
             .single-main__box__sell__inner__form__upload__items
-              %label.single-main__box__sell__inner__form__upload__items__input
-                = f.fields_for :images do |image|
-                  = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image"
-                  %pre.drop-text
-                    クリックしてファイルをアップロード
+              .single-main__box__sell__inner__form__upload__items__box
+                .single-main__box__sell__inner__form__upload__items__box__have#preview_box
+                  %ul#preview_list
+                    - i = 0
+                    - @product.images[0..4].each do |image|
+                      %li.upload-sell-item{id: i}
+                        - i += 1
+                        %figure.upload-sell-figure
+                          = image_tag image.image.url, class: "upload-sell-item-img"
+                        .upload-sell-btn
+                          %a.upload-sell-edit="編集"
+                          %a.upload-sell-delete="削除"
+                  %ul#preview_list2
+                    - i = 5
+                    -if @product.images.length > 5
+                      - @product.images[5..9].each do |image|
+                        %li.upload-sell-item{id: i}
+                          - i += 1
+                          %figure.upload-sell-figure
+                            = image_tag(image.image.url)
+                          .upload-sell-btn
+                            %a.upload-sell-edit="編集"
+                            %a.upload-sell-delete="削除"
+
+                  -if @product.images.length == 0 || @product.images.length == 5
+                    = f.label :images do
+                      .single-main__box__sell__inner__form__upload__drop-0#drop_box
+                        = f.file_field :images, class: 'upload-sell-drop-file', accept: "image/jpeg, image/png"
+                        .drop-field
+                        %pre.drop-text 
+                          クリックしてファイルをアップロード
+                  - elsif @product.images.length == 1 || @product.images.length == 6
+                    = f.label :images do
+                      .single-main__box__sell__inner__form__upload__drop-1#drop_box
+                        = f.file_field :images, class: 'upload-sell-drop-file', accept: "image/jpeg, image/png"
+                        .drop-field
+                        %pre.drop-text 
+                          クリックしてファイルをアップロード
+                  - elsif @product.images.length == 2 || @product.images.length == 7
+                    = f.label :images do
+                      .single-main__box__sell__inner__form__upload__drop-2#drop_box
+                        = f.file_field :images, class: 'upload-sell-drop-file', accept: "image/jpeg, image/png"
+                        .drop-field
+                        %pre.drop-text 
+                          クリックしてファイルをアップロード
+                  - elsif @product.images.length == 3 || @product.images.length == 8
+                    = f.label :images do
+                      .single-main__box__sell__inner__form__upload__drop-3#drop_box
+                        = f.file_field :images, class: 'upload-sell-drop-file', accept: "image/jpeg, image/png"
+                        .drop-field
+                        %pre.drop-text 
+                          クリックしてファイルをアップロード
+                  - elsif @product.images.length == 4 || @product.images.length == 9
+                    = f.label :images do
+                      .single-main__box__sell__inner__form__upload__drop-4#drop_box
+                        = f.file_field :images, class: 'upload-sell-drop-file', accept: "image/jpeg, image/png"
+                        .drop-field
+                        %pre.drop-text 
+                          クリックしてファイルをアップロード
+                  - else
+                    = f.label :images do
+                      .single-main__box__sell__inner__form__upload__drop#drop_box
+                        = f.file_field :images, class: 'upload-sell-drop-file', accept: "image/jpeg, image/png"
+                        .drop-field
+                        %pre.drop-text 
+                          クリックしてファイルをアップロード
 
           .single-main__box__sell__inner__form__index-box
             .form-group
