@@ -28,17 +28,15 @@
     %section.step2-main__container
       .step2-main__container__head
         電話番号の確認
-      = form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'step2-main__container__box'} do |f|
+      = form_for @user, url: step5_signup_index_path, method: :get, html: {class: 'step2-main__container__box'} do |f|
         .step2-main__container__box__group
           .step2-main__container__box__group__form
-            = f.label :nick_name, "携帯電話の番号"         # phone_num
-            = f.phone_field :nick_name,placeholder: "携帯電話の番号を入力",class: ""
+            = f.label :phone_number, "携帯電話の番号"         # phone_num
+            = f.phone_field :phone_number, placeholder: "携帯電話の番号を入力",class: ""
             %ul.error-text.error-phone
               %li= "電話番号の入力が正しくありません"
             %p= "本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。"
-          .step2-main__container__box__group__submit
-            = link_to step3_signup_index_path,class: "step2-main__container__box__group__submit__next" do
-              SMSを送信する
+          = f.submit "SMSを送信する" ,class: "step2-main__container__box__group__submit"
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
           .step2-main__container__box__group__right
             .step2-main__container__box__group__right__menu
