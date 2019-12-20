@@ -1,247 +1,52 @@
 $(document).on("turbolinks:load",function() {
-  function previewAction(){
-    let ul1Count = $("#preview_list").children().length
-    let arrayCount = old_array.length + files_array.length
-    $dropBox = $("#drop_box")
-    $previewList = $("#preview_list")
-    $previewList2 = $("#preview_list2")
-  
-    if(ul1Count < 5){
-      $("#preview_list2").children().first().appendTo($("#preview_list"))
-    }
-    if(arrayCount == 10){
-      $dropBox.hide()
-    } else {
-      $dropBox.show()
-    }
-    if(arrayCount == 0){
-      $previewList.remove();
-      $previewList2.remove();
-      $dropBox.removeClass().addClass("single-main__box__sell__inner__form__upload__drop-0");
-    } else if(arrayCount == 1) {
-      $dropBox.removeClass().addClass("single-main__box__sell__inner__form__upload__drop-1");
-    } else if(arrayCount == 2) {
-      $dropBox.removeClass().addClass("single-main__box__sell__inner__form__upload__drop-2");
-    } else if(arrayCount == 3) {
-      $dropBox.removeClass().addClass("single-main__box__sell__inner__form__upload__drop-3");
-    } else if(arrayCount == 4) {
-      $dropBox.removeClass().addClass("single-main__box__sell__inner__form__upload__drop-4");
-    } else if(arrayCount == 5) {
-      $previewList2.remove();
-      $dropBox.removeClass().addClass("single-main__box__sell__inner__form__upload__drop-0");
-    } else if(arrayCount == 6) {
-      $previewList2.css({"width":"116px","margin":0});
-      $dropBox.removeClass().addClass("single-main__box__sell__inner__form__upload__drop-1");
-    } else if(arrayCount == 7) {
-      $previewList2.css({"width":"242px","margin":0});
-      $dropBox.removeClass().addClass("single-main__box__sell__inner__form__upload__drop-2");
-    } else if(arrayCount == 8) {
-      $previewList2.css({"width":"368px","margin":0});
-      $dropBox.removeClass().addClass("single-main__box__sell__inner__form__upload__drop-3");
-    } else if(arrayCount == 9) {
-      $previewList2.css({"width":"494px","margin":0});
-      $dropBox.removeClass().addClass("single-main__box__sell__inner__form__upload__drop-4");
-    } else if (arrayCount == 10) {
-      $previewList2.css({"width":"620px","margin":0});
-      $dropBox.removeClass().addClass("drop");
-    } else {
-      $dropBox.hide()
-    }
-  }
-  
-    $(function(){
-      $fileField = $("#images")
-      files_array = []
-      old_array = []
-  
-      $($fileField).on('change', $fileField, function(e) {
-          files = e.target.files
-          for (var i=0; i<files.length; i++) {
-            if(old_array != null) {
-              if (files_array.length >= 10 - old_array.length){
-                break
-              }
-            }
-          files_array.push(files[i])
-  
-          reader = new FileReader(),
-          $previewBox = $("#preview_box");
-          $previewList = $("#preview_list");
-          $previewList2 = $("#preview_list2");
-          if (old_array.length + files_array.length == 1){
-  
-              reader.onload = (function(e){
-                let imgURI = e.target.result
-                if($previewList.length == 0) {
-                  let preview =  `<ul id="preview_list">
-                                    <li class="upload-sell-item">
-                                      <figure class="upload-sell-figure">
-                                        <img src="${imgURI}">
-                                      </figure>
-                                      <div class="upload-sell-btn">
-                                        <a class="upload-sell-edit">編集</a>
-                                        <a class="upload-sell-delete" href="/">削除</a>
-                                      </div>
-                                    </li>
-                                  </ul>`
-      
-                  $previewBox.append(preview)
-                } else {
-                  let preview =  `<li class="upload-sell-item">
-                                    <figure class="upload-sell-figure">
-                                      <img src="${imgURI}">
-                                    </figure>
-                                    <div class="upload-sell-btn">
-                                      <a class="upload-sell-edit">編集</a>
-                                      <a class="upload-sell-delete" href="/">削除</a>
-                                    </div>
-                                  </li>`
-    
-                  $previewList.append(preview)
-                }
-              });
-            reader.readAsDataURL(files[i]);
-          } else if (old_array.length + files_array.length < 6){
-            if($previewBox.children().length == 2){
-              $previewList2.remove();
-            }
-            reader.onload = (function(e){
-              let imgURI = e.target.result
-              let preview2 = `<li class="upload-sell-item">
-                                <figure class="upload-sell-figure">
-                                  <img src="${imgURI}">
-                                </figure>
-                                <div class="upload-sell-btn">
-                                  <a class="upload-sell-edit">編集</a>
-                                  <a class="upload-sell-delete" href="/">削除</a>
-                                </div>
-                              </li>`
-              $previewBox.children().append(preview2)
-            });
-          reader.readAsDataURL(files[i]);
-          } else if(old_array.length + files_array.length == 6){
-            reader.onload = (function(e){
-              let imgURI = e.target.result
-              if($previewList2.length == 0) {
-                let preview =  `<ul id="preview_list2">
-                                  <li class="upload-sell-item">
-                                    <figure class="upload-sell-figure">
-                                      <img src="${imgURI}">
-                                    </figure>
-                                    <div class="upload-sell-btn">
-                                      <a class="upload-sell-edit">編集</a>
-                                      <a class="upload-sell-delete" href="/">削除</a>
-                                    </div>
-                                  </li>
-                                </ul>`
-    
-                $previewBox.append(preview)
-              } else {
-                let preview =  `<li class="upload-sell-item">
-                                  <figure class="upload-sell-figure">
-                                    <img src="${imgURI}">
-                                  </figure>
-                                  <div class="upload-sell-btn">
-                                    <a class="upload-sell-edit">編集</a>
-                                    <a class="upload-sell-delete" href="/">削除</a>
-                                  </div>
-                                </li>`
-  
-                $previewList2.append(preview)
-              }
-            });
-          reader.readAsDataURL(files[i]);
-          } else if(old_array.length + files_array.length <= 10){
-            reader.onload = (function(e){
-              let imgURI = e.target.result
-              let preview =  `<li class="upload-sell-item">
-                                <figure class="upload-sell-figure">
-                                  <img src="${imgURI}">
-                                </figure>
-                                <div class="upload-sell-btn">
-                                  <a class="upload-sell-edit">編集</a>
-                                  <a class="upload-sell-delete" href="/">削除</a>
-                                </div>
-                              </li>`
-              $previewBox.children().next().append(preview)
-            });
-          reader.readAsDataURL(files[i]);
-          }
-        }
-        previewAction()
-      })
-  
-      num_array = []
-      $(document).on('click','#preview_box .upload-sell-delete', function(e){
-        e.preventDefault();
-        var index = $("#preview_box .upload-sell-delete").index(this);
-        if(index <= old_array.length -1){
-        old_array.splice(index, 1);
-        } else {
-        files_array.splice(index - old_array.length, 1);
-        }
-        $(this).parent().parent().remove();
-        previewAction()
-      });
-  
-      $("#form_with").on('submit', function(e){
-        e.preventDefault();
-        var formData = new FormData($(this).get(0));
-        files_array.forEach(function(file){
-          formData.append("new_images[images][]", file)
-        })
-        $.ajax ({
-          url: '/products',
-          type: 'POST',
-          data: formData,
-          contentType: false,
-          processData: false,
-        })
-        .done(function(val){
-        })
-        .fail(function(val){
-          alert('登録できませんでした')
-          location.reload();
-        })
-      })
-      $("#form_with_edit").on('submit', function(e){
-        e.preventDefault();
-        var formData = new FormData($(this).get(0));
-        let id = gon.product.id
-  
-        files_array.forEach(function(file){
-          formData.append("new_images[images][]", file)
-        })
-        num_array.forEach(function(file){
-          formData.append("new_images[num][]", file)
-        })
-        if (num_array.length == 0 || files_array.length == 0){
-          kara_array = ["1"]
-          kara_array.forEach(function(file){
-            formData.append("new_images[kara][]", file)
-          })
-        }
-        if(files_array.length != 0 || old_array.length != 0){
-          $.ajax ({
-            url: '/products/' + id,
-            type: 'PUT',
-            data: formData,
-            contentType: false,
-            processData: false,
-          })
-          .done(function(val){
-          })
-          .fail(function(val){
-            alert("画像を変更してください")
-          })
-        } else {
-          alert("画像が一枚もありません")
-          window.location.reload();
-        }
-      })
-    })
 
-    // ネスト構造のセレクトボックスの段階表示
+  function buildHTML(imgSrc){
+    let html =  `<div class="preview-box">
+                   <div class="preview-box__img-box">
+                     <input type="image" src="${imgSrc}" name="images[image][]" id="iamges_image_ids_${imgSrc}>
+                  </div>
+                  <div class="preview-box__select">
+                  <div class="preview-box__select__delete">
+                    <p>削除</p>
+                  </div>
+                </div>
+              </div>`
+
+              // let html =  `<input type="file"  name="images[image][]" >`
+    $('.single-main__box__sell__inner__form__upload__items').prepend(html);
+  };
+
+  let images = [];
+
+  $('#upload-image').change(function(e){
+    let files = e.target.files;
+    for (var i = 0, f; f = files[i]; i++){
+      let reader = new FileReader();
+      reader.readAsDataURL(f);
+      reader.onload = function(){
+        let imgSrc = reader.result;
+        buildHTML(imgSrc);
+        images.push(imgSrc);
+    }
+    }
+  });
+
+  $('.single-main__box__sell__inner__form__upload__items__input').on('drop', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    let dropImages = e.originalEvent.dataTransfer.files;
+      for(let i = 0; i < dropImages.length; i++ ) {
+        let imgSrc = URL.createObjectURL(dropImages[i]);
+        buildHTML(imgSrc);
+        images.push(dropImages[i].name);
+      }
+  });
+
+  $(document).on('click', '.preview-box__select__delete p', function(){
+    $(this).closest('.preview-box').remove();
+  });
+
+  // ネスト構造のセレクトボックスの段階表示
   function appendOption(select){
   let html = `<option value="${select.id}">${select.genre}</option>`
   return html;
@@ -250,7 +55,7 @@ $(document).on("turbolinks:load",function() {
   function childBox(insertHTML){
   let childBoxHTML =`<div class="select-wrap" id="child_box">
                       <i class="icon-arrow-bottom"></i>
-                      <select class="select-default" id="child_form" name="child_category_id">
+                      <select class="select-default" id="child_form" name="product[category_id]">
                         <option value="">---</option>
                         ${insertHTML}
                     </select>
@@ -261,28 +66,12 @@ $(document).on("turbolinks:load",function() {
   function grandChildBox(insertHTML){
   let grandChildBoxHTML =`<div class="select-wrap" id="grandchild_box">
                             <i class="icon-arrow-bottom"></i>
-                            <select class="select-default" id="grandchild_form" name="grandchild_category_id">
+                            <select class="select-default" id="grandchild_form" name="product[category_id]">
                               <option value="">---</option>
                               ${insertHTML}
                             </select>
                           </div>`
   $("#child_box").after(grandChildBoxHTML);
-  }
-  
-  function postagePlanBox(insertHTML){
-  let postagePlanBoxHTML = `<div class="form-group" id="postage-plan-box_list">
-                              <label>配送の方法
-                                <span class="form-require">必須</span>
-                              </label>
-                              <div class="select-wrap">
-                                <i class="icon-arrow-bottom"></i>
-                                <select class="select-default" name="item[postage_id]">
-                                <option value="">---</option>
-                                ${insertHTML}
-                                </select>
-                              </div>
-                            </div>`
-  $("#postage-select-box_list").append(postagePlanBoxHTML);
   }
 
   clothesArray       = ["160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180",
@@ -457,7 +246,7 @@ $(document).on("turbolinks:load",function() {
 
   // 価格の手数料と利益の非同期
   function priceView(){
-    let price = $("#price").val();
+    let price = $("#product_price").val();
     let minPrice = 300
     let maxPrice = 9999999
     let fee = 10
@@ -480,9 +269,12 @@ $(document).on("turbolinks:load",function() {
     }
   
   $(function(){
-    $("#price").on('input',function(){
+    $("#product_price").on('input',function(){
       priceView()
     })
+    if(document.URL.match("products" && "edit")){
+      priceView()
+    }
   })
   
 });
