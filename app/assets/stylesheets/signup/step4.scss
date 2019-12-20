@@ -39,12 +39,19 @@ background-color: #fff;
         &__manth {
           display: flex;
           &__wrap {
-            .input-expire {
+            #exp_month {
             height: 43px;
             width: 130px;
             background-color: #fff;
             border: 1px solid #ccc;
             text-indent: 0.5em;
+            }
+            #exp_year {
+              height: 43px;
+              width: 130px;
+              background-color: #fff;
+              border: 1px solid #ccc;
+              text-indent: 0.5em;
             }
           }
         }
