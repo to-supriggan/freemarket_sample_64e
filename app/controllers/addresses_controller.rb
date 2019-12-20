@@ -8,7 +8,7 @@ class AddressesController < ApplicationController
     @address = Address.new(save_params)
 
     if @address.save
-      redirect_to step4_signup_index_path 
+      redirect_to root_path
     else
       render "new" 
     end
@@ -17,7 +17,7 @@ class AddressesController < ApplicationController
   private
   def save_params
     params.require(:address).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_cord,
-                                    :prefecture_id, :city, :street_num, :building, :phone_num).merge(user_id: 1)
+                                    :prefecture_id, :city, :street_num, :building, :phone_num).merge(user_id: current_user.id)
   end
 
 
