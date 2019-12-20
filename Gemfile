@@ -88,3 +88,5 @@ end
 gem 'ancestry'
 gem 'dropzonejs-rails', '~> 0.7.3'
 gem "gretel"
+gem 'payjp'
+gem 'fog-aws'

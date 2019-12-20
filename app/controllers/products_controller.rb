@@ -3,11 +3,12 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.images.build
   end
 
   def create
     @product = Product.new(save_params)
-    @images = image_params
+    # @images = image_params
 
     # ブランド
     if Brand.where(name: brand_params).blank?
@@ -20,21 +21,18 @@ class ProductsController < ApplicationController
 
     # 保存処理
     if @product.save
-      if @images.blank?
-        redirect_to new_product_path
-      else
-        @images[:images].each do |image|
-          Image.create(image: image,product_id: @product.id)
-        end
-        redirect_to products_path
+      params[:images][:image].each do |image|
+        @product.images.create(image: image, product_id: @product.id)
       end
+      redirect_to products_path
     else
       redirect_to new_product_path
     end
   end
 
   def index
-    @products = Product.all
+    @categories = Category.all.limit(4).includes(:products => :images)
+    @brands = Brand.all.limit(4).includes(:products => :images)
   end
 
 
@@ -46,7 +44,6 @@ class ProductsController < ApplicationController
     @ship_good = Product.where(user_id: current_user.id, evaluation: 0)
     @ship_nomal = Product.where(user_id: current_user.id, evaluation: 1)
     @ship_bad = Product.where(user_id: current_user.id, evaluation: 2)
-
   end
 
   def get_child_category
@@ -86,20 +83,25 @@ class ProductsController < ApplicationController
   end
 
   def save_params
-    params.permit(:name, :information, :category_id, :condition, :shipping_charge, :prefecture_id,
-                  :brand_id, :days_before_skipment, :price).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :information, :category_id, :condition, :shipping_charge, :prefecture_id,
+                  :brand_id, :days_before_skipment, :price, images_attributes: [:imgae, :id]).merge(user_id: current_user.id)
   end
 
   def brand_params
-    params.permit(:brand)[:brand]
+    params.require(:product).permit(:brand)[:brand]
   end
 
-  def image_params
-    params.require(:new_images).permit(images: [])
-  end
-  
   def num_params
     params.require(:new_images).permit(num: [])
   end
+  require 'payjp'
 
+  def purchase
+    Payjp.api_key = Rails.application.credentials.aws[:api_secret_key]
+    Payjp::Charge.create(
+      amount: 809,
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+  end
 end

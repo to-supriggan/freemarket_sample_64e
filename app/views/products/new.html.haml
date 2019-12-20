@@ -5,7 +5,7 @@
       %section.single-main__box__sell__inner
         %h2.single-main__box__sell__inner__head
           商品の情報を入力
-        = form_with model: @item, local: true, class: "single-main__box__sell__inner__form", id: "form_with"  do |f|
+        = form_with model: @product, local: true, class: "single-main__box__sell__inner__form", id: "form_with"  do |f|
           .single-main__box__sell__inner__form__upload
             %h3.single-main__box__sell__inner__form__upload__head
               出品画像
@@ -13,14 +13,12 @@
                 必須
             %p 最大10枚までアップロードできます
             .single-main__box__sell__inner__form__upload__items
-              .single-main__box__sell__inner__form__upload__items__box
-                .single-main__box__sell__inner__form__upload__items__box__have#preview_box
-                = f.label :images do
-                  .single-main__box__sell__inner__form__upload__drop-0#drop_box
-                    = f.file_field :images, class: 'upload-sell-drop-file', accept: "image/jpeg, image/png"
-                    .drop-field
-                    %pre.drop-text 
-                      クリックしてファイルをアップロード
+              %label.single-main__box__sell__inner__form__upload__items__input
+                = f.fields_for :images do |image|
+                  = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image"
+                  %pre.drop-text
+                    クリックしてファイルをアップロード
+
           .single-main__box__sell__inner__form__index-box
             .form-group
               %label
