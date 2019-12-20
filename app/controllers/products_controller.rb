@@ -97,7 +97,7 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   def purchase
-    Payjp.api_key = "sk_test_0bcc27a5a5ac9878a5d0d1fc"
+    Payjp.api_key = Rails.application.credentials.aws[:api_secret_key]
     Payjp::Charge.create(
       amount: 809,
       card: params['payjp-token'],

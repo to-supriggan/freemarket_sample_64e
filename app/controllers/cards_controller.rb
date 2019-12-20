@@ -9,7 +9,8 @@ class CardsController < ApplicationController
 
 
   def create
-    Payjp.api_key = 'sk_test_0bcc27a5a5ac9878a5d0dfc'
+    
+    Payjp.api_key = Rails.application.credentials.aws[:api_secret_key]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
