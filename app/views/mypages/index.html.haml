@@ -1,5 +1,10 @@
 = render "./layouts/header"
-= render "./layouts/breadcrumb"
+- breadcrumb :index
+.breadcrumb
+  %nav.breadcrumb__center
+    %ul.breadcrumb__center__under-box
+      %li.breadcrumb__center__under-box__first{itemscope: "", itemtype: "#"}
+        = breadcrumbs pretext: "",separator: " &rsaquo; "
 .t-mypage
   = render "./layouts/side_info"
   .t-mypage__detail

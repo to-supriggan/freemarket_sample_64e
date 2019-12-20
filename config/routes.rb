@@ -21,4 +21,15 @@ Rails.application.routes.draw do
     end
   end
   resources :goods, only: [:create,:index]
+
+  resources :users do
+    resources :mypages do
+      collection do
+        get "credit_card_registration"
+        get "identification"
+        get "user_logout"
+        get "profile_edit"
+      end
+    end
+  end
 end

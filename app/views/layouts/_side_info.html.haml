@@ -3,19 +3,19 @@
     %ul.t-side-info__user__info-list
       %li.t-side-info__user__info-list__current
         .t-side-info__user__info-list__current__item
-          = link_to products_path, class: "t-side-info__user__info-list__current__item__active" do
+          = link_to user_mypages_path(current_user.id), class: "t-side-info__user__info-list__current__item__active" do
             マイページ
             %i.fas.fa-chevron-right
       %li.t-side-info__user__info-list__item
-        = link_to products_path, class: "t-side-info__user__info-list__item__link" do
+        = link_to user_mypages_path(current_user.id), class: "t-side-info__user__info-list__item__link" do
           お知らせ
           %i.fas.fa-chevron-right
       %li.t-side-info__user__info-list__item
-        = link_to products_path, class: "t-side-info__user__info-list__item__link" do
+        = link_to user_mypages_path(current_user.id), class: "t-side-info__user__info-list__item__link" do
           やることリスト
           %i.fas.fa-chevron-right
       %li.t-side-info__user__info-list__item
-        = link_to products_path, class: "t-side-info__user__info-list__item__link" do
+        = link_to user_mypages_path(current_user.id), class: "t-side-info__user__info-list__item__link" do
           いいね！一覧
           %i.fas.fa-chevron-right
       %li.t-side-info__user__info-list__item
@@ -75,7 +75,7 @@
       設定
       %ul.t-side-info__user__info-list
         %li.t-side-info__user__info-list__item
-          = link_to products_path, class: "t-side-info__user__info-list__item__link" do
+          = link_to profile_edit_user_mypages_path(current_user.id), class: "t-side-info__user__info-list__item__link" do
             プロフィール
             %i.fas.fa-chevron-right
         %li.t-side-info__user__info-list__item
@@ -83,7 +83,7 @@
             発送元・お届け先住所変更
             %i.fas.fa-chevron-right
         %li.t-side-info__user__info-list__item
-          = link_to products_path, class: "t-side-info__user__info-list__item__link" do
+          = link_to credit_card_registration_user_mypages_path(current_user.id), class: "t-side-info__user__info-list__item__link" do
             支払い方法
             %i.fas.fa-chevron-right
         %li.t-side-info__user__info-list__item
@@ -91,7 +91,7 @@
             メール/パスワード
             %i.fas.fa-chevron-right
         %li.t-side-info__user__info-list__item
-          = link_to products_path, class: "t-side-info__user__info-list__item__link" do
+          = link_to identification_user_mypages_path(current_user.id), class: "t-side-info__user__info-list__item__link" do
             本人情報
             %i.fas.fa-chevron-right
         %li.t-side-info__user__info-list__item
@@ -99,6 +99,6 @@
             電話番号の確認
             %i.fas.fa-chevron-right
         %li.t-side-info__user__info-list__item
-          = link_to products_path, class: "t-side-info__user__info-list__item__link" do
+          = link_to user_logout_user_mypages_path(current_user.id), class: "t-side-info__user__info-list__item__link" do
             ログアウト
             %i.fas.fa-chevron-right

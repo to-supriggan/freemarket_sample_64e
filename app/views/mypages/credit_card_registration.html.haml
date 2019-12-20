@@ -1,5 +1,10 @@
 = render "./layouts/header"
-= render "./layouts/breadcrumb"
+- breadcrumb :credit_card_registration
+.breadcrumb
+  %nav.breadcrumb__center
+    %ul.breadcrumb__center__under-box
+      %li.breadcrumb__center__under-box__first{itemscope: "", itemtype: "#"}
+        = breadcrumbs pretext: "",separator: " &rsaquo; "
 .credit_card_registration
   = render "./layouts/side_info"
   .credit_card_registration__content
