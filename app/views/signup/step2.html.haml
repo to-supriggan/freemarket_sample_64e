@@ -28,7 +28,7 @@
     %section.step2-main__container
       .step2-main__container__head
         電話番号の確認
-      = form_for @user, url: step5_signup_index_path, method: :get, html: {class: 'step2-main__container__box'} do |f|
+      = form_for @user, url: signup_index_path, method: :post, html: {class: 'step2-main__container__box'} do |f|
         .step2-main__container__box__group
           .step2-main__container__box__group__form
             = f.label :phone_number, "携帯電話の番号"         # phone_num
