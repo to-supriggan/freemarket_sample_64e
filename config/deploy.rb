@@ -8,6 +8,9 @@ set :application, 'freemarket_sample_64e'
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:to-supriggan/freemarket_sample_64e.git'
 
+# master.key用のシンボリックリンクを追加
+set :linked_files, %w{ config/master.key }
+
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
