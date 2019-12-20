@@ -1,0 +1,17 @@
+= render "./layouts/header"
+- breadcrumb :user_logout
+.breadcrumb
+  %nav.breadcrumb__center
+    %ul.breadcrumb__center__under-box
+      %li.breadcrumb__center__under-box__first{itemscope: "", itemtype: "#"}
+        = breadcrumbs pretext: "",separator: " &rsaquo; "
+.t-logout
+  = render "./layouts/side_info"
+  .t-logout__content
+    .t-logout__content__container
+      .t-logout__content__container__single
+        %button.t-logout__content__container__single__btn
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+= render "./layouts/banner"
+= render "./layouts/footer"
+= render "./layouts/listing_btn"

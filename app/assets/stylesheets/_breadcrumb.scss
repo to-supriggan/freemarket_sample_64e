@@ -1,38 +1,30 @@
 .breadcrumb {
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  border-top: 1px solid #eee;
+  background: #fff;
   position: relative;
+  line-height: center;
   &__center {
     &__under-box{
       position: relative;
-      border-top: 1px solid #eee;
       display: flex;
-      width: 750px;
+      width: 980px;
       margin: 0 auto;
       &__first {
         overflow: visible;
-        padding: 8px 0;
+        padding: 24px 0;
         white-space: normal;
         display: inline-block;
-        line-height: 1.2;
-        margin-bottom: 4px;
-        &__link {
-          display: flex;
-          color: #333;
+        line-height: 1.4;
+        .breadcrumbs{
+          a {
           text-decoration: none;
-          margin-right: 8px;
-          &__text {
-            margin-right: 4px;
-            margin-top: -4px;
+          color:black;
+          font-style: 16px;
           }
-          &__relation {
-            font-size: 9px;
-            color: #888;
-          }
-        }
-        &__current {
-          &__text {
-            font-family: fantasy;
+          span {
             font-weight: bold;
+            font-size: 16px;
           }
         }
       }
