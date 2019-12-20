@@ -28,7 +28,6 @@ class SignupController < ApplicationController
 
   def step5 
     # step4で入力された値をsessionに保存
-    session[:phone_number] = user_params[:phone_number]
     @user = User.new # 新規インスタンス作成
   end
 
@@ -43,6 +42,7 @@ class SignupController < ApplicationController
   # end
 
   def create
+    session[:phone_number] = user_params[:phone_number]
     @user = User.new(
       nick_name: session[:nick_name], # sessionに保存された値をインスタンスに渡す
       email: session[:email],
@@ -59,7 +59,8 @@ class SignupController < ApplicationController
     if @user.save
       # ログインするための情報を保管
       session[:id] = @user.id
-      redirect_to signup_index_path
+      sign_in User.find(session[:id]) unless user_signed_in?
+      redirect_to new_address_path
     else
       render '/signup/index' #変更 /signup/registration
     end

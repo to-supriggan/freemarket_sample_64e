@@ -37,3 +37,5 @@
     %form#login_form_google
   %footer.login__footer
   = render "user_footer"
+
+  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
