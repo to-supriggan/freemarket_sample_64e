@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_12_17_103007) do
   end
 
   create_table "brands", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -99,8 +99,6 @@ ActiveRecord::Schema.define(version: 2019_12_17_103007) do
   end
 
   create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "kana_name", null: false
     t.string "nick_name", null: false
     t.string "email", null: false
     t.string "encrypted_password", null: false
