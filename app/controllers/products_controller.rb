@@ -94,5 +94,14 @@ class ProductsController < ApplicationController
   def num_params
     params.require(:new_images).permit(num: [])
   end
+  require 'payjp'
 
+  def purchase
+    Payjp.api_key = Rails.application.credentials.aws[:api_secret_key]
+    Payjp::Charge.create(
+      amount: 809,
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+  end
 end
