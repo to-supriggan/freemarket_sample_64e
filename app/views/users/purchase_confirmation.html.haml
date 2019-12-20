@@ -71,8 +71,8 @@
             %section.purchase_confirmation__body__container__buy-item__inner__form__content
               %p.purchase_confirmation__body__container__buy-item__inner__form__content__text
                 この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-              %button.purchase_confirmation__body__container__buy-item__inner__form__content__bold
-                購入する
+              = form_with url: purchase_item_path do
+                %script.payjp-button{"data-key" => "pk_test_213bf4885307711c577fe2bb", src: "https://checkout.pay.jp", type: "text/javascript"}
               .purchase_confirmation__body__container__buy-item__inner__form__content__app{"data-action" => "item/openDetail", "data-key" => "id=m73860173396", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
                 アプリで購入 
               %p.purchase_confirmation__body__container__buy-item__inner__form__content__box
