@@ -94,5 +94,14 @@ class ProductsController < ApplicationController
   def num_params
     params.require(:new_images).permit(num: [])
   end
+  require 'payjp'
 
+  def purchase
+    Payjp.api_key = "sk_test_0bcc27a5a5ac9878a5d0d1fc"
+    Payjp::Charge.create(
+      amount: 809,
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+  end
 end

@@ -24,72 +24,53 @@
         %li.user-header__nav__ol__progress
           完了
           .user-header__nav__ol__progress__li
-  .n-box
-    .n-box__top
-      %p 支払い方法
-    .nd-box__bottom
-      .nd-box__bottom__form
-        %label{for: ""} カード番号
-        %span.nd-box__bottom__form__span 必須
-        %br/
-        %input.nd-box__bottom__form__input{"data-input-type": "card", maxlength: "19", placeholder: "半角数字のみ", type: "text", value: ""}/
-        %ul.signup-card-list
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1398199435'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1398199435'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1398199435'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?1398199435'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1398199435'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?1398199435'
-          %li
-            = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?1398199435'
-      .nd-box__bottom__form
-        %label{for: "payment_card_expire"} 有効期限
-        %span.nd-box__bottom__form__span 必須
-        %br/
-        .nd-box__bottom__form__deadline
-          %select
-            %option{value: "01"} 01
-            %option{value: "02"} 02
-            %option{value: "03"} 03
-            %option{value: "04"} 04
-            %option{value: "05"} 05
-            %option{value: "06"} 06
-            %option{value: "07"} 07
-            %option{value: "08"} 08
-            %option{value: "09"} 09
-            %option{value: "10"} 10
-            %option{value: "11"} 11
-            %option{value: "12"} 12
-          %i.icon-arrow-bottom
-          %span 月
-        .nd-box__bottom__form__deadline
-          %select
-            %option{value: "19"} 19
-            %option{value: "20"} 20
-            %option{value: "21"} 21
-            %option{value: "22"} 22
-            %option{value: "23"} 23
-            %option{value: "24"} 24
-            %option{value: "25"} 25
-            %option{value: "26"} 26
-            %option{value: "27"} 27
-            %option{value: "28"} 28
-            %option{value: "29"} 29
-          %i.icon-arrow-bottom
-          %span 年
-      .nd-box__bottom__form
-        %label{for: ""} セキュリティコード
-        %span.nd-box__bottom__form__span 必須
-        %input.nd-box__bottom__form__input{placeholder: "カード背面4桁もしくは3桁の番号", type: "text", value: ""}/
-        %br/
-        %span.nd-box__bottom__form__q カード裏面の番号とは？
-        %button.nd-box__bottom__form__link
-          = link_to step5_signup_index_path do
-            .nd-box__bottom__form__link__text 追加する
-  = render "user_footer"
+  .t-box
+    .t-box__title
+      .t-box__title__text
+        支払い方法
+    .t-box__credit
+      .t-box__credit__inner
+        = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f|
+          .t-box__credit__inner__box
+            = f.label :カード番号, class: 't-label'
+            %span.t-required
+              必須
+          .t-box__credit__inner__input
+            = f.text_field :card_number, type: 'text', class: 't-box__credit__inner__input__number', placeholder: '半角数字のみ', maxlength: "16"
+          %ul.signup-card-list
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1398199435'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1398199435'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1398199435'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?1398199435'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1398199435'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?1398199435'
+            %li
+              = image_tag '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?1398199435'
+          .t-box__credit__inner__box
+            = f.label :有効期限, class: 't-label'
+            %span.t-required
+              必須
+            .t-box__credit__inner__box__manth
+              .t-box__credit__inner__box__manth__wrap
+                = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-expire'
+                %span.expire-text
+                  月
+              .t-box__credit__inner__box__manth__wrap
+                = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-expire'
+                %span.expire-text
+                  年
+          .t-box__credit__inner__box
+            = f.label :セキュリティコード, class: 't-label'
+            %span.t-required
+              必須
+          .t-box__credit__inner__box__security
+            = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+          .t-box__bottom#card_token
+            = f.submit '追加する', class: 't-box__bottom__add-btn', id: 'token_submit'
+= render "user_footer"

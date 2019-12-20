@@ -1,17 +1,12 @@
 !!!
 %html
   %head
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"}/
     :javascript
       jQuery(function(){
         alert("age")
       });
-      document.getElementById("ex_out").addEventListener("mouseover", function(){
-        document.getElementById("ex_menu").style.display = 'block';
-      }, false);
-      document.getElementById("ex_out").addEventListener("mouseout", function(){
-        document.getElementById("ex_menu").style.display = 'none';
-      }, false);
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample64e
     = csrf_meta_tags

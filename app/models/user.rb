@@ -19,4 +19,5 @@ class User < ApplicationRecord
   has_many :comments
   has_many :dealing
   has_many :addresses
+  has_many :cards
 end
