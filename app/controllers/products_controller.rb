@@ -39,6 +39,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @comments = @product.comments.order('created_at ASC')
+    binding.pry
 
     # 出品者の商品に対する評価を確認
     @ship_good = Product.where(user_id: current_user.id, evaluation: 0)
