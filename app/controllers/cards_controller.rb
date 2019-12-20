@@ -6,15 +6,14 @@ class CardsController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     redirect_to action: "index" if card.present?
   end
-
+  
 
   def create
     
-    Payjp.api_key = Rails.application.credentials.aws[:api_secret_key]
+    Payjp.api_key = Rails.application.credentials.payjp[:api_secret_key]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
-
       customer = Payjp::Customer.create(
         description: 'test', 
         email: current_user.email,
@@ -23,7 +22,7 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to products_path
+        redirect_to step5_signup_index_path
       else
         redirect_to action: "create"
       end

@@ -2,6 +2,7 @@ document.addEventListener(
   "DOMContentLoaded", (e) => {
     Payjp.setPublicKey("pk_test_213bf4885307711c577fe2bb");
     const btn = document.getElementById('token_submit');
+    if(btn !== null){
     btn.addEventListener("click", (e) => {
       e.preventDefault();
 
@@ -30,4 +31,4 @@ document.addEventListener(
         }
       });
     });
-  },false);
+  }},false);
