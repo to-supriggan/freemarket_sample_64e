@@ -31,7 +31,7 @@
       .n-box__bottom__text
         %p ありがとうございます。
         %p 会員登録が完了しました。
-      = form_for @user, url: root_path, html: {class: 'n-box__bottom__link'} do |f|
+      = form_for @user, url: root_path, html: {method: 'get',class: 'n-box__bottom__link'} do |f|
         = f.submit "メルカリをはじめる" ,class: "n-box__bottom__link__text"
       .n-box__bottom__image
         = link_to root_path,class: "n-box__bottom__image__img" do

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: "signup#step4"
+  root to: "products#index"
 
   resources :products do
     collection do

@@ -8,7 +8,7 @@ class AddressesController < ApplicationController
     @address = Address.new(save_params)
 
     if @address.save
-      redirect_to root_path
+      redirect_to new_card_path
     else
       render "new" 
     end

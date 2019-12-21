@@ -1,7 +1,3 @@
-/ Google Tag Manager (noscript)
-%noscript
-  %iframe{height: "0", src: ""}
-/ End Google Tag Manager (noscript)
 %header.user-container
   .user-header
     %h1.user-header__head
@@ -73,4 +69,4 @@
             = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
           .t-box__bottom#card_token
             = f.submit '追加する', class: 't-box__bottom__add-btn', id: 'token_submit'
-= render "user_footer"
+= render "./signup/user_footer"
