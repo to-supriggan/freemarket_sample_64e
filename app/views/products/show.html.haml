@@ -11,21 +11,19 @@
             %ul.item-detail__wrap__left__look__slide__box
               - @product.images.each do |image|
                 %li.item-detail__wrap__left__look__slide__box__pic
-                  = image_tag image.image.url, class: "item-detail__wrap__left__look__slide__box__pic__img",　height: '300', width: '300'
+                  = image_tag image.image.url, class: "item-detail__wrap__left__look__slide__box__pic__img", height: '300', width: '300'
           %ul.item-detail__wrap__left__look__dots
             - @product.images.each do |image|
               %li.item-detail__wrap__left__look__dots__dot
                 = image_tag image.image.url, class: "item-detail__wrap__left__look__dots__dot__img", height: '60', width: '60'
-
       %table.item-detail__wrap__right
         %tbody.item-detail__wrap__right__box
           %tr.item-detail__wrap__right__box__person
-
             %th.item-detail__wrap__right__box__person__text
               出品者
             %td.item-detail__wrap__right__box__person__profile
               = link_to "", class: "item-detail__wrap__right__box__person__profile__link" do
-                = @product.user.name
+                = @product.user.nick_name
               .item-detail__wrap__right__box__person__profile__likes
                 .item-detail__wrap__right__box__person__profile__likes__good
                   %i.fas.fa-smile-beam
@@ -39,9 +37,9 @@
                   %i.fas.fa-frown
                   %span
                     = @ship_bad.count
-
           %tr.item-detail__wrap__right__box__category
-            %th.item-detail__wrap__right__box__category__text カテゴリー
+            %th.item-detail__wrap__right__box__category__text
+              カテゴリー
             %td.item-detail__wrap__right__box__category__link
               = link_to "", class: "item-detail__wrap__right__box__category__link__text" do
                 = @product.category.parent.parent.genre
@@ -59,8 +57,6 @@
             %td.item-detail__wrap__right__box__brand__detail
               -if @product.brand_id
                 = @product.brand.name
-
-
           %tr.item-detail__wrap__right__box__product
             %th.item-detail__wrap__right__box__product__status
               商品の状態
@@ -94,14 +90,12 @@
       %span.item-detail__price-box__fee 送料込み
     %section.item-detail__status
       .item-detail__status__item-btn
-        = link_to "", class: "item-detail__status__item-btn__link" do
+        = link_to purchase_confirmation_products_path(product_id: @product.id), class: "item-detail__status__item-btn__link" do
           購入画面に進む
       .item-detail__status__text-box
-
         .item-detail__status__text-box__comment
           %p.item-detail__status__text-box__comment__text
             = simple_format(@product.information)
-
       .item-detail__status__container
         .item-detail__status__container__left
           %button.item-detail__status__container__left__like{href: "#"}
@@ -125,7 +119,6 @@
       .item-comment__container__content
         - @comments.each do |comment|
           = render partial: 'parts/comments', locals: {comment: comment}
-
         %form.item-comment__container__content__message-form{action: "#", method: "POST"}
           %p
             相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

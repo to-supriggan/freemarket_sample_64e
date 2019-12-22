@@ -11,13 +11,13 @@
         .purchase_confirmation__body__container__item__inner
           .purchase_confirmation__body__container__item__inner__box
             .purchase_confirmation__body__container__item__inner__box__img
-              = image_tag "/assets/出品サンプル画像１.jpg", class: "purchase_confirmation__body__container__item__inner__box__img__box"
+              = image_tag @product.images[0].image_url, class: "purchase_confirmation__body__container__item__inner__box__img__box"
             .purchase_confirmation__body__container__item__inner__box__text
               %p.purchase_confirmation__body__container__item__inner__box__text__name
-                ロイスクレヨン   チェック スカート
+                = "#{@product.name}"
               %p.purchase_confirmation__body__container__item__inner__box__text__bold
                 %span.purchase_confirmation__body__container__item__inner__box__text__bold__price
-                  ¥2,400
+                  = "¥#{@product.price}-"
                 %span.purchase_confirmation__body__container__item__inner__box__text__bold__fee
                   （税込）送料込み
       %section.purchase_confirmation__body__container__buy-item
@@ -29,7 +29,7 @@
                   支払い金額
                 .purchase_confirmation__body__container__buy-item__inner__form__table__bold__cell
                   %span
-                    ¥2,400
+                    = "¥#{@product.price}-"
             %ul.purchase_confirmation__body__container__buy-item__inner__form__point
               %li.purchase_confirmation__body__container__buy-item__inner__form__point__parent
                 .purchase_confirmation__body__container__buy-item__inner__form__point__parent__point
@@ -47,11 +47,11 @@
                 %p.purchase_confirmation__body__container__buy-item__inner__form__info__inner__text
                   クレジットカード
                   %br/
-                  ************8007
+                  = "**** **** **** #{@card_information.last4}"
                   %br/
-                  有効期限 07 / 22
+                  = "有効期限 #{@card_information.exp_month} / " "#{@card_information.exp_year.to_s.slice(2,4)}"
                 %figure.purchase_confirmation__body__container__buy-item__inner__form__info__inner__logo
-                  %i.fab.fa-cc-visa
+                  = image_tag @card_src,class: "user-card-brand"
             %section.purchase_confirmation__body__container__buy-item__inner__form__info
               .purchase_confirmation__body__container__buy-item__inner__form__info__inner
                 .purchase_confirmation__body__container__buy-item__inner__form__info__inner__box
@@ -62,16 +62,17 @@
                       変更する
                 %address.purchase_confirmation__body__container__buy-item__inner__form__info__inner__text
                   %p
-                    〒861-1113
+                    = "#{@user.addresses[0].postal_cord}"
                     %br/
-                    熊本県 合志市栄
-                    3792-183
+                    = "#{@user.addresses[0].city}"
                     %br/
-                    寺村 達也
+                    = "#{@user.addresses[0].street_num}"
+                    %br/
+                    = "#{@user.nick_name}"
             %section.purchase_confirmation__body__container__buy-item__inner__form__content
               %p.purchase_confirmation__body__container__buy-item__inner__form__content__text
                 この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-              = form_with url: purchase_item_path do
+              = form_with(url: buy_products_path, local: true) do |form|
                 %script.payjp-button{"data-key" => "pk_test_213bf4885307711c577fe2bb", src: "https://checkout.pay.jp", type: "text/javascript"}
               .purchase_confirmation__body__container__buy-item__inner__form__content__app{"data-action" => "item/openDetail", "data-key" => "id=m73860173396", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
                 アプリで購入 

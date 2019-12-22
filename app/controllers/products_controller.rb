@@ -46,6 +46,34 @@ class ProductsController < ApplicationController
     @ship_bad = Product.where(user_id: current_user.id, evaluation: 2)
   end
 
+  def purchase_confirmation
+    @product = Product.find(params[:product_id])
+    @user = User.find(current_user.id)
+    @card = Card.find_by(user_id: current_user.id)
+    if @card.present?
+      Payjp.api_key = Rails.application.credentials.payjp[:api_secret_key] 
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_information = customer.cards.retrieve(@card.card_id)
+      @card_brand = @card_information.brand      
+      case @card_brand
+      when "Visa"
+        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1398199435'
+      when "JCB"
+        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?1398199435'
+      when "MasterCard"
+        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1398199435'
+      when "American Express"
+        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1398199435'
+      when "Diners Club"
+        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?1398199435'
+      when "Discover"
+        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?1398199435'
+      when "Saison"
+        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1398199435'
+      end
+    end
+  end
+
   def get_child_category
     respond_to do |format|
       format.html
@@ -64,8 +92,34 @@ class ProductsController < ApplicationController
     end
   end
 
+  require 'payjp'
+
+  def buy
+    binding.pry
+    @product = Product.find(params[:id])
+    Payjp.api_key = Rails.application.credentials.payjp[:api_secret_key]
+    Payjp::Charge.create(
+      amount: @product.price,
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+
+  end
+
   private
 
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def product_params
+    params.require(:item).permit(
+      :name,
+      :text,
+      :price,
+    ).merge(user_id: current_user.id)
+  end
+end
   def before_params
     @category = Category.where(ancestry: nil)
 
@@ -93,15 +147,4 @@ class ProductsController < ApplicationController
 
   def num_params
     params.require(:new_images).permit(num: [])
-  end
-  require 'payjp'
-
-  def purchase
-    Payjp.api_key = Rails.application.credentials.aws[:api_secret_key]
-    Payjp::Charge.create(
-      amount: 809,
-      card: params['payjp-token'],
-      currency: 'jpy'
-    )
-  end
 end
