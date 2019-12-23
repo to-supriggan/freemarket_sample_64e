@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :before_params
-  before_action :set_product, only: [:edit, :show, :destroy]
+  before_action :set_product, only: [:show, :destroy]
 
   def new
     @product = Product.new
@@ -38,7 +38,6 @@ class ProductsController < ApplicationController
 
 
   def show
-    @product = Product.find(params[:id])
     @comments = @product.comments.order('created_at ASC')
 
     # 出品者の商品に対する評価を確認
