@@ -148,5 +148,8 @@
             = f.submit "出品する", class: "btn-default btn-red", id: "item-submit"
             = link_to root_path, class: "btn-default btn-gray" do
               戻る
+            - if current_user.id == @product.user_id
+              = link_to product_path(@product.id), method: :delete, class: "btn-default btn-red" do
+                商品を削除
 
   = render "./parts/exhibit_footer.html.haml"
