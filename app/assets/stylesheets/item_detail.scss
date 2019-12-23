@@ -30,28 +30,7 @@
             &__box {
             width: 300px;
             height: 300px;
-            .sold {
-              position: absolute;
-              top: 0;
-              left: 0;
-              &__box {
-                position: relative;
-                border-top: 60px #ea352e solid;
-                border-bottom: 60px transparent solid;
-                border-right: 60px transparent solid;
-                border-left:60px #ea352e solid ;
-                &__text {
-                  font-size: 28px;
-                  font-weight: 600;
-                  color: #f5f5f5;
-                  transform: rotate(-45deg);
-                  position: absolute;
-                  left: -62px;
-                  top: -34px;
-                }
-              }
-            }
-            &__pic {
+              &__pic {
                 margin: 0;
                 &__img {
                   width: 300px;
@@ -317,18 +296,6 @@
     &__status {
       font-size: 24px;
       line-height: 60px;
-      &__sold-btn {
-        display: block;
-        margin-top: 16px;
-        background: #dddddd;
-        text-align: center;
-        &__link {
-          color: #fff;
-          font-weight: 600;
-          text-decoration: none;
-          font-family: fantasy;
-        }
-      }
       &__item-btn {
         display: block;
         margin-top: 16px;
