@@ -46,6 +46,24 @@ class ProductsController < ApplicationController
     @ship_bad = Product.where(user_id: current_user.id, evaluation: 2)
   end
 
+  require 'payjp'
+
+  def pay
+    @product = Product.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = Rails.application.credentials.payjp[:api_secret_key] 
+    Payjp::Charge.create(
+      amount: @product.price,
+      customer: card.customer_id, #customer.idかtokenどちらかが必須 今回はcustomer
+      currency: 'jpy'
+    )
+    redirect_to done_products_path(product_id: @product.id)
+  end
+
+  def done
+    @product = Product.find(params[:product_id])
+  end
+
   def purchase_confirmation
     @product = Product.find(params[:product_id])
     @user = User.find(current_user.id)
@@ -54,7 +72,7 @@ class ProductsController < ApplicationController
       Payjp.api_key = Rails.application.credentials.payjp[:api_secret_key] 
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
-      @card_brand = @card_information.brand      
+      @card_brand = @card_information.brand
       case @card_brand
       when "Visa"
         @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1398199435'
@@ -90,20 +108,6 @@ class ProductsController < ApplicationController
         @grandchilds = Category.find(params[:child_id]).children
       end
     end
-  end
-
-  require 'payjp'
-
-  def buy
-    binding.pry
-    @product = Product.find(params[:id])
-    Payjp.api_key = Rails.application.credentials.payjp[:api_secret_key]
-    Payjp::Charge.create(
-      amount: @product.price,
-      card: params['payjp-token'],
-      currency: 'jpy'
-    )
-
   end
 
   private

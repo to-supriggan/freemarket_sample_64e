@@ -22,7 +22,7 @@
                   （税込）送料込み
       %section.purchase_confirmation__body__container__buy-item
         .purchase_confirmation__body__container__buy-item__inner
-          %form.purchase_confirmation__body__container__buy-item__inner__form
+          .purchase_confirmation__body__container__buy-item__inner__form
             %ul.purchase_confirmation__body__container__buy-item__inner__form__table
               %li.purchase_confirmation__body__container__buy-item__inner__form__table__bold
                 .purchase_confirmation__body__container__buy-item__inner__form__table__bold__label
@@ -72,8 +72,9 @@
             %section.purchase_confirmation__body__container__buy-item__inner__form__content
               %p.purchase_confirmation__body__container__buy-item__inner__form__content__text
                 この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-              = form_with(url: buy_products_path, local: true) do |form|
-                %script.payjp-button{"data-key" => "pk_test_213bf4885307711c577fe2bb", src: "https://checkout.pay.jp", type: "text/javascript"}
+              = form_with(url: pay_product_path(@product.id,@card_information), method: :post, local: true) do
+                %button.payjp-button{type: "submit","data-key" => "pk_test_213bf4885307711c577fe2bb",src: "https://checkout.pay.jp"}
+                  購入する
               .purchase_confirmation__body__container__buy-item__inner__form__content__app{"data-action" => "item/openDetail", "data-key" => "id=m73860173396", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
                 アプリで購入 
               %p.purchase_confirmation__body__container__buy-item__inner__form__content__box

@@ -1,0 +1,12 @@
+= render "./layouts/header"
+.done-box
+  .done-product
+    %h2.done-product__top
+      購入が完了しました！
+    %p.done-product__name
+      = "#{@product.name}"
+    %p.done-product__price
+      = "¥#{@product.price}-税込み"
+    = link_to products_path, class: "done-product__back" do
+      TOPへ戻る
+= render "./signup/user_footer"

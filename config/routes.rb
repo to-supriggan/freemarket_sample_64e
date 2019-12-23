@@ -8,7 +8,10 @@ Rails.application.routes.draw do
       get "get_child_category"
       get "get_grandchild_category"
       get "purchase_confirmation"
-      post 'buy'
+      get "done"
+    end
+    member do
+      post 'pay'
     end
   end
 
