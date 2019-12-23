@@ -3,7 +3,7 @@
     .content__box__top
       .content__box__top__left
         %a.content__box__top__left__mercari{href: products_path}
-          %img.content__box__top__left__mercari__img{:alt => "fmarket", :src => "/assets/fmarket_logo_white.svg"}/
+          = image_tag "fmarket_logo_white.svg", class: "content__box__top__left__mercari__img"
       .content__box__top__right
         %form.content__box__top__right__summary{:action => "/jp/search/"}
           %input.content__box__top__right__summary__text{:name => "keyword", :placeholder => "何をお探しですか？", :type => "search", :value => ""}/
@@ -85,7 +85,7 @@
                       Yahoo!Japan
           #content__box__bottom__right__my-page
             = link_to user_mypages_path(current_user.id), id: "content__box__bottom__right__my-page__box" do
-              = image_tag "/assets/member_photo_noimage_thumb.png", id: "content__box__bottom__right__my-page__box__img"
+              = image_tag "member_photo_noimage_thumb.png", id: "content__box__bottom__right__my-page__box__img"
               %span#content__box__bottom__right__my-page__box__text
                 マイページ
               %div#content__box__bottom__right__my-page__box__pop-up
