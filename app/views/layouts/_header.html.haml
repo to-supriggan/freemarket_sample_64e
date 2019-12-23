@@ -85,7 +85,7 @@
                       Yahoo!Japan
           #content__box__bottom__right__my-page
             = link_to user_mypages_path(current_user.id), id: "content__box__bottom__right__my-page__box" do
-              %img#content__box__bottom__right__my-page__box__img{:alt => "", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}/
+              = image_tag "/assets/member_photo_noimage_thumb.png", id: "content__box__bottom__right__my-page__box__img"
               %span#content__box__bottom__right__my-page__box__text
                 マイページ
               %div#content__box__bottom__right__my-page__box__pop-up
