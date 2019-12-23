@@ -12,6 +12,13 @@
               - @product.images.each do |image|
                 %li.item-detail__wrap__left__look__slide__box__pic
                   = image_tag image.image.url, class: "item-detail__wrap__left__look__slide__box__pic__img", height: '300', width: '300'
+                  - @sold = Dealing.find_by(product_id: @product)
+                  - if @sold != nil
+                    - if @sold.status == "2"
+                      .sold
+                        .sold__box
+                          .sold__box__text
+                            SOLD
           %ul.item-detail__wrap__left__look__dots
             - @product.images.each do |image|
               %li.item-detail__wrap__left__look__dots__dot
@@ -89,9 +96,16 @@
       %span.item-detail__price-box__tax (税込)
       %span.item-detail__price-box__fee 送料込み
     %section.item-detail__status
-      .item-detail__status__item-btn
-        = link_to purchase_confirmation_products_path(product_id: @product.id), class: "item-detail__status__item-btn__link" do
-          購入画面に進む
+      - @sold = Dealing.find_by(product_id: @product)
+      - if @sold != nil
+        - if @sold.status == "2"
+          .item-detail__status__sold-btn
+            %div.item-detail__status__sold-btn__link
+            売り切れ
+      - else
+        .item-detail__status__item-btn
+          = link_to "", class: "item-detail__status__item-btn__link" do
+            購入画面に進む
       .item-detail__status__text-box
         .item-detail__status__text-box__comment
           %p.item-detail__status__text-box__comment__text

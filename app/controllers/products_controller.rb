@@ -1,23 +1,17 @@
 class ProductsController < ApplicationController
-  before_action :before_params
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :before_params, only: [:new, :edit]
+  before_action :set_product, only: [:edit, :update, :show, :destroy]
 
   def new
     @product = Product.new
     @product.images.build
+    @category = Category.where(ancestry: nil)
+
   end
 
   def create
     @product = Product.new(save_params)
-    # @images = image_params
-
-    # ブランド
-    if Brand.where(name: brand_params).blank?
-      # DBにない場合
-      @product[:brand_id] = Brand.where(name: "").ids[0]
-    else
-      # DBにある場合
-      @product[:brand_id] = Brand.where(name: brand_params).ids[0]
-    end
 
     # 保存処理
     if @product.save
@@ -30,14 +24,45 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    # 現在のカテゴリ選択値
+    @select_grandchild = Category.find(@product.category_id)
+    @select_child = @select_grandchild.parent
+    @select_parent = @select_child.parent
+
+    # カテゴリ配列
+    @category = Category.where(ancestry: nil)
+    @child_category = @select_parent.children
+    @grand_child_category = @select_child.children
+
+    # ブランド名
+    @brand_name = Brand.find(@product.brand_id).name
+  end
+
+  def update
+    # 保存処理
+    if @product.update(save_params)
+      if params[:images].blank?
+        # 新しい画像を登録しない場合
+        redirect_to products_path  
+      else
+        # 新しい画像を登録する場合
+        params[:images][:image].each do |image|
+          @product.images.create(image: image, product_id: @product.id)
+        end
+        redirect_to products_path  
+      end
+    else
+      redirect_to edit_product_path(params[:id])
+    end
+  end
+
   def index
     @categories = Category.all.limit(4).includes(:products => :images)
     @brands = Brand.all.limit(4).includes(:products => :images)
   end
 
-
   def show
-    @product = Product.find(params[:id])
     @comments = @product.comments.order('created_at ASC')
 
     # 出品者の商品に対する評価を確認
@@ -89,6 +114,13 @@ class ProductsController < ApplicationController
       when "Saison"
         @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1398199435'
       end
+
+  def destroy
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :show 
+
     end
   end
 
@@ -127,6 +159,7 @@ end
   def before_params
     @category = Category.where(ancestry: nil)
 
+  def before_params
     @condition = [["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"]]
     @shipping_charge = [["送料込み(出品者負担)"], ["着払い(購入者負担)"]]
   
@@ -142,7 +175,18 @@ end
 
   def save_params
     params.require(:product).permit(:name, :information, :category_id, :condition, :shipping_charge, :prefecture_id,
-                  :brand_id, :days_before_skipment, :price, images_attributes: [:imgae, :id]).merge(user_id: current_user.id)
+                  :days_before_skipment, :price, images_attributes: [:imgae, :id]).merge(user_id: current_user.id)
+
+    # ブランド
+    if Brand.where(name: brand_params).blank?
+      # DBにない場合
+      params.require(:product).permit(:name, :information, :category_id, :condition, :shipping_charge, :prefecture_id,
+                                      :days_before_skipment, :price, images_attributes: [:imgae, :id]).merge(user_id: current_user.id, brand_id: Brand.where(name: "").first.id)
+    else
+      # DBにある場合
+      params.require(:product).permit(:name, :information, :category_id, :condition, :shipping_charge, :prefecture_id,
+                                      :days_before_skipment, :price, images_attributes: [:imgae, :id]).merge(user_id: current_user.id, brand_id: Brand.where(name: brand_params).first.id)
+    end
   end
 
   def brand_params

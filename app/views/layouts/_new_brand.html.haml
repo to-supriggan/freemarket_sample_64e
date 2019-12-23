@@ -21,6 +21,13 @@
                     .new-brand1__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap
                       - product.images.first(1).each do |image|
                         = image_tag "#{image.image}", class: "new-brand1__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap__img"
+                        - @sold = Dealing.find_by(product_id: product)
+                        - if @sold != nil
+                          - if @sold.status == "2"
+                            .sold
+                              .sold__box
+                                .sold__box__text
+                                  SOLD
                         .new-brand1__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap__price-label
                           %span.new-brand1__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap__price-label__price
                             = "¥#{product.price}-"
