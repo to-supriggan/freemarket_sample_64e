@@ -52,7 +52,6 @@
                     必須
                 .select-wrap#parent_box
                   %i.icon-arrow-bottom
-                  -# - binding.pry
                   = f.collection_select :category_id, @category, :id, :genre, {prompt: "---",selected: @select_parent.id},  class: "select-default", id: "parent_form"
                 .select-wrap#child_box
                   %i.icon-arrow-bottom

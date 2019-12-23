@@ -4,7 +4,6 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @image.destroy
 
-    @product_id = @image.product_id
-    redirect_to "/products/#{@product_id}/edit"
+    redirect_to edit_product_path(@image.product.id)
   end
 end
