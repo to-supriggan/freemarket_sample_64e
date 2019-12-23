@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :before_params
+  before_action :set_product, only: [:edit, :show, :destroy]
 
   def new
     @product = Product.new
@@ -47,9 +48,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
-    product.destroy
-    redirect_to root_path
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :show 
+    end
   end
 
   def get_child_category
@@ -71,6 +74,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   def before_params
     @category = Category.where(ancestry: nil)
