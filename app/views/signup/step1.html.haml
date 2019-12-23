@@ -44,20 +44,21 @@
               %li= "メールアドレスを入力してください"
 
           .step1-main__container__box__group__form
-            = f.label :password, "パスワード"
-            %span.span="必須"
-            = f.password_field :password, placeholder: '7文字以上の半角英数字'
-            %ul.error-text.error-password
-              %li= "パスワードを入力してください"
-            .form-info-content
-              ※ 英字と数字の両方を含めて設定してください
-            .form-password-revelation-toggle
-              .checkbox-default
-                #reveal_password{type: "checkbox"}/
-                %i.icon-check
-                %label{for: "reveal_password"} パスワードを表示する
-              .form-password-revelation-revealed-password-container
-                %span.form-password-revelation-revealed-password
+            - unless session[:password]
+              = f.label :password, "パスワード"
+              %span.span="必須"
+              = f.password_field :password, placeholder: '7文字以上の半角英数字'
+              %ul.error-text.error-password
+                %li= "パスワードを入力してください"
+              .form-info-content
+                ※ 英字と数字の両方を含めて設定してください
+              .form-password-revelation-toggle
+                .checkbox-default
+                  #reveal_password{type: "checkbox"}/
+                  %i.icon-check
+                  %label{for: "reveal_password"} パスワードを表示する
+                .form-password-revelation-revealed-password-container
+                  %span.form-password-revelation-revealed-password
           .step1-main__container__box__group__form
             %p.step1-main__container__box__group__form__own
               本人確認
@@ -138,4 +139,4 @@
               = link_to "#",class: "step1-main__container__box__group__right__menu__arrow" do
                 本人情報の登録について
                 %i.icon.fas.fa-arrow-to-right
-  = render "user_footer"
+  = render "signup/user_footer"

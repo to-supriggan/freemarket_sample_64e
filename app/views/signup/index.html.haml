@@ -17,11 +17,11 @@
               %i.icon.far.fa-envelope.fa-2x
               メールアドレスで登録する
           .first-main__menu__inner__way__facebook
-            = link_to step1_signup_index_path,class: "first-main__menu__inner__way__facebook__text"  do
+            = link_to user_facebook_omniauth_authorize_path,class: "first-main__menu__inner__way__facebook__text"  do
               %i.icon.fab.fa-facebook-square.fa-2x
               Facebookで登録する
           .first-main__menu__inner__way__google
-            = link_to step1_signup_index_path,class: "first-main__menu__inner__way__google__text"  do
+            = link_to user_google_oauth2_omniauth_authorize_path,class: "first-main__menu__inner__way__google__text"  do
               %i.icon.fab.fa-google.fa-2x
               Googleで登録する
   = render "user_footer"

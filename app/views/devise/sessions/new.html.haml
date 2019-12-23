@@ -11,10 +11,10 @@
       .login__form__inner
         %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
           %i.icon-facebook
-          = link_to root_path do
-            %p Facebookでログイン
+            = link_to user_facebook_omniauth_authorize_path do
+              %p Facebookでログイン
         %button#google-login.btn-default.btn-sns.btn-sns-google
-          = link_to root_path class: "a_google" do
+          = link_to user_google_oauth2_omniauth_authorize_path, class: "a_google" do
             %p Googleでログイン
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .login__form__inner
