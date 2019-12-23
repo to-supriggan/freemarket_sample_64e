@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
   before_action :before_params, only: [:new, :edit]
-  before_action :set_product, only: [:edit, :update, :show]
+  before_action :set_product, only: [:edit, :update, :show, :destroy]
 
   def new
     @product = Product.new
@@ -63,13 +63,20 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @comments = @product.comments.order('created_at ASC')
 
     # 出品者の商品に対する評価を確認
     @ship_good = Product.where(user_id: current_user.id, evaluation: 0)
     @ship_nomal = Product.where(user_id: current_user.id, evaluation: 1)
     @ship_bad = Product.where(user_id: current_user.id, evaluation: 2)
+  end
+
+  def destroy
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :show 
+    end
   end
 
   def get_child_category
