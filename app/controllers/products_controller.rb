@@ -46,6 +46,11 @@ class ProductsController < ApplicationController
     @ship_bad = Product.where(user_id: current_user.id, evaluation: 2)
   end
 
+  def destroy
+    product = Product.find(params[:id])
+    redirect_to root_path
+  end
+
   def get_child_category
     respond_to do |format|
       format.html
