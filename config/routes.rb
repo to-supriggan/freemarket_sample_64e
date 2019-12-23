@@ -33,4 +33,5 @@ Rails.application.routes.draw do
   end
   resources :addresses, only: [:index, :new, :create]
   resources :cards, only: [:new, :create]
+  resources :images, only: [:destroy]
 end
