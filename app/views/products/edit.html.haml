@@ -13,8 +13,15 @@
                 必須
             %p 最大10枚までアップロードできます
             .single-main__box__sell__inner__form__upload__items
+              - @product.images.each do |image|
+                .preview-box
+                  .preview-box__img-box
+                    = image_tag "#{image.image}"
+                    .preview-box__select__delete
+                      = link_to "/images/#{image.id}", method: :delete do
+                        %p  削除
               %label.single-main__box__sell__inner__form__upload__items__input
-                = f.fields_for :images do |image|
+                = f.fields_for @product.images do |image|
                   = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image"
                   %pre.drop-text
                     クリックしてファイルをアップロード
@@ -45,7 +52,14 @@
                     必須
                 .select-wrap#parent_box
                   %i.icon-arrow-bottom
-                  = f.collection_select :category_id, @category, :id, :genre,{prompt: "---"}, class: "select-default", id: "parent_form"
+                  -# - binding.pry
+                  = f.collection_select :category_id, @category, :id, :genre, {prompt: "---",selected: @select_parent.id},  class: "select-default", id: "parent_form"
+                .select-wrap#child_box
+                  %i.icon-arrow-bottom
+                  = f.collection_select :category_id, @child_category, :id, :genre, {prompt: "---", selected: @select_child.id}, class: "select-default", id: "child_form"
+                .select-wrap#grandchild_box
+                  %i.icon-arrow-bottom
+                  = f.collection_select :category_id, @grand_child_category, :id, :genre, {prompt: "---", selected: @select_grandchild.id}, class: "select-default", id: "grandchild_form"
               .form-group#brandbox_list
                 #brand_box
                   %label#brand_box__label
@@ -54,7 +68,7 @@
                       任意
                     %span.attention
                   %div
-                    = f.text_field :brand, placeholder: "例）シャネル", class: "input-default", id: "input_brand_box"
+                    = f.text_field :brand, placeholder: "例）シャネル", class: "input-default", id: "input_brand_box", name: "brand_name",value: @brand_name
                     #search_brand_box
                       %ul#search_brand_result
               .form-group
@@ -64,7 +78,7 @@
                     必須
                 .select-wrap
                   %i.icon-arrow-bottom
-                  = f.select :condition, @condition,{prompt: "---"}, class: "select-default"
+                  = f.select :condition, @condition, {prompt: "---"}, class: "select-default"
           .single-main__box__sell__inner__form__index-box
             %h3.item-sub-head
               配送について
@@ -86,7 +100,7 @@
                     必須
                 .select-wrap
                   %i.icon-arrow-bottom
-                  = f.select :prefecture_id, @prefecture,{prompt: "---"}, class: "select-default"
+                  = f.select :prefecture_id, @prefecture, {prompt: "---"}, class: "select-default"
               .form-group
                 %label
                   発送までの日数
@@ -94,7 +108,7 @@
                     必須
                 .select-wrap
                   %i.icon-arrow-bottom
-                  = f.select :days_before_skipment, @days_before_skipment,{prompt: "---"}, class: "select-default"
+                  = f.select :days_before_skipment, @days_before_skipment, {prompt: "---"}, class: "select-default"
           .single-main__box__sell__inner__form__index-box
             %h3.item-sub-head
               販売価格(300〜9,999,999)
