@@ -98,23 +98,24 @@ class ProductsController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
       @card_brand = @card_information.brand
-      case @card_brand
-      when "Visa"
-        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1398199435'
-      when "JCB"
-        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?1398199435'
-      when "MasterCard"
-        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1398199435'
-      when "American Express"
-        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1398199435'
-      when "Diners Club"
-        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?1398199435'
-      when "Discover"
-        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?1398199435'
-      when "Saison"
-        @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1398199435'
+        case @card_brand
+        when "Visa"
+          @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1398199435'
+        when "JCB"
+          @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?1398199435'
+        when "MasterCard"
+          @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1398199435'
+        when "American Express"
+          @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1398199435'
+        when "Diners Club"
+          @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?1398199435'
+        when "Discover"
+          @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?1398199435'
+        when "Saison"
+          @card_src = '//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?1398199435'
       end
-
+    end
+  end
   def destroy
     if @product.destroy
       redirect_to root_path
@@ -155,9 +156,10 @@ class ProductsController < ApplicationController
       :price,
     ).merge(user_id: current_user.id)
   end
-end
+
   def before_params
     @category = Category.where(ancestry: nil)
+  end
 
   def before_params
     @condition = [["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"]]
@@ -195,4 +197,5 @@ end
 
   def num_params
     params.require(:new_images).permit(num: [])
+  end
 end

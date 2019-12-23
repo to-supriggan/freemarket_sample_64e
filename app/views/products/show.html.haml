@@ -104,7 +104,7 @@
             売り切れ
       - else
         .item-detail__status__item-btn
-          = link_to "", class: "item-detail__status__item-btn__link" do
+          = link_to purchase_confirmation_products_path(product_id: @product.id), class: "item-detail__status__item-btn__link" do
             購入画面に進む
       .item-detail__status__text-box
         .item-detail__status__text-box__comment
