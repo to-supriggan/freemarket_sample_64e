@@ -1,0 +1,44 @@
+.done-box {
+  width: 100%;
+  text-align: center;
+  .done-product {
+    &__top {
+      font-size: 30px;
+      font-family: fantasy;
+      color: rgb(226, 30, 200);
+      margin-top: 30px;
+    }
+    &__name {
+      margin-top: 30px;
+      font-family: fantasy;
+      font-size: 30px;
+    }
+    &__price {
+      margin-top: 30px;
+      font-family: fantasy;
+      font-size: 30px;
+      color: blue;
+    }
+    &__back {
+    color: white;
+    display: block;
+    height: 34px;
+    width: 150px;
+    margin: auto;
+    text-decoration: none;
+    font-size: 26px;
+    border-radius: 40px;
+    background-color: orangered;
+    padding-top: 10px;
+    border-bottom: solid 5px rgb(189, 101, 101);
+     &:hover {
+      margin-top: 2px;
+      border-bottom: solid 3px rgb(189, 101, 101);
+     }
+     &:active {
+      margin-top: 5px;
+      border-bottom: none;
+     }
+    }
+  }
+}

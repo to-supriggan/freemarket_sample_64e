@@ -7,17 +7,23 @@ Rails.application.routes.draw do
     collection do
       get "get_child_category"
       get "get_grandchild_category"
+      get "purchase_confirmation"
+      get "done"
+    end
+    member do
+      post 'pay'
     end
   end
+
 
   resources :signup do
     collection do
       get 'login'
       get 'step1'
       get 'step2'
-      # get 'step3' # ページが出来次第使用予定
-      get 'step4'# ページが出来次第使用予定
-      get 'step5' # ここで、入力の全てが終了する
+      get 'step3'
+      get 'step4'
+      get 'step5'
     end
   end
   resources :goods, only: [:create,:index]

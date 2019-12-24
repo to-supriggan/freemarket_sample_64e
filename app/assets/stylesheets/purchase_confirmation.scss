@@ -150,6 +150,9 @@
                   margin-bottom: 10px;
                   font-size: 44px;
                   color: blue;
+                  .user-card-brand {
+                    height: 20px;
+                  }
                 }
               }
             }
@@ -161,9 +164,7 @@
                 color: #ea352d;
                 font-size: 14px;
               }
-              &__bold {
-                border: 1px solid #888;
-                background: #888;
+              .payjp-button {
                 color: #fff;
                 display: block;
                 width: 100%;
@@ -171,6 +172,8 @@
                 font-size: 14px;
                 text-align: center;
                 font-weight: 600;
+                background: #ea352d;
+                border: 1px solid #ea352d;
               }
               &__app {
                 display: none;
