@@ -6,6 +6,7 @@
   = render "./layouts/brand_choice"
   = render "./layouts/new_brand"
   = render "./layouts/banner"
-  = render "./layouts/listing_btn"
+  - if current_user.present?
+    = render "./layouts/listing_btn"
   = render "./layouts/footer"
 
