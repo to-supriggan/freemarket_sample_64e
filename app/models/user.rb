@@ -9,7 +9,7 @@ class User < ApplicationRecord
     provider = auth.provider
     snscredential = SnsCredential.find_by(uid: uid, provider: provider)
     if snscredential.present?
-      user = User.find_by(id: snscredential.user_id)
+      user = User.find(id: snscredential.user_id)
     else
       user = User.find_by(email: auth.info.email)
       if user.present?
