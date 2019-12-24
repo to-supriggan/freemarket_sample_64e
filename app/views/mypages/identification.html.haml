@@ -50,7 +50,6 @@
               %span.form-arbitrary
                 任意
               .select-wrap
-                %i.fas.fa-chevron-right
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name
             .t-identification__right-box__l-content__container__inner__form-group
               %label{for: "city"} 市区町村
