@@ -90,3 +90,6 @@ gem 'dropzonejs-rails', '~> 0.7.3'
 gem "gretel"
 gem 'payjp'
 gem 'fog-aws'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
