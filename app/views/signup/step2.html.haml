@@ -33,8 +33,8 @@
           .step2-main__container__box__group__form
             = f.label :phone_number, "携帯電話の番号"         # phone_num
             = f.phone_field :phone_number, placeholder: "携帯電話の番号を入力",class: ""
-            %ul.error-text.error-phone
-              %li= "電話番号の入力が正しくありません"
+            -# %ul.error-text.error-phone
+            -#   %li= "電話番号の入力が正しくありません"
             %p= "本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。"
           = f.submit "SMSを送信する" ,class: "step2-main__container__box__group__submit"
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
