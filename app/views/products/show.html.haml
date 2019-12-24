@@ -104,8 +104,12 @@
             売り切れ
       - else
         .item-detail__status__item-btn
-          = link_to purchase_confirmation_products_path(product_id: @product.id), class: "item-detail__status__item-btn__link" do
-            購入画面に進む
+          - if current_user.id == @product.user_id
+            = link_to edit_product_path(product_id: @product.id), class: "item-detail__status__item-btn__link" do
+              編集画面に進む
+          - else
+            = link_to purchase_confirmation_products_path(product_id: @product.id), class: "item-detail__status__item-btn__link" do
+              購入画面に進む
       .item-detail__status__text-box
         .item-detail__status__text-box__comment
           %p.item-detail__status__text-box__comment__text
