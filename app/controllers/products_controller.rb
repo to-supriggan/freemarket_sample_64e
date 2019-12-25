@@ -82,6 +82,7 @@ class ProductsController < ApplicationController
       customer: card.customer_id, #customer.idかtokenどちらかが必須 今回はcustomer
       currency: 'jpy'
     )
+    Dealing.create(product_id: @product.id, user_id: current_user.id, status: 2)
     redirect_to done_products_path(product_id: @product.id)
   end
 

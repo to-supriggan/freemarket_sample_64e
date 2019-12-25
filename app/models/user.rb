@@ -50,7 +50,7 @@ class User < ApplicationRecord
   has_many :products
   has_many :goods
   has_many :comments
-  has_many :dealing
+  has_many :dealings
   has_many :addresses
   has_many :cards
   has_many :sns_credentials, dependent: :destroy

@@ -389,8 +389,10 @@
             }
           }
           &__report {
+            width: 150px;
+            position: relative;
             margin-left: 15px;
-            background-color: rgb(239, 239, 239);
+            background-color: #efefef;
             cursor: pointer;
             display: inline-block;
             font-size: 14px;
@@ -398,7 +400,9 @@
             padding: 8px 16px;
             border: none;
             &__link {
-              color:black;
+              top: -10px;
+              position: absolute;
+              color: black;
               text-decoration: none;
             }
           }
