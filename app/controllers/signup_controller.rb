@@ -6,7 +6,7 @@ class SignupController < ApplicationController
 
   def step1
     if session[:password]
-      @user.new(password: session[:password])
+      @user = User.new(password: session[:password])
     else
       @user = User.new # 新規インスタンス作成
     end
@@ -28,19 +28,7 @@ class SignupController < ApplicationController
   end
 
   def step5 
-    # step4で入力された値をsessionに保存
-    @user = User.new # 新規インスタンス作成
   end
-
-  # def step4 # ページが出来次第使用予定
-  #   # step3で入力された値をsessionに保存
-  #   @user = User.new # 新規インスタンス作成
-  # end
-
-  # def step3 # ページが出来次第使用予定
-  #   # step2で入力された値をsessionに保存
-  #   @user = User.new # 新規インスタンス作成
-  # end
 
   def create
     session[:phone_number] = user_params[:phone_number]
