@@ -5,11 +5,9 @@ class SignupController < ApplicationController
   end
 
   def step1
-    if session[:password]
-      @user = User.new(password: session[:password])
-    else
-      @user = User.new # 新規インスタンス作成
-    end
+    # メールアドレス登録時
+    session[:password] = nil
+    @user = User.new # 新規インスタンス作成
   end
 
   def step2
