@@ -26,6 +26,9 @@
         color:white;
         margin-top: 8px;
       }
+      &__no-acount:hover{
+        text-decoration: none;
+      }
       &__no-acount{
         text-align: center;
         padding: 40px 64px;
@@ -61,12 +64,13 @@
       position: relative;
       a{
         color:#fff;
-        line-height: 48px;
+        line-height: 46px;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        text-decoration-line: none;
       }
     }
     .btn-sns-google{
@@ -81,10 +85,12 @@
       .a_google {
         color:black;
         position: absolute;
+        line-height: 46px;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        text-decoration-line: none;
       }
     }
     .form-group {
@@ -127,5 +133,19 @@
       color: #0099e8;
       font-size: 14px;
     }
+  }
+}
+
+.sns-logo{
+  float:left;
+  padding-left: 10px;
+}
+
+.btn-sns{
+  i{
+    font-size: 1.3em;
+  }
+  p{
+    font-size: 0.8em;
   }
 }
