@@ -10,12 +10,13 @@
         %p.btn-new 新規会員登録
       .login__form__inner
         %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
-          %i.icon-facebook
-            = link_to user_facebook_omniauth_authorize_path do
+          %i.fab.fa-facebook-square.sns-logo
+            = link_to user_facebook_omniauth_authorize_path, class:"" do
               %p Facebookでログイン
         %button#google-login.btn-default.btn-sns.btn-sns-google
-          = link_to user_google_oauth2_omniauth_authorize_path, class: "a_google" do
-            %p Googleでログイン
+          %i.fab.fa-google.sns-logo
+            = link_to user_google_oauth2_omniauth_authorize_path, class: "a_google" do
+              %p Googleでログイン
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .login__form__inner
           .form-group
