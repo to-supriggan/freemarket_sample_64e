@@ -34,18 +34,19 @@
         width: 343px;
         text-align: center;
         margin: 0 auto;
+        text-decoration: none;
         &__text {
-        font-size:14px;
-        width: 100%;
-        line-height: 48px;
-        font-size: 14px;
-        transition: all ease-out 0.3s;
-        cursor: pointer;
-        min-height: 1.5em;
-        background: #ea352d;
-        border: 1px solid #ea352d;
-        text-transform: none;
-        color: #fff;
+          margin: 0 auto;
+          width: 80%;
+          line-height: 48px;
+          font-size: 14px;
+          transition: all ease-out 0.3s;
+          cursor: pointer;
+          min-height: 1.5em;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          text-transform: none;
+          color: #fff;
         }
       }
       &__image{
