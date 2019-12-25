@@ -1,6 +1,7 @@
 // "use strict";
+// 一覧のみ実装（ブランド、カテゴリー実装時は要編集）
 $(document).on('turbolinks:load', function(){
-  if (window.location.pathname.match(/\/products/))
+  if (window.location.pathname == "/" | window.location.pathname == "/products")
     $('.slick__slide').slick({
       autoplay:true,
       dots:true,

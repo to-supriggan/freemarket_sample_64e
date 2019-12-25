@@ -4,18 +4,19 @@ class SignupController < ApplicationController
   def index
   end
 
-  # def login # ページが出来次第使用予定
-  # end
-
   def step1
-    @user = User.new # 新規インスタンス作成
+    if session[:password]
+      @user.new(password: session[:password])
+    else
+      @user = User.new # 新規インスタンス作成
+    end
   end
 
   def step2
     # step1で入力された値をsessionに保存
     session[:nick_name] = user_params[:nick_name]
     session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
+    session[:password] ||= user_params[:password]
     session[:last_name] = user_params[:last_name]
     session[:first_name] = user_params[:first_name]
     session[:last_name_kana] = user_params[:last_name_kana]
@@ -57,6 +58,11 @@ class SignupController < ApplicationController
       phone_number: session[:phone_number], 
     )
     if @user.save
+      SnsCredential.create(
+          uid: session[:uid],
+          provider: session[:provider],
+          user_id: @user.id
+          )
       # ログインするための情報を保管
       session[:id] = @user.id
       sign_in User.find(session[:id]) unless user_signed_in?

@@ -2,7 +2,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
   def change
     create_table :products, id: :integer do |t|
       t.string     :name,                 null: false
-      t.string     :information,          null: false
+      t.text       :information,          null: false
       t.string     :condition,            null: false
       t.string     :shipping_charge,      null: false
       t.string     :days_before_skipment, null: false

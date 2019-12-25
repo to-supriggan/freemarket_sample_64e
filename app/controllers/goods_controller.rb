@@ -10,6 +10,8 @@ class GoodsController < ApplicationController
       good.save!
       render json: good.id, status: 200
     end
+    bindning.pry
+    redirect_to product_path(params[:product_id])
   end
 
 end

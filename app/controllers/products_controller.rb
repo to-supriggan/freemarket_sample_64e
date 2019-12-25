@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :authenticate_user!, only: [:new, :edit, :pay, :purchase_confirmation, :done, :destroy]
   before_action :before_params, only: [:new, :edit]
   before_action :set_product, only: [:edit, :update, :show, :destroy]
 
@@ -77,9 +77,9 @@ class ProductsController < ApplicationController
     @comments = @product.comments.order('created_at ASC')
 
     # 出品者の商品に対する評価を確認
-    @ship_good = Product.where(user_id: current_user.id, evaluation: 0)
-    @ship_nomal = Product.where(user_id: current_user.id, evaluation: 1)
-    @ship_bad = Product.where(user_id: current_user.id, evaluation: 2)
+    @ship_good = Product.where(user_id: @product.user_id, evaluation: 0)
+    @ship_nomal = Product.where(user_id: @product.user_id, evaluation: 1)
+    @ship_bad = Product.where(user_id: @product.user_id, evaluation: 2)
   end
 
   require 'payjp'
@@ -93,7 +93,7 @@ class ProductsController < ApplicationController
       customer: card.customer_id, #customer.idかtokenどちらかが必須 今回はcustomer
       currency: 'jpy'
     )
-    Dealing.create(product_id: params[:id], user_id: current_user.id, status: 2)
+    Dealing.create(product_id: @product.id, user_id: current_user.id, status: 2)
     redirect_to done_products_path(product_id: @product.id)
   end
 
@@ -128,6 +128,7 @@ class ProductsController < ApplicationController
       end
     end
   end
+
   def destroy
     if @product.destroy
       redirect_to root_path

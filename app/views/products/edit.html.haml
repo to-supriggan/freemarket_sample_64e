@@ -145,7 +145,7 @@
                 またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
               %p
                 また、出品をもちまして加盟店規約に同意したことになります。
-            = f.submit "出品する", class: "btn-default btn-red", id: "item-submit"
+            = f.submit "編集する", class: "btn-default btn-red", id: "item-submit"
             = link_to root_path, class: "btn-default btn-gray" do
               戻る
             - if current_user.id == @product.user_id
