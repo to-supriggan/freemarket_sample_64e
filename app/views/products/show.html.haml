@@ -143,8 +143,8 @@
           %p
             相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %textarea.default{name: "body", type: "text", value: ""}
-          = link_to "", class: "" do
-            %span
+          = link_to "", class: "item-comment__container__content__message-form__comment-btn" do
+            %div.item-comment__container__content__message-form__comment-btn__link
               コメントする
 = render "./layouts/banner.html.haml"
 = render "./layouts/footer.html.haml"

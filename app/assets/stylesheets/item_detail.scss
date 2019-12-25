@@ -532,6 +532,20 @@
             font-size: 14px;
             vertical-align: middle;
           }
+          &__comment-btn {
+            height: 40px;
+            display: block;
+            margin-top: 16px;
+            background: #aaaaaa;
+            text-align: center;
+            text-decoration: none;
+            &__link {
+              color: #fff;
+              line-height: 40px;
+              font-weight: 600;
+              font-family: fantasy;
+            }
+          }
         }
       }
     }
