@@ -1,10 +1,11 @@
 .new-ladys
-  - @categories.each do |category|
+  - @categoryResponse.first(4).each do |category|
     .new-ladys__junre
       .new-ladys__junre__top
         .new-ladys__junre__top__box
           .new-ladys__junre__top__box__text
-            = "#{category.genre}新着アイテム"
+            -# ハッシュをeachでループしたので「[0]」にkey名がある
+            = "#{category[0]}新着アイテム"
         .new-ladys__junre__top__see-more
           = link_to products_path, class: "new-ladys__junre__top__see-more__text" do
             もっと見る
@@ -13,7 +14,8 @@
       .new-ladys__junre__lineup
         .new-ladys__junre__lineup__wrap
           %ul.new-ladys__junre__lineup__wrap__box
-            - category.products. first(10).each do |product|
+            -# ハッシュをeachでループしたので「[1]」に商品が入った配列があるのでそれを１０回ループ
+            - category[1].first(10).each do |product|
               %li.new-ladys__junre__lineup__wrap__box__addition
                 %div.new-ladys__junre__lineup__wrap__box__addition__sammury
                   .new-ladys__junre__lineup__wrap__box__addition__sammury__communication
@@ -28,7 +30,6 @@
                               .sold__box
                                 .sold__box__text
                                   SOLD
-
                       .new-ladys__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap__price-label
                         %span.new-ladys__junre__lineup__wrap__box__addition__sammury__communication__pic__wrap__price-label__price
                           = "¥#{product.price}-"
