@@ -58,7 +58,18 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @categories = Category.all.limit(4).includes(:products => :images)
+    @parents = Category.where(ancestry: nil) #親カテゴリーを取得
+    @categoryResponse = {} #ビューに渡すハッシュを初期化
+    @parents.each do |category| #取得したカテゴリーでループ
+      products =[] #商品を取得する配列を初期化※１
+      category.children.each do |childCategory| #子カテゴリーでループ
+        childCategory.children.each do |grandChildCategory| #孫カテゴリーでループ
+          products.concat(grandChildCategory.products) #孫カテゴリーに紐づく商品をループし、「※１」の配列に追加※２
+        end
+      end
+      #ここで「※２」で取得した商品一覧（ハッシュ）を登録日でソート（降順）する予定
+      @categoryResponse.store(category.genre.to_sym, products.sort.reverse) #ソートした商品をkey名「親カテゴリー名」でハッシュに追加
+    end
     @brands = Brand.all.limit(4).includes(:products => :images)
   end
 
