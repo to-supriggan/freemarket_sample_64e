@@ -26,99 +26,86 @@ Things you may want to cover:
 ## usersテーブル
 |column|Type|Options|
 |------|----|-------|
-|nick_name|string|null: false|<!-- ok -->
-|email|string|null: false|unique: true|<!-- ok -->
-|password|string|null: faise|<!-- ok -->
-|last_name|string|null: false|<!-- ok -->
-|first_name|string|null: false|<!-- ok -->
-|last_name_kana|string|null: false|<!-- ok -->
-|first_name_kana|string|null: false|<!-- ok -->
-|birth_year|string|null: false|<!-- ok -->
-|birth_month|string|null: false|<!-- ok -->
-|birth_day|string|null: false|<!-- ok -->
-|phone_number|integer|null: false|unique: true| <!-- ok -->
+|nick_name|string|null: false|
+|email|string|null: false, unique: true|
+|encrypted_password|string|null: faise|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birth_year|string|null: false|
+|birth_month|string|null: false|
+|birth_day|string|null: false|
+|phone_number|string|null: false, unique: true|
 ### Association
 - has_many :products
 - has_many :goods
 - has_many :comments
-- has_many :dealing
+- has_many :dealings
 - has_many :addresses
+- has_many :cards
+- has_many :sns_credentials
 ## productsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false| <!-- ok -->
-|information|string|null: false| <!-- ok -->
-|condition|string|null: false| <!-- ok -->
-|image|string|null: false| <!-- ok -->
-|shipping_charge|string|null: false| <!-- 送料の負担 --> <!-- ok -->
-|shipping_area|string|null: false| <!-- 発送元地域 --> <!-- ok -->
-|days_before_skipment|string|null: false| <!-- 発送までの日にち --> <!-- ok -->
-|price|integer|null:false| <!-- ok -->
-|buyer_id|references|foreign_key: true| <!-- 売った人ID --> <!-- ok -->
-|brand_id|references|foreign_key: true|<!-- ?brandテーブルから持ってくる書き方? -->
-|category_id|references|foreign_key: true|<!-- ?categoryテーブルから持ってくる書き方? -->
-|Evaluation|string|null: false|  <!-- 評価 -->
-|created_at|timestamps|null: false|<!-- ok -->
-|updates_at|timestamps|null: false|<!-- ok -->
-|prefecture_id|references|null: false,foreign_key: true|
+|name|string|null: false|
+|information|text|null: false|
+|condition|string|null: false|
+|shipping_charge|string|null: false| <!-- 送料の負担 --> 
+|days_before_skipment|string|null: false| <!-- 発送までの日にち --> 
+|price|integer|null:false|
+|user_id|references|foreign_key: true| <!-- 売った人ID --> 
+|brand_id|references|foreign_key: true|
+|category_id|references|foreign_key: true|
+|evaluation|string|null: false| <!-- 評価 -->
+|prefecture_id|references|foreign_key: true|
 ### Association
+- belongs_to :category
 - has_many :comments
 - has_many :images
 - has_many :goods
+- has_one :dealing
 - belongs_to :user
-- belongs_to :transaction
 - belongs_to :brand
 - belongs_to :category
-## transactionsテーブル
-|column|Type|Options|
-|------|----|-------|
-|product_id|references|foreign_key: true|<!-- ?productテーブルから持ってくる書き方? -->
-|exhibitor_id|references|foreign_key: true| <!-- 買った人ID --> <!-- ok -->
-|comments|string|<!-- ok -->
-|status|string|null: false|<!-- 販売進捗 --> <!-- ok -->
-|created_at|timestamps|null: false|<!-- ok -->
-|updates_at|timestamps|null: false|<!-- ok -->
-### Association
-- belongs_to :user
-- belongs_to :product
+- belongs_to :prefecture
 ## goodsテーブル
 |column|Type|Options|
 |------|----|-------|
-|user_id|references|foreign_key: true|<!-- ok -->
-|product_id|references|foreign_key: true|<!-- ok -->
+|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :product
 ## categorysテーブル
 |column|Type|Options|
 |------|----|-------|
-|genre|string|null: false|<!-- ok -->
+|genre|string||
+|ancestry|string||
 ### Association
 - has_many :products
 ## brandsテーブル
 |column|Type|Options|
 |------|----|-------|
-|name|string|null: false|<!-- ok -->
+|name|string|unique: true|
 ### Association
 - has_many :products
 ## commentsテーブル
 |column|Type|Options|
 |------|----|-------|
-|user_id|references|foreign_key: true|<!-- ok -->
-|product_id|references|foreign_key: true|<!-- ok -->
-|content|string|null: false|<!-- ok -->
-|created_at|timestamps|null: false|<!-- ok -->
+|content|string|null: false|
+|user_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :product
 ## imagesテーブル
 |column|Type|Options|
 |------|----|-------|
-|image|string|null: false|<!-- ok -->
-|product_id|references|foreign_key: true|<!-- ok -->
+|image|string|null: false|
+|product_id|references|foreign_key: true|
 ### Association
 - belongs_to :product
-<!-- buyer = 売り -->
 ## addressesテーブル
 |column|Type|Options|
 |------|----|-------|
@@ -127,12 +114,37 @@ Things you may want to cover:
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |postal_cord|string|null: false|
-|prefecture_id|references|null: false,foreign_key: true|
+|prefecture_id|references|foreign_key: true|
 |city|string|null: false|
 |street_num|string|null: false|
 |building|string|
 |phone_num|string|
-|user_id|references|null: false,foreign_key: true|
+|user_id|references|foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :prefecture
+## dealingsテーブル
+|column|Type|Options|
+|------|----|-------|
+|product_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|<!-- 買った人ID -->
+|status|string|null: false|<!-- 1:交渉中、2:購入済 -->
+### Association
+- belongs_to :product
+- belongs_to :user
+## cardsテーブル
+|column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+### Association
+- belongs_to :user
+## sns_credentialsテーブル
+|column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|user_id|references|foreign_key: true|
+### Association
+- belongs_to :user
